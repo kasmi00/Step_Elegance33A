@@ -30,12 +30,12 @@ function Registration() {
                     </div>
                     <div className="form-group">
                         <label>
-                            Password: <input type="text" name="Password"/>
+                            Password: <input type="password" name="Password"/>
                         </label>
                     </div>
                     <div className="form-group">
                         <label>
-                            Repeat Password: <input type="text" name="Repeat Password"/>
+                            Repeat Password: <input type="password" name="Repeat Password"/>
                         </label>
                     </div>
                     <div className="form-group">
