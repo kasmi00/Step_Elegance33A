@@ -7,7 +7,7 @@ import Registration from './Pages/Registration.tsx' ;
 const router=createBrowserRouter(
     [
         {
-            path:" ",
+            path:"/",
             element:<Registration />
         }
     ]
