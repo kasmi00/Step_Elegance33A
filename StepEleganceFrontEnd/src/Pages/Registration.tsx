@@ -7,7 +7,7 @@ function Registration() {
             <head>
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
                 <title>Registration Page</title>
-                {/*<link ref ="stylesheet" href="Registration.css"/>*/}
+                <link ref ="stylesheet" href="Registration.css"/>
             </head>
             <body>
             <div>
@@ -53,6 +53,7 @@ function Registration() {
                     </div>
                     <div id = "signin" className="form-group">
                         <label> Already have an account?  <button> Sign-In</button> </label>
+                            <a  href ="login.tsx"> <button> Sign-In</button> </a >
                 </div>
                 </div>
             </div>

@@ -1,24 +1,17 @@
-import './App.css';
-import {createBrowserRouter,RouterProvider} from "react-router-dom";
-import Registration from './Pages/Registration.tsx' ;
+import './App.css'
+import {createBrowserRouter, RouterProvider} from "react-router-dom";
+import Login from "./Pages/login.tsx";
+import Registration from "./Pages/Registration.tsx";
 
-
-
-const router=createBrowserRouter(
+const router = createBrowserRouter(
     [
         {
-            path:"/",
+            path:"/Registration",
             element:<Registration />
-        }
-    ]
+        },
+        {
+            path:"/login",
+            element:<Login />
+        }]
 )
-function App() {
-
-    return (
-        <>
-            <RouterProvider router={router} />
-
-        </>
-    )
-}
 export default App
