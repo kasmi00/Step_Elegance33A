@@ -3,12 +3,7 @@ import './Registration.css';
 function Registration() {
     return (
         <>
-            <html lang="en">
-            <head>
-                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-                <title>Registration Page</title>
-            </head>
-            <body>
+            
             <div>
                 <h2>Registration Page</h2>
                 <div className="Registration_Form">
@@ -56,8 +51,6 @@ function Registration() {
                 </div>
                 </div>
             </div>
-            </body>
-            </html>
         </>
     );
 }
