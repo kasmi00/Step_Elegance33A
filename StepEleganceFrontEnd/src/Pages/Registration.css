@@ -52,7 +52,7 @@ body {
     color: white;
 }
 .form-group data{
-    color: white;
+    color: rgb(0, 0, 0);
 }
 .select{
     padding-right:  50px;

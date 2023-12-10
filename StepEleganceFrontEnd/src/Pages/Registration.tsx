@@ -46,7 +46,7 @@ function Registration() {
                         <button> Confirm </button>
                     </div>
                     <div id = "signin" className="form-group">
-                        <label> Already have an account? <a  href ="/"> <button> Sign-In</button> </a > </label>
+                        <label> Already have an account? <a  href ="login"> <button> Sign-In</button> </a > </label>
 
                 </div>
                 </div>
