@@ -20,7 +20,7 @@ public class UserController {
     }
 
 
-    @PostMapping("save")
+    @PostMapping("/save")
     public String createData(@RequestBody UserDTO userDTO){
         System.out.println(userDTO);
         userService.save(userDTO);
