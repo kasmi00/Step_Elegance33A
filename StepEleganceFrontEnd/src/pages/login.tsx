@@ -16,7 +16,7 @@ function login(){
                <label>
                    Password: <input type="Password" name="Password" />
                </label>
-               <label> Don't have an account?  <button> Register</button> </label>
+               <label> Don't have an account?  <a href ="Registration" > <button> Sign-Up </button> </a></label>
            </div>
            </body>
        </>
