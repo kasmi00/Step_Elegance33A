@@ -8,16 +8,23 @@ function login(){
                <meta name="viewport" content="width=device-width,initial-scale=1.0" />
            </head>
            <body>
+           <h2>Sign-In Page</h2>
            <div className="SIGN-IN">
-               <h2>Sign-In Page</h2>
-               <label>
+            <div className= "signin-form">
+
+            <label>
                    Username: <input type="text" name="Username" />
                </label>
+               </div>
+               <div className= "signin-form" >
                <label>
                    Password: <input type="Password" name="Password" />
                </label>
-               <label> Don't have an account?  <a href ="Registration" > <button> Sign-Up </button> </a></label>
-           </div>
+               </div>
+              <div className= "signin-form">
+              <label> Don't have an account?  <a href ="Registration" > <button> Sign-Up </button> </a></label>
+              </div>
+            </div >   
            </body>
        </>
 

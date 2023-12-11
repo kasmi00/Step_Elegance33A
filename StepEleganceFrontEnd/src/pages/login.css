@@ -2,12 +2,19 @@ body{
     margin:0;
     padding:0;
     font-family: montserrat;
-    background: linear-gradient(120deg,#2980b9,#8e44ad);
     height: 100vh;
     overflow:hidden;
+    color: black;
 
 }
 .SIGN-IN{
     display: flex;
-    flex-direction: column;
+    color: black;
+    padding: auto;
+    justify-content: center;
 }
+.signin-form{
+    display: flex;
+    
+}
+

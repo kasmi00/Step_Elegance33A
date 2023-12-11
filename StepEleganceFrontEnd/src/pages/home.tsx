@@ -11,14 +11,14 @@ function home() {
 
         <header>
             {/*<img src="C:\Users\Suyogya\Desktop\React train\IMAGES\shoe.jpg">*/}
-            <h1>Seven Steps</h1>
+            <h1>Step Elegance</h1>
         </header>
 
         <nav>
-            <a href="#">Mens</a>
-            <a href="#">Womens</a>
-            <a href="#">Kids</a>
-            <a href="#">Sales</a>
+            <a href="mens">Mens</a>
+            <a href="womens">Womens</a>
+            <a href="kids">Kids</a>
+            <a href="sales">Sales</a>
             <div id="search-container">
                 {/*<input type="text" id="search-box" placeholder="Search..." >*/}
                 {/*    <button id="search-button"> Search</button>*/}

@@ -1,8 +1,8 @@
 body{
-    background-color: burlywood;
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
+    color: #ffffff;
 }
 img {
     max-width: 100px;
@@ -13,9 +13,9 @@ img {
 }
 
 header {
-    background-color: #ffffff;
     padding: 10px;
     text-align: center;
+    font-size: 20px;
     color: #000000;
 }
 
