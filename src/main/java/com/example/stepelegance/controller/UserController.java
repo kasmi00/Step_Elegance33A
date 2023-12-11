@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+@CrossOrigin(origins ="http://localhost:5173/" )
 @RestController
 @RequestMapping("/user")
 @RequiredArgsConstructor
@@ -20,7 +21,7 @@ public class UserController {
     }
 
 
-    @PostMapping("save")
+    @PostMapping("/save")
     public String createData(@RequestBody UserDTO userDTO){
         System.out.println(userDTO);
         userService.save(userDTO);

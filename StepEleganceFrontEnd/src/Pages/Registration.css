@@ -1,3 +1,71 @@
-div{
-    background-color: lightcoral;
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Arial Black";
+    /*height: 100vh;*/
+    /*overflow: hidden;*/
+    /*background-image: url(StepEleganceFrontEnd/src/assets/registrationbg.jpg);*/
+    background-color: chocolate;
 }
+
+    h2{
+    color: black;
+        font-size: 50px;
+}
+
+.RegistrationFormContainer {
+    width: 500px;
+    margin: 200px auto;
+    text-decoration-color: #1a1a1a;
+    padding: 100px;
+    border: 10px solid #000;
+    border-radius: 20px;
+    box-shadow: #f9f9f9;
+
+}
+
+.RegistrationForm label {
+    color: white;
+    margin-bottom: 50px;
+    display: block;
+    flex-direction: column;
+    border-spacing: 50px;
+}
+
+.Registration_Form {
+    width: 400px;
+    margin: 100px auto 0px auto;
+    justify-content: center;
+    display: flex;
+    /*background-color: #535bf2;*/
+    padding: 20px;
+    border-radius: 12px;
+    flex-direction: column;
+    border: 5px solid #000000 ;
+}
+.form-group label {
+    display: block;
+    padding-bottom: 10px;
+    justify-content: center;
+}
+.form-group input {
+    color: white;
+}
+.form-group data{
+    color: white;
+}
+.select{
+    padding-right:  50px;
+    padding-bottom: 30px;
+
+}
+
+#signin button {
+
+}
+#confirm button{
+    display: block;
+    padding-right:  50px;
+    padding-bottom: 50px;
+}
+
