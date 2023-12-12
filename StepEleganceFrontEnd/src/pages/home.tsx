@@ -10,7 +10,6 @@ function home() {
             <body>
 
         <header>
-            {/*<img src="C:\Users\Suyogya\Desktop\React train\IMAGES\shoe.jpg">*/}
             <h1>Step Elegance</h1>
         </header>
 
@@ -20,8 +19,8 @@ function home() {
             <a href="kids">Kids</a>
             <a href="sales">Sales</a>
             <div id="search-container">
-                {/*<input type="text" id="search-box" placeholder="Search..." >*/}
-                {/*    <button id="search-button"> Search</button>*/}
+                <input type="text" id="search-box" placeholder="Search..." />
+                   <button id="search-button"> Search</button>
             </div>
 
 

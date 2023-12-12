@@ -1,77 +1,156 @@
-* {
-    box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
-    color: black;
-    font-size: 15px;
-}
-
-body {
+body{
     display: flex;
     height: 100vh;
     justify-content: center;
     align-items: center;
-background-color: wheat;
-    padding: 10px;
-    margin: 0; 
+    padding: 1px;
+    background-color: wheat;
 }
+h2{
+  margin: 45px;
+  display: flex;
+  justify-content: center;
+  font-size: 45px;
 
- .container {
-    width: 600px;
+}
+.mainbox{
+    padding: 3px;
+    width: 690px;
+    height: 65vh;
     background: white;
-    height: 80vh; 
-    padding: 25px 30px;
-     padding: 10px;
-    margin: 0; 
-    border-radius: 5px;
+}
+.container{
+    display: flex;
+    border: 10px black;
+    column-gap: 260px ;
+    row-gap: 200px;
+}
+label {
+    width: 100px;
+}
+.mainbox .cs{ 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-.container form .userbox {
+.fecd{
+    max-width: 500px;
+}
+.lpg{
+
+
+}
+.container .fname{
+    margin-top: 5px;
+    padding: 10px;
     display: flex;
-    flex-wrap: wrap;
+    justify-content: left;
+    flex-direction: column;
+}
+
+.container .lname{
+    margin: 10px;
+    padding: 5px;
+    display: flex;
+    justify-content: right;
+    flex-direction: column;
+
+}
+
+.container .email{
+    margin: 10px;
+    padding: 5px;
+    display: flex;
+    justify-content: left;
+    flex-direction: column;
+}
+
+.container .password{
+    margin: 10px;
+    padding: 5px;
+    display: flex;
+    justify-content: right;
+    flex-direction: column;
+
+}
+
+.container .confirmpassword{
+    margin: 10px;
+    padding: 5px;
+    display: flex;
+    justify-content: left;
+    flex-direction: column;
+
+}
+
+.container .gender{
+    margin: 10px;
+    padding: 5px;
+    display: flex;
+    justify-content: right;
+    flex-direction: column;
+}
+
+.container .date{
+    margin: 10px;
+    padding: 5px;
+    display: flex;
+    justify-content: left;
+    flex-direction: column;
+
+}
+
+.container .confirmbttn{
+    margin: 50px;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+
+}
+
+.container .signin{
+    margin: 10px;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+
+}
+
+.container .fecd .confirmpassword label{
+    width: 150px;
+}
+
+
+label .confirmpassword{
+    width: 10px;
+}
+.confirmbttn{
+    column-gap: 75px;
+    margin-top: 75px;
+    display: flex;
     justify-content: center;
     align-items: center;
-    height: 60vh;
-}
-.container .title {
-    font-size: 50px;
-    font-weight: 500px;
-    display: flex;
-    padding: 10px;
-    margin: 0; 
-    justify-content: center;
-}
-#fnln{
-    display: flex;
-    padding-left: 80px;
-    
-}
-#useremail{
-    display: flex;
-    padding-left: 80px ;
-    padding-right: 25px;
-    margin-top: 20px;
-}
-#password{
-    display: flex;
-    padding-left: 80px ;
-    margin-top: 20px;
-}
-
-#gender{
-    display: flex;
-    margin-top: 20px;
-    padding-left: 80px ;
 
 }
-.confirm {
+
+.confirmbttn text{
+    font-size: 100px;
+}
+.signin{
+   
     display: flex;
+    margin-top: 10px;
     justify-content: center;
-    align-items: flex-end;
-    padding-top: 20px;
-} 
-.loginbttn{
-    display: flex;
-    justify-content: center;
-    align-items: end;
-    padding-top: 60px;
+    align-items: center;
+}
+
+.signin button{
+    margin-left: 0px;
+    padding: 3px;
+}
+
+.signin label{
+    padding: 0px;
+    width: 200px;
 }
