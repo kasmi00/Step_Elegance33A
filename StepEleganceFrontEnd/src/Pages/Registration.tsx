@@ -1,5 +1,6 @@
 import './Registration.css';
 
+
 function Registration() {
     
 
@@ -9,6 +10,7 @@ function Registration() {
         <div className='mainbox'>
         <form>
                 <div className="container">
+                    {/* <img src={Image} alt='shoe bg' /> */}
                     <div className='fecd'>
                     <div className='fname'>
                         <label>First Name:</label>
