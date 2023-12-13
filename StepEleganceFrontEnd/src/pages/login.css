@@ -8,9 +8,35 @@ body{
     overflow:hidden;
 
 }
+.bigbox{
+    display: flex;
+    border: 10px color(black);
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+}
+.username{
+    font-display: flex;
+    flex-direction: column;
+
+}
 .SIGN-IN{
     display: flex;
     flex-direction: column;
     justify-content: center;
 
+}
+
+.WELCOME{
+    display: flex;
+    color: white;
+    background-color: orange;
+}
+
+.WELCOME-IMG .upscaling{
+    display: flex;
+    width: 100%;
+    height: auto;
+    max-width: 300px;
 }
