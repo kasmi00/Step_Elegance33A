@@ -35,13 +35,13 @@ public class UserController {
     }
 
     @GetMapping("/getById/{id}")
-    public Optional<User> getById(@PathVariable("id") Integer id){
+    public Optional<User> getById(@PathVariable("userId") Integer id){
         return userService.getById(id);
     }
 
     @DeleteMapping("/deleteById/{id}")
-    public void deleteById(@PathVariable("id") Integer id){
-        userService.deleteById(id);
+    public void deleteById(@PathVariable("userId") Integer userId){
+        userService.deleteById(userId);
     }
 
 }

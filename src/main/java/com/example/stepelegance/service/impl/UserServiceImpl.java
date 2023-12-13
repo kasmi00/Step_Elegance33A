@@ -26,12 +26,15 @@ public class UserServiceImpl implements UserService {
             user=userRepository.findById(userDTO.getId())
                     .orElseThrow(()->new NullPointerException("data not found"));
         }
+        user.setRole(userDTO.getRole());
         user.setFirstName(userDTO.getFirstName());
         user.setLastName(userDTO.getLastName());
-        user.setPassword(userDTO.getPassword());
+        user.setPhone(userDTO.getPhone());
         user.setEmail(userDTO.getEmail());
+        user.setPassword(userDTO.getPassword());
         user.setGender(userDTO.getGender());
         user.setDateOfBirth(userDTO.getDateOfBirth());
+        user.setToken(userDTO.getToken());
 
         userRepository.save(user); // for both creating and updating(if id is passed)
 
