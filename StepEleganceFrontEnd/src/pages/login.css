@@ -1,7 +1,9 @@
 body{
     margin:0;
     padding:0;
+    box-sizing: border-box;
     font-family: montserrat;
+    background-color:#b08553;
     height: 100vh;
     overflow:hidden;
     color: black;
@@ -9,9 +11,9 @@ body{
 }
 .SIGN-IN{
     display: flex;
-    color: black;
-    padding: auto;
+    flex-direction: column;
     justify-content: center;
+
 }
 .signin-form{
     display: flex;
