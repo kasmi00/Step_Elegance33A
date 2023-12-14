@@ -11,7 +11,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name="Product")
+@Table(name="product")
 public class Product {
 
     @Id
@@ -34,10 +34,15 @@ public class Product {
     @Column(name="size", nullable = false)
     private int size;
 
+    @Enumerated(EnumType.STRING)
     @Column(name="type", nullable = false)
     private ProductType type;
 
+    @Enumerated(EnumType.STRING)
     @Column(name="category", nullable = false)
     private ProductCategory category;
 
+    @ManyToOne
+    @JoinColumn(name = "wishlist_id", nullable = true, unique = true)
+    private WishList wishlist;
 }

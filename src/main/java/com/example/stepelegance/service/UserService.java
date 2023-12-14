@@ -10,5 +10,7 @@ public interface UserService {
     String save(UserDTO userDTO);
     List<User> getAll();
     Optional<User> getById(Integer userId);
+
+    Optional<User> getByEmail(String email);
     void deleteById(Integer userId);
 }
