@@ -29,10 +29,10 @@ public class User {
     @Column(name = "role", nullable = false)
     private Role role;
 
-    @Column(name = "firstName", nullable = false)
+    @Column(name = "first_name", nullable = false)
     private String firstName;
 
-    @Column(name="lastName", nullable = false)
+    @Column(name="last_name", nullable = false)
     private String lastName;
 
     @Size(min = 9)
@@ -50,12 +50,12 @@ public class User {
     @Column(name = "gender", nullable = false)
     private Gender gender;
 
-    @Column(name = "dateOfBirth", nullable = false)
+    @Column(name = "date_of_birth", nullable = false)
     private LocalDate dateOfBirth;
 
     @Column(name="token", nullable = false, unique = true)
     private String token;
 
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
-    private WishList wishlist;
+    private Wishlist wishlist;
 }
