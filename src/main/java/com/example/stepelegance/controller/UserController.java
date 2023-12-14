@@ -25,7 +25,7 @@ public class UserController {
     public String createData(@RequestBody UserDTO userDTO){
         System.out.println(userDTO);
         userService.save(userDTO);
-        return "created data";
+        return "new user created data";
     }
 
     @GetMapping("/getAll")
@@ -35,13 +35,19 @@ public class UserController {
     }
 
     @GetMapping("/getById/{id}")
-    public Optional<User> getById(@PathVariable("id") Integer id){
-        return userService.getById(id);
+    public Optional<User> getById(@PathVariable("id") Integer userId){
+        return userService.getById(userId);
     }
 
-    @DeleteMapping("/deleteById/{id}")
-    public void deleteById(@PathVariable("id") Integer id){
-        userService.deleteById(id);
+    @GetMapping("/getByEmail/{email}")
+    public Optional<User> getByEmail(@PathVariable("email") String userEmail){
+        return userService.getByEmail(userEmail);
+    }
+
+    @DeleteMapping("/deleteById/{user_id}")
+    public String deleteById(@PathVariable("user_id") Integer userId){
+        userService.deleteById(userId);
+        return "user deleted";
     }
 
 }

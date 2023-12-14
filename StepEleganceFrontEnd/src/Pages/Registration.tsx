@@ -1,6 +1,7 @@
 import "./Registration.css";
 import axios from "axios";
 import React, {useState} from "react";
+// import myImage from '../assets/images/registrationbg.png';
 
 
 interface FormData {
@@ -121,11 +122,13 @@ function Registration() {
 
     return (
         <>
-        <h2>Registration Page</h2>
-        <div className='mainbox'>
+    <div className='mainbox'>
+      <div className="header">
+        <h2>REGISTRATION PAGE</h2>
+        </div>
+        <div className="below">
         <form>
-                <div className="container">
-                    {/* <img src={Image} alt='shoe bg' /> */}
+                    {/* <img src={myImage} alt='shoe bg' /> */}
                     <div className='fecd'>
                     <div className='fname'>
                         <label>First Name:</label>
@@ -147,7 +150,7 @@ function Registration() {
                     <div className='lpg'>
                     <div className='lname'>
                         <label>Last Name:</label>
-                        <input type='text' placeholder=' LAST NAME ' required/>
+                        <input type='text' placeholder=' LAST NAME' required/>
                     </div>
                     <div className='password'>
                         <label>Password:</label>
@@ -156,28 +159,28 @@ function Registration() {
                     <div className='gender'>
                         <label>Gender:</label>
                         <select>
-                                        <option value="">-- Select --</option>
+                                        <option value="">--- Select---</option>
                                         <option value="option1">Male</option>
                                         <option value="option2">Female</option>
                                     </select> 
                     </div>
                     </div>               
-                </div>
-                <div className='cs'>
+                    </form>
+                    <div className='cs'>
                     <div className='confirmbttn'>
                         <button>Confirm</button> 
                     </div>
                     <div className='signin'>
                         <label>Already have an account? </label>
-                        <div>
-                        <button>
-                            Sign-In
+                        <a href="/Login"> <button>
+                            Sign-In 
                         </button>
+                       </a>
+                       
                         </div>
                     </div>  
                     </div>
-                    </form>
-                </div>  
+                    </div>
         </>
     );
 }

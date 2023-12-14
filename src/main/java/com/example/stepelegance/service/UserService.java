@@ -9,6 +9,8 @@ import java.util.Optional;
 public interface UserService {
     String save(UserDTO userDTO);
     List<User> getAll();
-    Optional<User> getById(Integer id);
-    void deleteById(Integer id);
+    Optional<User> getById(Integer userId);
+
+    Optional<User> getByEmail(String email);
+    void deleteById(Integer userId);
 }

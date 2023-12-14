@@ -1,7 +1,5 @@
 // RegistrationForm.tsx
 import React, { useState } from 'react';
-import axios from 'axios';
-
 interface FormData {
   firstName: string;
   lastName: string;
@@ -30,7 +28,7 @@ const RegistrationForm: React.FC = () => {
     e.preventDefault();
 
     console.log(formData);
-    
+
     try {
       // Assuming you have a running server at http://localhost:8087
       const response = await axios.post('http://localhost:8087/user/save', formData);

@@ -1,42 +1,65 @@
 import './login.css'
-function login(){
+import Image from '../assets/loginLogo.png'
+import React from 'react'
 
-    return(
-       <>
-           <head>
-               <title>Login Page</title>
-               <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-           </head>
-           <body>
+function login() {
 
-           <div className="WELCOME">
-               <h2>WELCOME</h2>
-               <label>
-                   image
-               </label>
+    return (
+        <>
+            <head>
+                <title>Login Page</title>
+                <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+            </head>
+            <body>
 
-           </div>
+                <div className="WELCOME">
+                    <h2>WELCOME</h2>
+                </div>
 
-           <div className="SIGN-IN">
-               <h2>Log In</h2>
-               <label>
-                   Username: <input type="text" name="Username" />
-               </label>
-               </div>
-               <div className= "signin-form" >
-               <label>
-                   Password: <input type="Password" name="Password" />
-               </label>
-               <a href="#">Forget password?</a>
-               <label>
-                   <button type="submit" className="btn"> Login</button>
-               </label>
-               <label> Don't have an account?  <button> Register</button> </label>
-           </div>
+                <div className="WELCOME-IMAGE">
+                    {/* Image placed under the WELCOME text */}
+                    <img src={Image} alt="Shoe Image" className="upscaling" />
+                </div>
+
+                <div className="signin">
+                    <h2>Log In</h2>
+                    <div className='bigbox'>
+                        <div className='boxinside'>
+                        <form>
+                            <div className='username'>
+                    <label>
+                        Username: 
+                    </label>
+                    <input type="text" name='Username' required />
+                    </div>
+                    <div className='password'>
+                    <label>
+                        
+                        Password: 
+                    </label>
+                    </div>
+                    <div className='forget'>
+                    <input type="Password" name="Password"  required />
+                    <a href="#">Forget password?</a>
+                    </div>
+                    
+                    <div className='submit'>
+                    <label>
+                       
+                        <button type="submit" className="btn"> Login</button>
+                    </label>
+                    </div>
+                    <div className='button'>
+                    <label> Don't have an account?  <button> Register</button> </label></div>
+                    </form>
+                    </div>
+                </div>
+                
+                </div>
 
 
-           </body>
-       </>
+            </body>
+        </>
 
     )
 }

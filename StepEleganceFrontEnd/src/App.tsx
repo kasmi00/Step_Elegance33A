@@ -1,4 +1,3 @@
-import './App.css'
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import Login from "./Pages/login.tsx";
 import Registration from "./Pages/Registration.tsx";
