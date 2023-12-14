@@ -5,6 +5,8 @@ import com.example.stepelegance.Entity.UserDefinedDataEnums.ProductType;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 @Builder
 @Getter
 @Setter
@@ -19,7 +21,7 @@ public class Product {
     @GeneratedValue(generator = "product_seq_gen", strategy = GenerationType.SEQUENCE)
     private Integer productId;
 
-    @Column(name="productName", nullable = false)
+    @Column(name="product_name", nullable = false)
     private String productName;
 
     @Column(name="description", nullable = false)
@@ -42,7 +44,11 @@ public class Product {
     @Column(name="category", nullable = false)
     private ProductCategory category;
 
+    /*
     @ManyToOne
     @JoinColumn(name = "wishlist_id", nullable = true, unique = true)
     private WishList wishlist;
+     */
+    @ManyToMany(mappedBy = "products")
+    private List<Wishlist> wishlists;
 }
