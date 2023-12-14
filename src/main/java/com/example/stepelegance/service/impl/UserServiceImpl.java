@@ -22,9 +22,9 @@ public class UserServiceImpl implements UserService {
     public String save(UserDTO userDTO){
         User user = new User();
 
-        if (userDTO.getId()!=null){
-            user=userRepository.findById(userDTO.getId())
-                    .orElseThrow(()->new NullPointerException("data not found"));
+        if (userDTO.getUserId()!=null){
+            user=userRepository.findById(userDTO.getUserId())
+                    .orElseThrow(()->new NullPointerException("user data not found"));
         }
         user.setRole(userDTO.getRole());
         user.setFirstName(userDTO.getFirstName());
@@ -38,7 +38,7 @@ public class UserServiceImpl implements UserService {
 
         userRepository.save(user); // for both creating and updating(if id is passed)
 
-        return "created";
+        return "new user created";
     }
 
     @Override
@@ -47,13 +47,18 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Optional<User> getById(Integer id) {
-        return userRepository.findById(id);
+    public Optional<User> getById(Integer userId) {
+        return userRepository.findById(userId);
     }
 
     @Override
-    public void deleteById(Integer id) {
-        userRepository.deleteById(id);
+    public Optional<User> getByEmail(String email) {
+        return userRepository.findByEmail(email);
+    }
+
+    @Override
+    public void deleteById(Integer userId) {
+        userRepository.deleteById(userId);
     }
 
 }

@@ -3,6 +3,8 @@ package com.example.stepelegance.Entity;
 import com.example.stepelegance.Entity.UserDefinedDataEnums.Gender;
 import com.example.stepelegance.Entity.UserDefinedDataEnums.Role;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.Size;
 import lombok.*;
 
 import java.time.LocalDate;
@@ -23,6 +25,7 @@ public class User {
     @GeneratedValue(generator = "users_seq_gen", strategy = GenerationType.SEQUENCE)
     private Integer userId;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "role", nullable = false)
     private Role role;
 
@@ -32,15 +35,18 @@ public class User {
     @Column(name="lastName", nullable = false)
     private String lastName;
 
-    @Column(name="phone", nullable = true, unique = true)
+    @Size(min = 9)
+    @Column(name="phone", nullable = false, unique = true)
     private String phone;
 
+    @Email
     @Column(name="email", nullable = false)
     private String email;
 
     @Column(name = "password", nullable = false)
     private String password;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "gender", nullable = false)
     private Gender gender;
 
@@ -49,4 +55,7 @@ public class User {
 
     @Column(name="token", nullable = false, unique = true)
     private String token;
+
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+    private WishList wishlist;
 }
