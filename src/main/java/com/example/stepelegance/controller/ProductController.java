@@ -35,13 +35,14 @@ public class ProductController {
     }
 
     @GetMapping("/getById/{id}")
-    public Optional<Product> getById(@PathVariable("productId") Integer id){
+    public Optional<Product> getById(@PathVariable("id") Integer id){
         return productService.getById(id);
     }
 
     @DeleteMapping("/deleteById/{id}")
-    public void deleteById(@PathVariable("productId") Integer productId){
+    public String deleteById(@PathVariable("id") Integer productId){
         productService.deleteById(productId);
+        return "product deleted.";
     }
 
 }
