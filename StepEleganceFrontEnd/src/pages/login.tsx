@@ -6,11 +6,7 @@ function login() {
 
     return (
         <>
-            <head>
-                <title>Login Page</title>
-                <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-            </head>
-            <body>
+           
 
                 <div className="WELCOME">
                     <h2>WELCOME</h2>
@@ -58,7 +54,6 @@ function login() {
                 </div>
 
 
-            </body>
         </>
 
     )

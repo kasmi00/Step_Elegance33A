@@ -1,36 +1,40 @@
-
-body {
-    font-family: 'Arial', sans-serif;
-    background-image: url("../assets/images/registrationbg.png");
-    margin: 0;
-    padding: 0;
+  .registrationbg{
     display: flex;
-    align-items: center;
+    background-image: url('../assets/registrationbg.jpg');
+    width: 1366px;
+    height: 641px;
+    background-position: center;
+    background-size: cover;
     justify-content: center;
-    height: 100vh;
-  }
-
+    align-items: center;
+    }
   
   .mainbox{
+    display: flex;
+    flex-direction: column;
     background-color: #fff;
-    border-radius: 0px;
+    border-radius: 10px;
     box-shadow: 0 0 10px #333;
     padding: 2px;
-    width: 900px;
-    height: 565px;
+    width: 850px;
+    height: 560px;
     border: #333;
   }
   
   h2 {
     text-align: center;
-    padding-bottom: 20px;
+    padding-bottom: 10px;
     color: #333;
     font-size: 30px;
   }
 
   .below{
-    width: 759px;
-    height: 470px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    /* width: 759px; */
+    /* height: 470px; */
      margin: 0;
     padding: 0;
   
@@ -38,11 +42,10 @@ body {
 
   form {
     display: flex;
+  
     justify-content: center;
     flex-direction: row;
-    column-gap:245px ;
-    padding-left: 146px;
-   
+    column-gap:245px ;   
   }
 
   form .fecd{
@@ -94,6 +97,11 @@ body {
     flex-direction: column;
 
   }
+  form .lpg .phonenumber {
+    display:flex ;
+    flex-direction: column;
+
+  }
   form .lpg .gender select {
     display:flex ;
     flex-direction: column;
@@ -104,32 +112,30 @@ body {
   label {
     font-size: larger;
     margin-bottom: 8px;
-    color: #555;
+    color: #000000;
   }
   
   input {
+    font-style: inherit;
+    text-align: center;
     padding: 8px;
     margin-bottom: 16px;
-    border: 1px solid #ccc;
+    border: 1px solid #000000;
     border-radius: 4px;
-    color: #000000;
   }
 
   .cs{
-    padding-top: 50px;
-    padding-left: 100px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 20px;
   }
   
   button {
-    background-color: #af724c;
-    border: none;
     border-radius: 4px;
     cursor: pointer;
     font-size: 10px;
-    padding: 5px;
+    /* padding: 5px; */
     border-color: #000000;
   }
   
@@ -140,20 +146,34 @@ body {
   
   
   .cs .confirmbttn  button{
-    padding-left: 5px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-right: 5px;
+    border-color: #000000;
+    background-color: grey;
+
     
     
 }
 
   .cs .signin button{
-    padding-left: 5px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-right: 5px;
+    display: flex;
     color: blue;
     background-color: #fff;
   }
  
+
+.regform{
+  display: flex;
+  opacity: 50;
+}
+
+.cs  button{
+  display: flex; 
+}
+
+.mainbox .below .cs .signin{
+  display: flex;
+}
+
+button .Signin{
+  display: flex;
+  gap: 10px;
+}

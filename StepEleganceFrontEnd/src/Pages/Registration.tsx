@@ -102,7 +102,7 @@ const RegistrationForm: React.FC = () => {
           id="gender"
           name="gender"
           value={formData.gender}
-          onChange={handleChange}
+          // onChange={handleChange}
         >
           <option value="male">Male</option>
           <option value="female">Female</option>
@@ -122,12 +122,13 @@ function Registration() {
 
     return (
         <>
+        <div className='registrationbg'>
     <div className='mainbox'>
       <div className="header">
         <h2>REGISTRATION PAGE</h2>
         </div>
         <div className="below">
-        <form>
+        <form className="regform">
                     {/* <img src={myImage} alt='shoe bg' /> */}
                     <div className='fecd'>
                     <div className='fname'>
@@ -156,6 +157,10 @@ function Registration() {
                         <label>Password:</label>
                         <input type='password' placeholder=' CONFIRM PASSWORD ' required/>
                     </div>
+                    <div className='phonenumber'>
+                        <label>Phone Number:</label>
+                        <input type='pnumber' placeholder=' PHONE NUMBER ' required/>
+                    </div>
                     <div className='gender'>
                         <label>Gender:</label>
                         <select>
@@ -171,14 +176,13 @@ function Registration() {
                         <button>Confirm</button> 
                     </div>
                     <div className='signin'>
-                        <label>Already have an account? </label>
-                        <a href="/Login"> <button>
-                            Sign-In 
-                        </button>
+                        <label>Already have an account? </label> <button className="Signin"> Sign-In </button>
+                        <a href="/Login"> 
                        </a>
                        
                         </div>
                     </div>  
+                    </div>
                     </div>
                     </div>
         </>
