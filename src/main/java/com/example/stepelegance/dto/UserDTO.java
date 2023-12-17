@@ -8,6 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.UUID;
 
 @Data
 @NoArgsConstructor
@@ -30,7 +31,7 @@ public class UserDTO {
     private Gender gender;
     @NotNull
     private LocalDate dateOfBirth;
-    @NotNull
+
     private String token;
 
 

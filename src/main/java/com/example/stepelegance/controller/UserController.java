@@ -50,4 +50,9 @@ public class UserController {
         return "user deleted";
     }
 
+    @PostMapping("/login")
+    public Optional<String> userLogIn(@RequestBody UserDTO userDTO){
+        userService.getByEmail("");
+        return null;
+    }
 }

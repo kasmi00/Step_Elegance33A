@@ -8,6 +8,7 @@ import jakarta.validation.constraints.Size;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.util.UUID;
 
 @Builder
 @Getter
@@ -16,13 +17,15 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @Entity
 @Table(name="users", uniqueConstraints = {
-        @UniqueConstraint(name="UNIQUE_user_email", columnNames = "email")
+        @UniqueConstraint(name="UNIQUE_user_email", columnNames = "email"),
+        @UniqueConstraint(name = "UNIQUE_user_phone", columnNames = "phone"),
+        @UniqueConstraint(name = "UNIQUE_user_token", columnNames = "token")
 })
 public class User {
 
     @Id
-    @SequenceGenerator(name = "users_seq_gen", sequenceName = "users_id_seq", allocationSize = 1)
-    @GeneratedValue(generator = "users_seq_gen", strategy = GenerationType.SEQUENCE)
+    @SequenceGenerator(name = "users_seq_gen", sequenceName = "users_id_seq", allocationSize = 1, initialValue = 1400)
+    @GeneratedValue(generator = "users_seq_gen", strategy = GenerationType.IDENTITY)
     private Integer userId;
 
     @Enumerated(EnumType.STRING)
@@ -53,8 +56,10 @@ public class User {
     @Column(name = "date_of_birth", nullable = false)
     private LocalDate dateOfBirth;
 
+
     @Column(name="token", nullable = false, unique = true)
     private String token;
+
 
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
     private Wishlist wishlist;
