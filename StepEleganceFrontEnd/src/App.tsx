@@ -7,7 +7,7 @@ import Test from './Pages/test.tsx';
 const router = createBrowserRouter(
     [
       {
-        path:"/",
+        path:"/registration",
         element : <Registration />
       },
         {
@@ -15,7 +15,7 @@ const router = createBrowserRouter(
             element:<Login />
         },
         {
-            path:"/home",
+            path:"/",
             element:<Home />
         },
         {
