@@ -117,12 +117,7 @@ svg{
   top: 25px;
   right: 10px;
 }
-.search{
-  display: flex;
-  position: relative;
-  top:auto;
-  
-}
+
 .search #search-button{
   display: flex;
   position: relative;
@@ -131,4 +126,9 @@ svg{
   border-radius:8px ;
   font-size: 12px;
 
+}
+.search{
+  position: relative;
+  top : 15px;
+  right: 15px;
 }
