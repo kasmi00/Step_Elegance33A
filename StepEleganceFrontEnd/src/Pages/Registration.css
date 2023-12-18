@@ -1,71 +1,178 @@
-body {
-    margin: 0;
-    padding: 0;
-    font-family: "Arial Black";
-    /*height: 100vh;*/
-    /*overflow: hidden;*/
-    /*background-image: url(StepEleganceFrontEnd/src/assets/registrationbg.jpg);*/
-    background-color: chocolate;
-}
-
-    h2{
-    color: black;
-        font-size: 50px;
-}
-
-.RegistrationFormContainer {
-    width: 500px;
-    margin: 200px auto;
-    text-decoration-color: #1a1a1a;
-    padding: 100px;
-    border: 10px solid #000;
-    border-radius: 20px;
-    box-shadow: #f9f9f9;
-
-}
-
-.RegistrationForm label {
-    color: white;
-    margin-bottom: 50px;
-    display: block;
-    flex-direction: column;
-    border-spacing: 50px;
-}
-
-.Registration_Form {
-    width: 400px;
-    margin: 100px auto 0px auto;
-    justify-content: center;
+  .registrationbg{
     display: flex;
-    /*background-color: #535bf2;*/
-    padding: 20px;
-    border-radius: 12px;
-    flex-direction: column;
-    border: 5px solid #000000 ;
-}
-.form-group label {
-    display: block;
-    padding-bottom: 10px;
+    background-image: url('../assets/registrationbg.jpg');
+    width: 1366px;
+    height: 641px;
+    background-position: center;
+    background-size: cover;
     justify-content: center;
-}
-.form-group input {
-    color: white;
-}
-.form-group data{
-    color: white;
-}
-.select{
-    padding-right:  50px;
-    padding-bottom: 30px;
+    align-items: center;
+    }
+  
+  .mainbox{
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #333;
+    padding: 2px;
+    width: 850px;
+    height: 560px;
+    border: #333;
+  }
+  
+  h2 {
+    text-align: center;
+    padding-bottom: 10px;
+    color: #333;
+    font-size: 30px;
+  }
 
+  .below{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    /* width: 759px; */
+    /* height: 470px; */
+     margin: 0;
+    padding: 0;
+  
+  }
+
+  form {
+    display: flex;
+  
+    justify-content: center;
+    flex-direction: row;
+    column-gap:245px ;   
+  }
+
+  form .fecd{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 340px;
+  }
+
+  form .fecd .fname {
+    display:flex ;
+    flex-direction: column;
+
+  }
+  form .fecd .email {
+    display:flex ;
+    flex-direction: column;
+
+  }
+  form .fecd .confirmpassword {
+    display:flex ;
+    flex-direction: column;
+
+  }
+  form .fecd .date {
+    display:flex ;
+    flex-direction: column;
+    
+
+
+  }
+
+  form .lpg{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 340px;
+  }
+
+  form .lpg .lname {
+    display:flex ;
+    flex-direction: column;
+
+  }
+  form .lpg .password {
+    display:flex ;
+    flex-direction: column;
+
+  }
+  form .lpg .phonenumber {
+    display:flex ;
+    flex-direction: column;
+
+  }
+  form .lpg .gender select {
+    display:flex ;
+    flex-direction: column;
+    color: #000000;
+
+  }
+  
+  label {
+    font-size: larger;
+    margin-bottom: 8px;
+    color: #000000;
+  }
+  
+  input {
+    font-style: inherit;
+    padding: 8px;
+    margin-bottom: 16px;
+    border: 1px solid #000000;
+    border-radius: 4px;
+  }
+
+  .cs{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  button {
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 10px;
+    /* padding: 5px; */
+    border-color: #000000;
+  }
+  
+  button:hover {
+    background-color: #af724c;
+
+  }
+  
+  
+  .cs .confirmbttn  button{
+    border-color: #000000;
+    background-color: grey;
+
+    
+    
 }
 
-#signin button {
+  .cs .signin button{
+    display: flex;
+    color: blue;
+    background-color: #fff;
+  }
+ 
 
-}
-#confirm button{
-    display: block;
-    padding-right:  50px;
-    padding-bottom: 50px;
+.regform{
+  display: flex;
+  opacity: 50;
 }
 
+.cs  button{
+  display: flex; 
+}
+
+.mainbox .below .cs .signin{
+  display: flex;
+}
+
+button .Signin{
+  display: flex;
+  gap: 10px;
+}
