@@ -145,6 +145,8 @@
   
   
   .cs .confirmbttn  button{
+    display: flex;
+    justify-content: center;
     border-color: #000000;
     background-color: grey;
 
@@ -161,6 +163,7 @@
 
 .regform{
   display: flex;
+  flex-direction: column;
   opacity: 50;
 }
 
@@ -171,8 +174,22 @@
 .mainbox .below .cs .signin{
   display: flex;
 }
+.leftright{
+  display: flex;
+  justify-content: space-around;
+
+}
 
 button .Signin{
   display: flex;
+  position: relative;
+  top: 10px;
   gap: 10px;
+}
+
+.confirmbttn{
+  display: flex;
+  justify-content: center;
+  position: relative;
+  top:15px;
 }

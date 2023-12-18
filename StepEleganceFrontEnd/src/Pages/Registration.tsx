@@ -130,6 +130,7 @@ function Registration() {
           <div className="below">
             <form className="regform">
               {/* <img src={myImage} alt='shoe bg' /> */}
+              <div className="leftright">
               <div className='fecd'>
                 <div className='fname'>
                   <label>First Name:</label>
@@ -170,11 +171,12 @@ function Registration() {
                   </select>
                 </div>
               </div>
-            </form>
-            <div className='cs'>
+              </div>
               <div className='confirmbttn'>
                 <button>Confirm</button>
               </div>
+            </form>
+            <div className='cs'>
               <div className='signin'>
                 <label>Already have an account? </label>
                 <a href="/login">
