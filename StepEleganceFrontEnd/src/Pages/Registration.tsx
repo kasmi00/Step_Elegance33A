@@ -12,6 +12,7 @@ function Registration() {
     dateOfBirth: string;
     gender: string;
     phone: string;
+    role: string;
   }
 
   const [formData, setFormData] = useState<FormData>({
@@ -22,6 +23,7 @@ function Registration() {
     dateOfBirth: "",
     gender: "",
     phone: "",
+    role:"USER"
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -140,7 +142,7 @@ function Registration() {
                 </div>
                 <div className="gender">
                   <label>Gender:</label>
-                  <select name="gender" value={formData.gender} required>
+                  <select name="gender" value={formData.gender} onChange={handleChange}>
                     <option value="">--- Select---</option>
                     <option value="MALE">Male</option>
                     <option value="FEMALE">Female</option>
