@@ -59,8 +59,9 @@ function Registration() {
           <div className="below">
             <form className="regform" onSubmit={handleSubmit}>
               {/* <img src={myImage} alt='shoe bg' /> */}
-              <div className="fecd">
-                <div className="fname">
+              <div className="leftright">
+              <div className='fecd'>
+                <div className='fname'>
                   <label>First Name:</label>
                   <input
                     type="text"
@@ -146,12 +147,13 @@ function Registration() {
                   </select>
                 </div>
               </div>
-            </form>
-            <div className="cs">
-              <div className="confirmbttn">
+              </div>
+              <div className='confirmbttn'>
                 <button>Confirm</button>
               </div>
-              <div className="signin">
+            </form>
+            <div className='cs'>
+              <div className='signin'>
                 <label>Already have an account? </label>
                 <a href="/login">
                   <button className="Signin"> Sign-In </button>

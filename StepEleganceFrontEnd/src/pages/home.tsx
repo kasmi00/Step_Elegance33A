@@ -1,14 +1,12 @@
 import "./home.css";
-import Logo from "../assets/StepEleganceLogo.png";
-import Menu from "../assets/menu.png";
-
+import Logo from "../assets/logo.png";
 function home() {
   return (
     <>
       <div className='maindash'>
         <div className="nav">
           <div className="logoimg">
-          <img src={Logo} alt='logo' />
+            <img src={Logo} alt='shoelogo' />
           </div>
           <div className="navchild">
             <nav>
@@ -23,37 +21,35 @@ function home() {
             <button id="search-button"> Search</button>
           </div>
           <div className="icons">
-          <a href="/">
-            <img src={Menu} alt='menu' />
-            </a>
+            <nav >
+            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" display="flex" height="24" viewBox="0 -960 960 960" width="24"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></a>
+              <ul className="menu" >
+                <></>
+                <li><a href="#">PROFILE</a></li>
+                <li><a href="#">ABOUT</a></li>
+                <li><a href="#">SUPPORT</a></li>
+                <li><a href="#">LOG-IN</a></li>
+                <li><a href="#">SIGN-IN</a></li>
+                <li><a href="#">LOCATION</a></li>
+              </ul>
+            </nav>
           </div>
         </div>
         <div className="productinfo">
-          <div className="product-section">
+          <div className="productsection">
             <h2>Product Section</h2>
             <div className="product-item">
               {/* <img src="shoe1.jpg" alt="Shoe 1"> */}
-              <p>Shoe Name 1</p>
-              <p>$99.99</p>
             </div>
             <div className="product-item">
               {/* <img src="shoe2.jpg" alt="Shoe 2"> */}
-              <p>Shoe Name 2</p>
-              <p>$79.99</p>
             </div>
             {/* <!-- Add more product items as needed --> */}
           </div>
-
           <div className="sales-summary">
             <h2>Sales Summary</h2>
-            <p>Total Sales: $5000</p>
-            <p>Today's Sales: $1000</p>
-            <p>Monthly Sales: $20000</p>
           </div>
-
         </div>
-
-
       </div>
     </>
   );
