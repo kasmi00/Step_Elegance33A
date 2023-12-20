@@ -2,10 +2,10 @@ package com.example.stepelegance.Authentication;
 
 import org.apache.commons.text.RandomStringGenerator;
 
-        import javax.mail.*;
-        import javax.mail.internet.InternetAddress;
-        import javax.mail.internet.MimeMessage;
-        import java.util.Properties;
+import javax.mail.*;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+import java.util.Properties;
 
 public class OtpEmailSender {
 

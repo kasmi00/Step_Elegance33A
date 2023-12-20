@@ -82,6 +82,7 @@ function Registration() {
                     value={formData.email}
                     onChange={handleChange}
                     placeholder=" EMAIL "
+                    pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
                     required
                   />
                 </div>
@@ -142,7 +143,7 @@ function Registration() {
                 </div>
                 <div className="gender">
                   <label>Gender:</label>
-                  <select name="gender" value={formData.gender} onChange={handleChange}>
+                  <select name="gender" value={formData.gender} onChange={handleChange} required>
                     <option value="">--- Select---</option>
                     <option value="MALE">Male</option>
                     <option value="FEMALE">Female</option>

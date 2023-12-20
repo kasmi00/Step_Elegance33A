@@ -33,7 +33,7 @@ function login() {
                     </label>
                     <input type="Password" name="Password"  required />
                     <div className='forget'>   
-                    <a href="/forgetpassword">Forget password?</a>
+                    <a href="/forgot">Forgot password?</a>
                     </div>
                     </div>
                     </div>
