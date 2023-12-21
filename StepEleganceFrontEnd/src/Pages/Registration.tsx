@@ -9,6 +9,7 @@ function Registration() {
     lastName: string;
     email: string;
     password: string;
+    confirmPassword: string;
     dateOfBirth: string;
     gender: string;
     phone: string;
@@ -20,37 +21,49 @@ function Registration() {
     lastName: "",
     email: "",
     password: "",
+    confirmPassword: "",
     dateOfBirth: "",
     gender: "",
     phone: "",
-    role:"USER"
+    role: "USER"
   });
-
+  const [passwordError, setPasswordError] = useState<string>("");
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
+    // Check if passwords match and update error message
+    if (name === "password" || name === "confirmPassword") {
+      const confirmPassword = name === "password" ? formData.confirmPassword : value;
+      validatePasswords(value, confirmPassword);
+    }
+  };
+
+  const validatePasswords = (password: string, confirmPassword: string) => {
+    if (password !== confirmPassword) {
+      setPasswordError("Passwords do not match");
+    } else {
+      setPasswordError("");
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    console.log(formData);
+    // Check again for password match before submitting
+    validatePasswords(formData.password, formData.confirmPassword);
 
-    try {
-      // Assuming you have a running server at http://localhost:8087
-      const response = await axios.post(
-        "http://localhost:8087/user/save",
-        formData
-      );
+    if (!passwordError) {
+      try {
+        const response = await axios.post("http://localhost:8087/user/save", formData);
 
-      // Handle the response as needed
-      console.log("Registration successful:", response.data);
-    } catch (error) {
-      // Handle errors
-      console.error("Registration failed:", error);
+        // Handle the response as needed
+        console.log("Registration successful:", response.data);
+      } catch (error) {
+        // Handle errors
+        console.error("Registration failed:", error);
+      }
     }
   };
-
   return (
     <>
       <div className="registrationbg">
@@ -62,93 +75,95 @@ function Registration() {
             <form className="regform" onSubmit={handleSubmit}>
               {/* <img src={myImage} alt='shoe bg' /> */}
               <div className="leftright">
-              <div className='fecd'>
-                <div className='fname'>
-                  <label>First Name:</label>
-                  <input
-                    type="text"
-                    name="firstName"
-                    value={formData.firstName}
-                    onChange={handleChange}
-                    placeholder=" FIRST NAME "
-                    required
-                  />
+                <div className='row1'>
+                  <div className='fname'>
+                    <label>First Name:</label>
+                    <input
+                      type="text"
+                      name="firstName"
+                      value={formData.firstName}
+                      onChange={handleChange}
+                      placeholder=" FIRST NAME "
+                      required
+                    />
+                  </div>
+                  <div className="lname">
+                    <label>Last Name:</label>
+                    <input
+                      type="text"
+                      name="lastName"
+                      value={formData.lastName}
+                      onChange={handleChange}
+                      placeholder=" LAST NAME"
+                      required
+                    />
+                  </div>
+                  <div className="email">
+                    <label>Email:</label>
+                    <input
+                      type="text"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      placeholder=" EMAIL "
+                      required
+                    />
+                  </div>
+                  
+                  <div className="date">
+                    <label>Date Of Birth:</label>
+                    <input
+                      type="date"
+                      name="dateOfBirth"
+                      value={formData.dateOfBirth}
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
                 </div>
-                <div className="email">
-                  <label>Email:</label>
-                  <input
-                    type="text"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    placeholder=" EMAIL "
-                    required
-                  />
+                <div className="row2">
+
+                  <div className="password">
+                    <label>Password:</label>
+                    <input
+                      type="password"
+                      name="password"
+                      value={formData.password}
+                      onChange={handleChange}
+                      placeholder=" CONFIRM PASSWORD "
+                      required
+                    />
+                  </div>
+                  <div className="confirmpassword">
+                    <label>Confirm Password:</label>
+                    <input
+                      type="password"
+                      name="confirmPassword"
+                      onChange={handleChange}
+                      placeholder=" PASSWORD "
+                      required
+                    />
+                  </div>
+                  <div className="phonenumber">
+                    <label>Phone Number:</label>
+                    <input
+                      type="tel"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      placeholder=" PHONE NUMBER "
+                      required
+                    />
+                  </div>
+                  <div className="gender">
+                    <label>Gender:</label>
+                    <select name="gender" value={formData.gender} onChange={handleChange}>
+                      <option value="">--- Select---</option>
+                      <option value="MALE">Male</option>
+                      <option value="FEMALE">Female</option>
+                    </select>
+                  </div>
                 </div>
-                <div className="confirmpassword">
-                  <label>Confirm Password:</label>
-                  <input
-                    type="password"
-                    name="confirmPassword"
-                    onChange={handleChange}
-                    placeholder=" PASSWORD "
-                    required
-                  />
-                </div>
-                <div className="date">
-                  <label>Date Of Birth:</label>
-                  <input
-                    type="date"
-                    name="dateOfBirth"
-                    value={formData.dateOfBirth}
-                    onChange={handleChange}
-                    required
-                  />
-                </div>
-              </div>
-              <div className="lpg">
-                <div className="lname">
-                  <label>Last Name:</label>
-                  <input
-                    type="text"
-                    name="lastName"
-                    value={formData.lastName}
-                    onChange={handleChange}
-                    placeholder=" LAST NAME"
-                    required
-                  />
-                </div>
-                <div className="password">
-                  <label>Password:</label>
-                  <input
-                    type="password"
-                    name="password"
-                    value={formData.password}
-                    onChange={handleChange}
-                    placeholder=" CONFIRM PASSWORD "
-                    required
-                  />
-                </div>
-                <div className="phonenumber">
-                  <label>Phone Number:</label>
-                  <input
-                    type="tel"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    placeholder=" PHONE NUMBER "
-                    required
-                  />
-                </div>
-                <div className="gender">
-                  <label>Gender:</label>
-                  <select name="gender" value={formData.gender} onChange={handleChange}>
-                    <option value="">--- Select---</option>
-                    <option value="MALE">Male</option>
-                    <option value="FEMALE">Female</option>
-                  </select>
-                </div>
-              </div>
               </div>
               <div className='confirmbttn'>
                 <button>Confirm</button>
@@ -170,3 +185,4 @@ function Registration() {
 }
 
 export default Registration;
+

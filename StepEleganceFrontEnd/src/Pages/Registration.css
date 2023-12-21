@@ -1,8 +1,7 @@
   .registrationbg{
     display: flex;
     background-image: url('../assets/registrationbg.jpg');
-    width: 1366px;
-    height: 641px;
+    min-height: 100vh;
     background-position: center;
     background-size: cover;
     justify-content: center;
@@ -11,12 +10,12 @@
   
   .mainbox{
     display: flex;
+    position: relative;
     flex-direction: column;
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 0 10px #333;
-    padding: 2px;
-    width: 850px;
+    width: 490px;
     height: 560px;
     border: #333;
   }
@@ -35,7 +34,7 @@
     gap: 20px;
     /* width: 759px; */
     /* height: 470px; */
-     margin: 0;
+    margin: 0;
     padding: 0;
   
   }
@@ -48,7 +47,7 @@
     column-gap:245px ;   
   }
 
-  form .fecd{
+  form .row1{
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -56,22 +55,24 @@
     height: 340px;
   }
 
-  form .fecd .fname {
+  form .row1 .fname {
     display:flex ;
     flex-direction: column;
 
   }
-  form .fecd .email {
+  form .row1 .lname {
     display:flex ;
     flex-direction: column;
 
   }
-  form .fecd .confirmpassword {
+
+  form .row1 .email {
     display:flex ;
     flex-direction: column;
 
   }
-  form .fecd .date {
+  
+  form .row1 .date {
     display:flex ;
     flex-direction: column;
     
@@ -79,7 +80,7 @@
 
   }
 
-  form .lpg{
+  form .row2{
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
@@ -87,22 +88,23 @@
     height: 340px;
   }
 
-  form .lpg .lname {
+  
+  form .row2 .password {
     display:flex ;
     flex-direction: column;
 
   }
-  form .lpg .password {
+  form .row2 .confirmpassword {
     display:flex ;
     flex-direction: column;
 
   }
-  form .lpg .phonenumber {
+  form .row2 .phonenumber {
     display:flex ;
     flex-direction: column;
 
   }
-  form .lpg .gender select {
+  form .row2 .gender select {
     display:flex ;
     flex-direction: column;
     color: #000000;
@@ -156,6 +158,8 @@
 
   .cs .signin button{
     display: flex;
+    position: relative;
+    top:4px;
     color: blue;
     background-color: #fff;
   }
@@ -171,8 +175,11 @@
   display: flex; 
 }
 
-.mainbox .below .cs .signin{
+.mainbox .below  .signin{
   display: flex;
+  position: relative;
+  gap: 5px;
+  top:15px;
 }
 .leftright{
   display: flex;
@@ -191,5 +198,6 @@ button .Signin{
   display: flex;
   justify-content: center;
   position: relative;
-  top:15px;
+  top:25px;
+  font-size: 20px;
 }
