@@ -3,78 +3,89 @@ import axios from "axios";
 import "./forgotPassword.css";
 import lock from "../assets/lock2.png";
 import email from "../assets/email-removebg-preview.png";
+import { redirect } from "react-router-dom";
+import login from "./login";
 
 interface ForgotPasswordProps {
-  email : string;
-  otp : string;
-  password : string;
-
+  email: string;
+  otp: string;
+  password: string;
 }
-
 
 const ForgotPassword: React.FC<ForgotPasswordProps> = () => {
   const [emailInput, setEmailInput] = useState<string>("");
   const [passwordInput, setPasswordInput] = useState<string>("");
   const [confirmPasswordInput, setConfirmPasswordInput] = useState<string>("");
-  const [resetStep, setResetStep] = useState<"email" | "otp" | "password" >("email");
+  const [resetStep, setResetStep] = useState<"email" | "otp" | "password">(
+    "email"
+  );
   const [emailNotFound, setEmailNotFound] = useState<boolean>(false);
   const [otpInput, setOtpInput] = useState<string>("");
   const [otpValid, setOtpValid] = useState<boolean>(false);
+  const [redirectToAnotherPage, setRedirectToAnotherPage] = useState(false);
 
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEmailInput(e.target.value);
   };
 
-  const handleOtpChange=(e :React.ChangeEvent<HTMLInputElement> )=>{
+  const handleOtpChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setOtpInput(e.target.value);
-  }
+  };
 
   const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPasswordInput(e.target.value);
   };
 
-  const handleConfirmPasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleConfirmPasswordChange = (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
     setConfirmPasswordInput(e.target.value);
+  };
+
+  const handleRedirect = () => {
+    // Set the state to true to trigger the redirection
+    setRedirectToAnotherPage(true);
   };
 
   const handleSubmit = async () => {
     try {
       if (resetStep === "email") {
         const response = await axios.post(
-          `http://localhost:8087/user/sendotp/${emailInput}`,
-          { email: emailInput }
+          "http://localhost:8087/user/sendotp",
+          { email: emailInput, otp: otpInput, password: passwordInput }
         );
         console.log("OTP sent successfully\nresponse: ", response.data);
         setEmailNotFound(!response.data);
-        if (response.data){
+        if (response.data) {
           setResetStep("otp");
+          response.data=false;
         }
-      }else if(resetStep === "otp"){
-          const response = await axios.post(
-            `http://localhost:8087/user/sendotp/${emailInput}`,
-            { email :emailInput,
-              otp : otpInput,
-              password : "" 
-            }
-          );
-          console.log("Password reset successfully ", response.data);
-
-
-        
-
+      } else if (resetStep === "otp") {
+        const response = await axios.post(
+          `http://localhost:8087/user/sendotp`,
+          { email: emailInput, otp: otpInput, password: passwordInput }
+        );
+        console.log("otp send successfully \nresponse: ", response.data);
+        setOtpValid(response.data);
+        if (response.data) {
+          setResetStep("password");
+        }
       } else if (resetStep === "password") {
         // Handle the password reset logic, e.g., send a request to update the password
         // You can check if the password and confirmPassword match before making the request
         if (passwordInput === confirmPasswordInput) {
           // Make a request to update the password
           const response = await axios.post(
-            `http://localhost:8087/user/sendotp/${emailInput}`,
-            { email :emailInput,
-              otpInput: otpInput,
-              password: passwordInput 
-            }
+            `http://localhost:8087/user/sendotp`,
+            { email: emailInput, otp: otpInput, password: passwordInput }
           );
           console.log("Password reset successfully ", response.data);
+          if (response.data) {
+            alert("Password changed successfully.");
+            redirect("/login");
+          } else {
+            console.log("reset password failed");
+          }
           // Handle the response or update the UI as needed
         } else {
           // Password and confirmPassword don't match
@@ -82,8 +93,7 @@ const ForgotPassword: React.FC<ForgotPasswordProps> = () => {
           // Display an error message or update the UI accordingly
         }
       }
-
-    } catch (error : any) {
+    } catch (error: any) {
       console.error("Error:", error.response.data.message);
       if (error.response.data.message === "Email not found") {
         setEmailNotFound(true);
@@ -105,9 +115,11 @@ const ForgotPassword: React.FC<ForgotPasswordProps> = () => {
           <div className="text">
             <h2>Forgot Password</h2>
             {resetStep === "email" || "otp" ? (
-              <p>Enter your email, and we will send you an OTP to reset your password.</p>
-            )
-            : (
+              <p>
+                Enter your email, and we will send you an OTP to reset your
+                password.
+              </p>
+            ) : (
               <p>Enter your new password to reset your password.</p>
             )}
           </div>
@@ -126,24 +138,22 @@ const ForgotPassword: React.FC<ForgotPasswordProps> = () => {
             </div>
           )}
 
-          {
-            resetStep === "otp" && !emailNotFound && (
-              <>
-                <div className="otp-field">
-                  <input 
-                  type="text" 
+          {resetStep === "otp" && !emailNotFound && (
+            <>
+              <div className="otp-field">
+                <input
+                  type="text"
                   placeholder="otp"
                   value={otpInput}
                   onChange={handleOtpChange}
-                  required 
-                  />
-                </div>
-              </>
-            )
-          }
+                  required
+                />
+              </div>
+            </>
+          )}
 
           {/* Password and Confirm Password Input (conditionally rendered) */}
-          {resetStep === "password" && !emailNotFound && otpValid &&(
+          {resetStep === "password" && !emailNotFound && otpValid && (
             <>
               <div className="password">
                 <input
