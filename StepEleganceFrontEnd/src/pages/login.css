@@ -1,16 +1,13 @@
-body{
+/* body{
     margin:0;
     padding:0;
     box-sizing: border-box;
     font-family: montserrat;
+    background-color:#b08553;
     height: 100vh;
-    overflow:hidden;
-    color: black;
 
 }
 .bigbox{
-    display: flex;
-    border: 10px color(black);
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
@@ -39,5 +36,70 @@ body{
     width: 100%;
     height: auto;
     max-width: 300px;
-} 
- 
+} */
+
+/* .userpassword{display:flex;flex-wrap: wrap;flex-direction: column;} */
+
+
+
+/* 
+
+
+
+
+.box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+.boxinside{
+    display: flex;
+}
+.userpassword{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+form{
+    display: flex;
+
+}
+.forget{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} */
+
+
+
+
+
+
+.login-container {
+    display: flex;
+    /* Adjust alignment and spacing as needed */
+}
+
+.welcome-section {
+    display: flex;
+    flex-direction: column;
+    /* Other styles for positioning */
+}
+
+
+
+.welcome-image {
+    /* Styles for the image */
+    margin-top: 40px; /* Adjust margin for spacing */
+}
+
+/* Additional styles for the login form section */
+/* ... */
+
+.welcome-image img {
+    width: 200px; /* Set the width to your desired size */
+    height: auto; /* Maintain aspect ratio */
+    /* Other styles for the image */
+}

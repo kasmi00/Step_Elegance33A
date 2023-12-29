@@ -3,6 +3,9 @@ import Login from "./Pages/login.tsx";
 import Registration from "./Pages/Registration.tsx";
 import Home from './Pages/home.tsx';
 import Test from './Pages/test.tsx';
+import MenPage from "./Pages/MenPage.tsx";
+import WomenPage from "./Pages/WomenPage.tsx";
+
 
 const router = createBrowserRouter(
     [
@@ -18,6 +21,15 @@ const router = createBrowserRouter(
             path:"/",
             element:<Home />
         },
+        {
+          path:"/mens",
+          element:<MenPage />
+      },
+      {
+        path:"/womens",
+        element:<WomenPage />
+    },
+        
         {
             path:"/t",
             element:<Test />
