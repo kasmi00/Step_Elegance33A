@@ -5,7 +5,7 @@ function contactUs(){
     return (
     <>
         <div className='body'>
-
+            
         </div>
     </>
     )
