@@ -62,13 +62,6 @@ function home() {
   </div>
   <footer>
     <div className="footercontainer">
-      <div className="socialicons">
-        <a href=""><i className="fab fa-facebook-f"></i> </a>
-        <a href=""><i className="fa-brands fa-instagram"></i> </a>
-        <a href=""><i className="fa brands fa-whatsapp"></i> </a>
-        <a href=""><i className="fa brand fa-youtube"></i> </a>
-        <a href=""><i className="fa brand fa-google"></i> </a>
-      </div>
       <div className="footernav">
         <ul>
           <li><a href="">Gift Card</a></li>

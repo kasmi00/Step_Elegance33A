@@ -5,7 +5,7 @@
     
 }
 .about{
-    height: 100vh;
+    /* height: 100vh; */
 }
 h2{
     margin-top: 100px;
@@ -18,9 +18,37 @@ p{
 }
 .box1{
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+.description p{
+    text-align: center;
+    font-size: larger;
+    position: relative;
+    padding: 10px;
+}
+
+.ourservices{
+    grid-template-columns: repeat(3, 1fr); 
+}
+
+.ourservices h2{
+    margin-top: 30px;
+}
+
+.gridbox{
+    display: flex;
+}
+.truckimg{
+    display: flex;
+    flex-direction: column;
+}
+.truckimg .fa-solid .fa-truck-fast{
+    font-size: 30px;
+}
+
+.deliveryinfo{
+    display: inline;
 }
 footer{
     background: #986338;
@@ -32,10 +60,6 @@ footer{
 .footercontainer a{
     color: aliceblue;
 }
-.socialicons{
-    display: flex;
-    justify-content: space-between;
-}
 
 .footercontainer a i{
     font-size: 2em;
@@ -45,31 +69,6 @@ footer{
 }
 .footercontainer a:hover{
     background-color: rgb(241, 241, 241);
-    transition: 0.5s;
-
-}
-.socialicons a{
-    text-decoration: none;
-    padding: 10px;
-    background: white;
-    margin: 10px;
-    border-radius: 50%;
-}
-
-.socialicons a:hover{
-
-    background: #111;
-    transition: 0.5s;
-
-}
-.socialicons a i{
-    font-size: 2em;
-    color: black;
-    opacity: 0.9;
-
-}
-.socialicons a:hover i{
-    color: white;
     transition: 0.5s;
 
 }

@@ -57,33 +57,42 @@ function about() {
   <div className="about">
     <h2>About Page</h2>
     <div className="box1">
-    <p>
-        Welcome to Shoe Elegance, where fashion meets comfort! At Shoe Elegance, we believe
+    <div className="description">
+      <p>
+      Welcome to Shoe Elegance, where fashion meets comfort! At Shoe Elegance, we believe
         that the right pair of shoes can elevate your style and keep you comfortable
         throughout the day.
-      </p>
-      <p>
+          <br />
         Our mission is to provide a wide range of high-quality footwear for every
         occasion. Whether you're looking for trendy sneakers, running shoes for your
         active lifestyle, or stylish sandals for casual outings, we have it all.
-      </p>
-      <p>
-        With a commitment to quality and customer satisfaction, Shoe Elegance is your
-        trusted destination for the latest trends in footwear. Explore our collection,
-        and step into a world of style and comfort.
-      </p>
-      <p>Thank you for choosing Shoe Elegance!</p>
+        <br />        
+        </p>
+        </div>
+        <div className="img">
+        <img src={Logo} alt="" />     
+        </div>
     </div>
+    </div>
+        <div className="ourservices">
+          <h2 className="services">
+            Our Services
+          </h2>
+          <p>
+          Embrace the experience and let us elevate your journey towards fashion.
+          </p>
+          <div className="gridbox">
+            <div className="truckimg">
+            <i className="fa-solid fa-truck-fast"></i>
+            <div className="deliveryinfo">
+            <h2>D2D Delivery</h2>
+            <p>We provide Door to Door delivery in almost all part of Nepal.</p>
+            </div>
+            </div>
+          </div>
     </div>
     <footer>
     <div className="footercontainer">
-      <div className="socialicons">
-        <a href=""><i className="fab fa-facebook-f"></i> </a>
-        <a href=""><i className="fa-brands fa-instagram"></i> </a>
-        <a href=""><i className="fa brands fa-whatsapp"></i> </a>
-        <a href=""><i className="fa brand fa-youtube"></i> </a>
-        <a href=""><i className="fa brand fa-google"></i> </a>
-      </div>
       <div className="footernav">
         <ul>
           <li><a href="">Gift Card</a></li>
