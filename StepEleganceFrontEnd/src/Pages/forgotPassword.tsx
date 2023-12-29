@@ -200,4 +200,4 @@ const ForgotPassword: React.FC<ForgotPasswordProps> = () => {
   );
 };
 
-export default ForgotPassword;
+export default ForgotPassword
