@@ -9,15 +9,16 @@ import java.util.Properties;
 
 public class OtpEmailSender {
 
-    public static void main(String[] args) {
-        String toEmail = "allan.gtm@outlook.com";
-        String subject = "Your OTP Code";
-        String otp = generateOtp();
+    public String subject, otp;
+    public OtpEmailSender(){
+        subject = "Your OTP Code";
+        otp = generateOtp();
 
-        sendOtpEmail(toEmail, subject, otp);
     }
 
-    private static void sendOtpEmail(String toEmail, String subject, String otp) {
+
+
+    public void sendOtpEmail(String toEmail) {
         // SMTP server configuration
         String host = "smtp.zoho.com";
         String username = "stepelegance";
