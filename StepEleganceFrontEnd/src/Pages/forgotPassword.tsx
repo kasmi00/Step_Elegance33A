@@ -58,7 +58,7 @@ const ForgotPassword: React.FC<ForgotPasswordProps> = () => {
         setEmailNotFound(!response.data);
         if (response.data) {
           setResetStep("otp");
-          response.data=false;
+          response.data = false;
         }
       } else if (resetStep === "otp") {
         const response = await axios.post(
@@ -200,4 +200,4 @@ const ForgotPassword: React.FC<ForgotPasswordProps> = () => {
   );
 };
 
-export default ForgotPassword
+export default ForgotPassword;
