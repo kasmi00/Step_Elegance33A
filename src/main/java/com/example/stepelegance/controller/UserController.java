@@ -17,8 +17,8 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class UserController {
     private final UserService userService;
-    final private OtpEmailSender otpSender = new OtpEmailSender();
-    final private boolean[] emailOtpPassword={false, false, false};
+    private final OtpEmailSender otpSender = new OtpEmailSender();
+    private final boolean[] emailOtpPassword={false, false, false};
 
     @PostMapping("/save")
     public String createData(@RequestBody UserDTO userDTO){

@@ -12,23 +12,23 @@ import org.aspectj.lang.annotation.RequiredTypes;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name="contactUs")
+@Table(name="contactus")
 public class ContactUS {
     @Id
     @SequenceGenerator(name="contactus_seq_gen", sequenceName ="contactus_seq_gen", allocationSize = 1)
     @GeneratedValue(generator = "contactus_seq_gen", strategy = GenerationType.IDENTITY)
     private Integer contactUsId;
 
-    @Column(name="fullName", nullable = false)
-    private String FullName;
+    @Column(name="full_name", nullable = false)
+    private String fullName;
 
     @Email
-    @Column(name="email")
-    private String Email;
+    @Column(name="email", nullable = false)
+    private String email;
 
-    @Column(name = "subject")
-    private String Subject;
+    @Column(name = "subject",nullable = false)
+    private String subject;
 
-    @Column(name="message")
-    private String Message;
+    @Column(name="message", nullable = false)
+    private String message;
 }

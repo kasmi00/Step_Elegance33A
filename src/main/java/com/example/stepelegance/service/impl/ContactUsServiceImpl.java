@@ -23,10 +23,11 @@ public class ContactUsServiceImpl implements ContactUsService {
                     .orElseThrow(()-> new NullPointerException("contact us id cannot be found"));
 
         }
-
+        contactUS.setFullName(contactUsDTO.getFullName());
         contactUS.setEmail(contactUsDTO.getEmail());
         contactUS.setSubject(contactUsDTO.getSubject());
         contactUS.setMessage(contactUsDTO.getMessage());
+        contactUsRepository.save(contactUS);
         return "Forum submitted successfully";
     }
 
