@@ -2,6 +2,7 @@ package com.example.stepelegance.dto;
 
 import com.example.stepelegance.Entity.UserDefinedDataEnums.Gender;
 import com.example.stepelegance.Entity.UserDefinedDataEnums.Role;
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -23,6 +24,8 @@ public class UserDTO {
     private String lastName;
     @NotNull
     private String phone;
+
+    @Email
     @NotNull
     private String email;
     @NotNull
