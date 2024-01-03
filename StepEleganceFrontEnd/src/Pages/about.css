@@ -126,3 +126,12 @@ footer{
         margin:10px;
     }
 }
+
+.d2d{
+    display: flex;
+    width: 35%;
+}
+.import{
+    display: flex;
+    width: 35%;
+}

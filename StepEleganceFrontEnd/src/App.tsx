@@ -30,16 +30,16 @@ const router = createBrowserRouter([
     path: "/forgot",
     element: <ForgotPassword email={""} otp={""} password={""} />,
   },
-        {
-          path:"/mens",
-          element:<MenPage />
-      },
-      {
-        path:"/womens",
-        element:<WomenPage />
-    },
-        
-    
+  {
+    path: "/men",
+    element: <MenPage />
+  },
+  {
+    path: "/women",
+    element: <WomenPage />
+  },
+
+
   {
     path: "/contact",
     element: <ContactUs />,

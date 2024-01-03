@@ -1,6 +1,9 @@
 import { useRef, useState } from "react";
 import "./about.css";
 import Logo from "../assets/logo.png";
+import imp from "../assets/imp.png";
+import D2D from "../assets/D2D.png";
+import Quality from "../assets/quality.png";
 
 function about() {
   const[open,setOpen]=useState<boolean>(false);
@@ -82,14 +85,15 @@ function about() {
           Embrace the experience and let us elevate your journey towards fashion.
           </p>
           <div className="gridbox">
-            <div className="truckimg">
-            <i className="fa-solid fa-truck-fast"></i>
-            <div className="deliveryinfo">
-            <h2>D2D Delivery</h2>
-            <p>We provide Door to Door delivery in almost all part of Nepal.</p>
+            <div className="d2d"  >
+              <img src={D2D} alt="door2door" width="500" />
             </div>
+            <div className="import">
+              <img src={imp} alt="import" width="500" />
             </div>
-          </div>
+            <div className="quality-product" ></div>
+            <img src={Quality} alt="quality" width="500" />
+          </div> 
     </div>
     <footer>
     <div className="footercontainer">
