@@ -9,7 +9,7 @@ import ForgotPassword from "./Pages/forgotPassword.tsx";
 const router = createBrowserRouter(
     [
       {
-        path:"/registration",
+        path:"/register",
         element : <Registration />
       },
         {
