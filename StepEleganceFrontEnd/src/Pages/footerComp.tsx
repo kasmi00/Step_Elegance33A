@@ -12,10 +12,10 @@ function footerComp() {
                 <a href="">Find Store</a>
               </li>
               <li>
-                <a href="">Become a member</a>
+                <a href="/registration">Become a member</a>
               </li>
               <li>
-                <a href="">Get Help</a>
+                <a href="/contact">Get Help</a>
               </li>
               <li>
                 <a href="">Promotion & Discount</a>

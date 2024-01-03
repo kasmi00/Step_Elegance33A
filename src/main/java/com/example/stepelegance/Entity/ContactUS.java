@@ -1,10 +1,8 @@
 package com.example.stepelegance.Entity;
 
 import jakarta.persistence.*;
-import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.validation.constraints.Email;
 import lombok.*;
-import org.aspectj.lang.annotation.RequiredTypes;
 
 @Builder
 @Getter

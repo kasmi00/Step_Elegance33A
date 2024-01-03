@@ -1,6 +1,7 @@
 import "./Registration.css";
 import axios from "axios";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 // import myImage from '../assets/images/registrationbg.png';
 
 function Registration() {
@@ -27,6 +28,7 @@ function Registration() {
     phone: "",
     role: "USER",
   });
+  const navigate = useNavigate();
   const [passwordError, setPasswordError] = useState<string>("");
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
@@ -64,6 +66,7 @@ function Registration() {
 
         // Handle the response as needed
         console.log("Registration successful:", response.data);
+        navigate("/login");
       } catch (error) {
         // Handle errors
         console.error("Registration failed:", error);
