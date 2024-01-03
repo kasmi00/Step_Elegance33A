@@ -1,6 +1,6 @@
 package com.example.stepelegance.controller;
 
-import com.example.stepelegance.Authentication.OtpEmailSender;
+import com.example.stepelegance.controller.Authentication.OtpEmailSender;
 import com.example.stepelegance.Entity.User;
 import com.example.stepelegance.dto.UserDTO;
 import com.example.stepelegance.dto.UserForgetPasswordDTO;
