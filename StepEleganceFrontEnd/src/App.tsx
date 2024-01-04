@@ -7,6 +7,7 @@ import ForgotPassword from "./Pages/forgotPassword.tsx";
 import ContactUs from "./Pages/contactUs.tsx";
 import MenPage from "./Pages/MenPage.tsx";
 import WomenPage from "./Pages/WomenPage.tsx";
+import KidsPage from "./Pages/KidsPage.tsx";
 
 
 const router = createBrowserRouter([
@@ -31,12 +32,16 @@ const router = createBrowserRouter([
     element: <ForgotPassword email={""} otp={""} password={""} />,
   },
         {
-          path:"/mens",
+          path:"/men",
           element:<MenPage />
       },
       {
-        path:"/womens",
+        path:"/women",
         element:<WomenPage />
+    },
+    {
+      path:"/kids",
+      element:<KidsPage/>
     },
         
     

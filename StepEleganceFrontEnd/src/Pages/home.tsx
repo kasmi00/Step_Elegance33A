@@ -25,8 +25,8 @@ function home() {
       <div className="section-container">
         <li><a href="/">Home</a></li>
         <li><a href="#">New</a></li>
-        <li><a href="#">Mens</a></li>
-        <li><a href="#">Womens</a></li>
+        <li><a href="#">Men</a></li>
+        <li><a href="#">Women</a></li>
         <li><a href="#">Kids</a></li>
         <li><a href="#">Sales</a></li>
       </div>

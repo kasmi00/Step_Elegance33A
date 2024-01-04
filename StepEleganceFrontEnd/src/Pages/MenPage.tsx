@@ -20,8 +20,8 @@ function MenPage() {
           </div>
           <div className="navchild">
             <nav>
-              <a href="mens">Mens</a>
-              <a href="womens">Womens</a>
+              <a href="men">Men</a>
+              <a href="women">Women</a>
               <a href="kids">Kids</a>
               <a href="sales">Sales</a>
             </nav>

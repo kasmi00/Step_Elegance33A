@@ -1,0 +1,56 @@
+.login-body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height :100%;
+    width:100%;
+    position: fixed;
+
+}
+.login-body .container{
+    display: flex;
+    width: 75%;
+    height: 85%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    box-shadow: 8px 8px 8px rgba(13, 13, 13);
+    border: 1px solid ;
+    padding: 1%;
+    
+}
+.login-body .container .right-side{
+    display: flex;
+    flex-direction: column;
+    height : 100%;
+    width : 50%;
+}
+.login-body .container .right-side .forum{
+    display: flex;
+    flex-direction: column;
+}
+.login-body .container .right-side .forum form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.login-body .container .right-side .forum form .submit{
+    display: flex;
+    justify-content: center;
+}
+.login-body .container .right-side .forum form a{
+    display: flex;
+    justify-content: center;
+}
+
+.login-body .container .right-side .forum .register-ref {
+    display: flex;
+    justify-content: center;
+}
+.login-body .container .left-side{
+    display: flex;
+    flex-direction: column;
+    height : 100%;
+    width : 50%;
+
+}

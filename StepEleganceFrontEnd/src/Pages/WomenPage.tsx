@@ -143,8 +143,8 @@ function WomenPage() {
           </div>
           <div className="navchild">
             <nav>
-              <a href="mens">Mens</a>
-              <a href="womens">Womens</a>
+              <a href="men">Men</a>
+              <a href="women">Women</a>
               <a href="kids">Kids</a>
               <a href="sales">Sales</a>
             </nav>
@@ -177,18 +177,20 @@ function WomenPage() {
             <div className="image">
               <img src={S1}/>
             </div>
-            <h2>Fandei</h2>
+            <h2>Fandei 003</h2>
             <p>
-              discription
+              High quality ladies sports
+              Sizes available 35-39
             </p>
             <a href="">BUY NOW</a>
           </div>
           <div className="card">
             <div className="image">
               <img src={S2}/></div>
-            <h2>Title</h2>
+            <h2>Fandei 009</h2>
             <p>
-              discription
+            High quality ladies sports
+              Sizes available 35-39
             </p>
             <a href="">BUY NOW</a>
           </div>
@@ -196,18 +198,20 @@ function WomenPage() {
             <div className="image">
               <img src={S3}/>
             </div>
-            <h2>Title</h2>
+            <h2>Fandei 003</h2>
             <p>
-              discription
+            High quality ladies sports
+              Sizes available 35-39
             </p>
             <a href="">BUY NOW</a>
           </div>
           <div className="card">
             <div className="image">
               <img src={S4}/></div>
-            <h2>Title</h2>
+            <h2>Fashion 357</h2>
             <p>
-              discription
+            High quality ladies sports
+              Sizes available 35-39
             </p>
             <a href="">BUY NOW</a>
           </div>
