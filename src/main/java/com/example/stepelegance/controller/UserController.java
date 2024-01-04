@@ -1,10 +1,9 @@
 package com.example.stepelegance.controller;
 
-import com.example.stepelegance.Authentication.OtpEmailSender;
+import com.example.stepelegance.controller.Authentication.OtpEmailSender;
 import com.example.stepelegance.Entity.User;
 import com.example.stepelegance.dto.UserDTO;
 import com.example.stepelegance.dto.UserForgetPasswordDTO;
-import com.example.stepelegance.repository.UserRepository;
 import com.example.stepelegance.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -18,14 +17,8 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class UserController {
     private final UserService userService;
-    final private OtpEmailSender otpSender = new OtpEmailSender();
-    final private boolean[] emailOtpPassword={false, false, false};
-
-    @GetMapping("/data")
-    public String getData(){
-        return "data retrieved";
-    }
-
+    private final OtpEmailSender otpSender = new OtpEmailSender();
+    private final boolean[] emailOtpPassword={false, false, false};
 
     @PostMapping("/save")
     public String createData(@RequestBody UserDTO userDTO){

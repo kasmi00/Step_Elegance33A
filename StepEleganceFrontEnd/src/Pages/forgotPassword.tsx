@@ -3,8 +3,7 @@ import axios from "axios";
 import "./forgotPassword.css";
 import lock from "../assets/lock2.png";
 import email from "../assets/email-removebg-preview.png";
-import { redirect } from "react-router-dom";
-import login from "./login";
+import { useNavigate } from "react-router-dom";
 
 interface ForgotPasswordProps {
   email: string;
@@ -22,8 +21,7 @@ const ForgotPassword: React.FC<ForgotPasswordProps> = () => {
   const [emailNotFound, setEmailNotFound] = useState<boolean>(false);
   const [otpInput, setOtpInput] = useState<string>("");
   const [otpValid, setOtpValid] = useState<boolean>(false);
-  const [redirectToAnotherPage, setRedirectToAnotherPage] = useState(false);
-
+  const navigate = useNavigate();
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEmailInput(e.target.value);
   };
@@ -42,11 +40,6 @@ const ForgotPassword: React.FC<ForgotPasswordProps> = () => {
     setConfirmPasswordInput(e.target.value);
   };
 
-  const handleRedirect = () => {
-    // Set the state to true to trigger the redirection
-    setRedirectToAnotherPage(true);
-  };
-
   const handleSubmit = async () => {
     try {
       if (resetStep === "email") {
@@ -58,7 +51,7 @@ const ForgotPassword: React.FC<ForgotPasswordProps> = () => {
         setEmailNotFound(!response.data);
         if (response.data) {
           setResetStep("otp");
-          response.data=false;
+          response.data = false;
         }
       } else if (resetStep === "otp") {
         const response = await axios.post(
@@ -82,7 +75,7 @@ const ForgotPassword: React.FC<ForgotPasswordProps> = () => {
           console.log("Password reset successfully ", response.data);
           if (response.data) {
             alert("Password changed successfully.");
-            redirect("/login");
+            navigate("/login");
           } else {
             console.log("reset password failed");
           }
@@ -200,4 +193,4 @@ const ForgotPassword: React.FC<ForgotPasswordProps> = () => {
   );
 };
 
-export default ForgotPassword
+export default ForgotPassword;

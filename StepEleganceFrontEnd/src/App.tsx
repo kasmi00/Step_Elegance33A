@@ -1,5 +1,5 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Login from "./Pages/login.tsx";
+// import Login from "./Pages/login.tsx";
 import Registration from "./Pages/Registration.tsx";
 import Home from "./Pages/home.tsx";
 import About from "./Pages/about.tsx";
@@ -15,10 +15,10 @@ const router = createBrowserRouter([
     path: "/registration",
     element: <Registration />,
   },
-  {
-    path: "/login",
-    element: <Login />,
-  },
+  // {
+  //   path: "/login",
+  //   element: <Login />,
+  // },
   {
     path: "/",
     element: <Home />,
@@ -31,20 +31,16 @@ const router = createBrowserRouter([
     path: "/forgot",
     element: <ForgotPassword email={""} otp={""} password={""} />,
   },
-        {
-          path:"/men",
-          element:<MenPage />
-      },
-      {
-        path:"/women",
-        element:<WomenPage />
-    },
-    {
-      path:"/kids",
-      element:<KidsPage/>
-    },
-        
-    
+  {
+    path: "/men",
+    element: <MenPage />
+  },
+  {
+    path: "/women",
+    element: <WomenPage />
+  },
+
+
   {
     path: "/contact",
     element: <ContactUs />,

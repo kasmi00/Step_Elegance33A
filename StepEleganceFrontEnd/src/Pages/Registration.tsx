@@ -1,6 +1,7 @@
 import "./Registration.css";
 import axios from "axios";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 // import myImage from '../assets/images/registrationbg.png';
 
 function Registration() {
@@ -25,15 +26,19 @@ function Registration() {
     dateOfBirth: "",
     gender: "",
     phone: "",
-    role: "USER"
+    role: "USER",
   });
+  const navigate = useNavigate();
   const [passwordError, setPasswordError] = useState<string>("");
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
     // Check if passwords match and update error message
     if (name === "password" || name === "confirmPassword") {
-      const confirmPassword = name === "password" ? formData.confirmPassword : value;
+      const confirmPassword =
+        name === "password" ? formData.confirmPassword : value;
       validatePasswords(value, confirmPassword);
     }
   };
@@ -54,10 +59,14 @@ function Registration() {
 
     if (!passwordError) {
       try {
-        const response = await axios.post("http://localhost:8087/user/save", formData);
+        const response = await axios.post(
+          "http://localhost:8087/user/save",
+          formData
+        );
 
         // Handle the response as needed
         console.log("Registration successful:", response.data);
+        navigate("/login");
       } catch (error) {
         // Handle errors
         console.error("Registration failed:", error);
@@ -75,8 +84,8 @@ function Registration() {
             <form className="regform" onSubmit={handleSubmit}>
               {/* <img src={myImage} alt='shoe bg' /> */}
               <div className="leftright">
-                <div className='row1'>
-                  <div className='fname'>
+                <div className="row1">
+                  <div className="fname">
                     <label>First Name:</label>
                     <input
                       type="text"
@@ -109,7 +118,7 @@ function Registration() {
                       required
                     />
                   </div>
-                  
+
                   <div className="date">
                     <label>Date Of Birth:</label>
                     <input
@@ -122,7 +131,6 @@ function Registration() {
                   </div>
                 </div>
                 <div className="row2">
-
                   <div className="password">
                     <label>Password:</label>
                     <input
@@ -157,7 +165,11 @@ function Registration() {
                   </div>
                   <div className="gender">
                     <label>Gender:</label>
-                    <select name="gender" value={formData.gender} onChange={handleChange}>
+                    <select
+                      name="gender"
+                      value={formData.gender}
+                      onChange={handleChange}
+                    >
                       <option value="">--- Select---</option>
                       <option value="MALE">Male</option>
                       <option value="FEMALE">Female</option>
@@ -165,19 +177,20 @@ function Registration() {
                   </div>
                 </div>
               </div>
-              <div className='confirmbttn'>
+              <div className="confirmbttn">
                 <button>Confirm</button>
               </div>
             </form>
-            <div className='cs'>
-              <div className='signin'>
+            </div>
+            <div className="cs">
+              <div className="signin">
                 <label>Already have an account? </label>
                 <a href="/login">
                   <button className="Signin"> Sign-In </button>
                 </a>
               </div>
             </div>
-          </div>
+          
         </div>
       </div>
     </>
@@ -185,4 +198,3 @@ function Registration() {
 }
 
 export default Registration;
-

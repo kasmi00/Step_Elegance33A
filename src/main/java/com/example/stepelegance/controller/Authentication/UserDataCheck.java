@@ -1,4 +1,4 @@
-package com.example.stepelegance.Authentication;
+package com.example.stepelegance.controller.Authentication;
 
 import com.example.stepelegance.Entity.User;
 
