@@ -18,47 +18,83 @@ function topBar() {
     <>
       <header className="top">
         <div className="logo-container">
-          <a href="/"><img src={Logo} alt="Logo" height="70px" width="70px" /></a>
+          <a href="/">
+            <img src={Logo} alt="Logo" height="70px" width="70px" />
+          </a>
         </div>
         <div className="navsection">
           <nav className="navbar">
             <div className="section-container">
               <ul>
-                <li><a href="#">New</a></li>
-                <li><a href="#">Men</a></li>
-                <li><a href="#">Women</a></li>
-                <li><a href="#">Kids</a></li>
-                <li><a href="#">Sales</a></li>
+                <li>
+                  <a href="/new">New</a>
+                </li>
+                <li>
+                  <a href="/men">Men</a>
+                </li>
+                <li>
+                  <a href="/women">Women</a>
+                </li>
+                <li>
+                  <a href="/kids">Kids</a>
+                </li>
+                <li>
+                  <a href="/sales">Sales</a>
+                </li>
               </ul>
-
             </div>
-          </nav >
+          </nav>
         </div>
         <div className="inputbtt">
           <form>
-            <div className="insideform">
-            </div>
-            <input className="searchinput" type="text" placeholder="Search..." />
+            <div className="insideform"></div>
+            <input
+              className="searchinput"
+              type="text"
+              placeholder="Search..."
+            />
             <label htmlFor="searchbttn" className="search-bttn">
               <i className="fas fa-search"></i>
             </label>
           </form>
-          <div className="menubox" >
+          <div className="menubox">
             <div className="wishlist">
               <button>
-                <i className="fas fa-heart"></i></button>
+                <i className="fas fa-heart"></i>
+              </button>
             </div>
             <div className="profilebttn" ref={dropdownRef}>
-              <button onClick={e => handleDropdown(open)}>
-                <i className="fa-solid fa-user"></i></button>
+              <button onClick={(e) => handleDropdown(open)}>
+                <i className="fa-solid fa-user"></i>
+              </button>
               {open && (
                 <div className="bars">
                   <ul>
-                    <li><a href="#"><i className="fas fa-user"></i> Profile</a></li>
-                    <li><a href="/about"><i className="fas fa-book"></i> About Us</a></li>
-                    <li><a href="#"><i className="fas fa-map"></i> Location</a></li>
-                    <li><a href="#"><i className="fas fa-globe-asia"></i> Find Us On</a></li>
-                    <li><a href="#"><i className="fas fa-phone"></i> Contact Us</a></li>
+                    <li>
+                      <a href="#">
+                        <i className="fas fa-user"></i> Profile
+                      </a>
+                    </li>
+                    <li>
+                      <a href="/about">
+                        <i className="fas fa-book"></i> About Us
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <i className="fas fa-map"></i> Location
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <i className="fas fa-globe-asia"></i> Find Us On
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <i className="fas fa-phone"></i> Contact Us
+                      </a>
+                    </li>
                   </ul>
                 </div>
               )}
@@ -70,7 +106,6 @@ function topBar() {
             </div>
           </div>
         </div>
-
       </header>
     </>
   );
