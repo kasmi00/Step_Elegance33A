@@ -13,13 +13,13 @@ body{
 .navsection {
   display: flex;
   align-items: center;
-  width: 200%;
+  width: 100%;
   justify-content: center;
 
 }
 .navbar{
   display: flex;
-  width: 200%;
+  width: 100%;
   justify-content: center;
   
 }
@@ -35,7 +35,7 @@ justify-content: center;
   display: flex;
   position: relative;
 }
-.section-container li {
+.section-container ul li {
   display: flex;
   position: relative;
   list-style: none;
@@ -53,9 +53,8 @@ nav .section-container li a {
 }
 
 nav .section-container li a:hover {
-  color: #ffffff;
+  box-shadow: none;
   transition: 0.5s;
-  transition: 0.1s;
   text-transform: uppercase;
 }
 
@@ -63,13 +62,18 @@ nav .section-container li a:hover {
 .inputbtt {
   display: flex;
   width: 150%;
+  justify-content: center ;
 }
 
-form{
+.inputbtt form{
   display: flex;
-  justify-content: center;
   align-items: center;
-  column-gap: normal;
+}
+
+.inputbtt .fa-search{
+  position: relative;
+  right: 1%;
+  font-size: 20px;
 }
 
 input{
@@ -80,7 +84,7 @@ input{
   display: flex;
   justify-content: center;
   align-items: center;
-
+  width: 100%
 }
 
 label {
@@ -103,11 +107,11 @@ label {
 
 .bars {
   max-height:400px ;
-  overflow: hidden;
   position: absolute;
   background: #9F8170;
+  font-size: 100%;
   top: 12%;
-  right: 10%;
+  right: 15%;
 }
 
 .menubox ul {
@@ -122,23 +126,25 @@ label {
   display: flex;
   list-style: none;
   padding: 0px 10px 0  10px;
-  font-size: 25px;
-  margin-bottom: 20px;
+  font-size: 20px;
   border-top: 1px solid transparent;
-  border-bottom: 1px solid #333;
+  border-bottom:  #333;
 }
 
 .bars li:hover {
   box-shadow: 0 0 10px 3px #222;
   border-top: 1px solid transparent;
   border-bottom: 1px solid transparent;
-  transition: step-start 0.5s; ;
+  transition: 0.5s;
+  text-transform: uppercase;
 }
 
 .bars li a {
   color: #fff;
   font-weight: 100;
   display: flex;
+  text-decoration: none;
+  gap: 25px;
 }
 
 .menubox .profile{
@@ -156,17 +162,15 @@ label {
 
 }
 
-.bars li {
-  display: flex;
-  list-style: none;
-
-}
 .bars ul {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
   height: 50vh;
+}
+.bars ul li a i{
+  gap: 10px;
 }
 
 .slide{

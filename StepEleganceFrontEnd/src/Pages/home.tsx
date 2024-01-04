@@ -44,6 +44,8 @@ function home() {
       </div>
       <div className="inputbtt">
         <form>
+          <div className="insideform">
+          </div>
           <input className="searchinput" type="text" placeholder="Search..." />
           <label htmlFor="searchbttn" className="search-bttn">
             <i className="fas fa-search"></i>

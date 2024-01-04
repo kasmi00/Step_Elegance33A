@@ -181,6 +181,7 @@ function Registration() {
                 <button>Confirm</button>
               </div>
             </form>
+            </div>
             <div className="cs">
               <div className="signin">
                 <label>Already have an account? </label>
@@ -189,7 +190,7 @@ function Registration() {
                 </a>
               </div>
             </div>
-          </div>
+          
         </div>
       </div>
     </>
