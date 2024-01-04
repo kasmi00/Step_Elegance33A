@@ -104,11 +104,3 @@ nav .logo-container {
   word-break: break-word;
   border: 0;
 }
-form {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    column-gap: 245px;
-    height: 100%;
-    width: 100%;
-}
