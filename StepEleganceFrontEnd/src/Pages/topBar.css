@@ -1,4 +1,5 @@
 body {
+    margin: 0;
     height: 100vh;
     overflow: scroll;
 }
@@ -44,8 +45,7 @@ body {
     list-style: none;
     padding: 20px;
 }
-
-nav .section-container li a {
+.section-container li a {
     position: relative;
     display: flex;
     color: #fff;
@@ -55,7 +55,7 @@ nav .section-container li a {
     text-decoration: none;
 }
 
-nav .section-container li a:hover {
+.section-container li a:hover {
     box-shadow: none;
     transition: 0.5s;
     text-transform: uppercase;
@@ -107,17 +107,18 @@ label {
 
 .menubox {
     display: flex;
+
     width: 50%;
-    justify-content: center;
+    justify-content: space-evenly;
 }
 
 .bars {
-    max-height: 400px;
+    max-height: 320px;
     position: absolute;
+    width: 15%;
     background: #9F8170;
-    font-size: 100%;
-    top: 12%;
-    right: 15%;
+    top: 15%;
+    right: 13%;
 }
 
 .menubox ul {
@@ -128,13 +129,21 @@ label {
     height: 50vh;
 }
 
+.bars ul{
+    padding: 0;
+    margin: 0;
+}
+
 .bars li {
     display: flex;
+    justify-content: center;
     list-style: none;
-    padding: 0px 10px 0 10px;
+    
     font-size: 20px;
     border-top: 1px solid transparent;
     border-bottom: #333;
+    height: 30px;
+    width:100%;
 }
 
 .bars li:hover {
@@ -143,6 +152,7 @@ label {
     border-bottom: 1px solid transparent;
     transition: 0.5s;
     text-transform: uppercase;
+    padding: 0;
 }
 
 .bars li a {
