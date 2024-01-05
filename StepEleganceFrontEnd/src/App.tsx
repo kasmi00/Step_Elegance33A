@@ -8,7 +8,11 @@ import ContactUs from "./Pages/contactUs.tsx";
 import MenPage from "./Pages/MenPage.tsx";
 import WomenPage from "./Pages/WomenPage.tsx";
 import KidsPage from "./Pages/KidsPage.tsx";
-
+import {
+  QueryCache,
+  QueryClient,
+  QueryClientProvider,
+} from "@tanstack/react-query";
 
 const router = createBrowserRouter([
   {
@@ -33,15 +37,15 @@ const router = createBrowserRouter([
   },
   {
     path: "/men",
-    element: <MenPage />
+    element: <MenPage />,
   },
   {
     path: "/women",
-    element: <WomenPage />
+    element: <WomenPage />,
   },
   {
-    path:"/login",
-    element: <KidsPage />
+    path: "/login",
+    element: <KidsPage />,
   },
 
   {
@@ -49,10 +53,14 @@ const router = createBrowserRouter([
     element: <ContactUs />,
   },
 ]);
+
+const queryClient = new QueryClient();
 function App() {
   return (
     <>
-      <RouterProvider router={router}></RouterProvider>
+      <QueryClientProvider client={queryClient}>
+        <RouterProvider router={router}></RouterProvider>
+      </QueryClientProvider>
     </>
   );
 }

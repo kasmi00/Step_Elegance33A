@@ -8,15 +8,25 @@ import TW from "../assets/Shoe/TW.jpg";
 import TW2 from "../assets/Shoe/Tw2.jpg";
 import WFK from "../assets/Shoe/WFK.jpg";
 import yeezy from "../assets/Shoe/yeezy.jpg";
-
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
 
 function MenPage() {
+  const { data } = useQuery({
+    queryKey: ["GET_DATA"],
+    queryFn() {
+      return axios.get("http://localhost:8087/product/getAll");
+    },
+  });
+
+  console.log(data);
+
   return (
     <>
-      <div className='maindash'>
+      <div className="maindash">
         <div className="nav">
           <div className="logoimg">
-            <img src={Logo} alt='shoelogo' />
+            <img src={Logo} alt="shoelogo" />
           </div>
           <div className="navchild">
             <nav>
@@ -31,43 +41,65 @@ function MenPage() {
             <button id="search-button"> Search</button>
           </div>
           <div className="icons">
-            <nav >
-            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" display="flex" height="24" viewBox="0 -960 960 960" width="24"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></a>
-              <ul className="menu" >
+            <nav>
+              <a href="#">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  display="flex"
+                  height="24"
+                  viewBox="0 -960 960 960"
+                  width="24"
+                >
+                  <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
+                </svg>
+              </a>
+              <ul className="menu">
                 <></>
-                <li><a href="#">PROFILE</a></li>
-                <li><a href="#">ABOUT</a></li>
-                <li><a href="#">SUPPORT</a></li>
-                <li><a href="#">LOG-IN</a></li>
-                <li><a href="#">SIGN-IN</a></li>
-                <li><a href="#">LOCATION</a></li>
+                <li>
+                  <a href="#">PROFILE</a>
+                </li>
+                <li>
+                  <a href="#">ABOUT</a>
+                </li>
+                <li>
+                  <a href="#">SUPPORT</a>
+                </li>
+                <li>
+                  <a href="#">LOG-IN</a>
+                </li>
+                <li>
+                  <a href="#">SIGN-IN</a>
+                </li>
+                <li>
+                  <a href="#">LOCATION</a>
+                </li>
               </ul>
             </nav>
           </div>
         </div>
-        
       </div>
       <div>
-      <div className="container">
-        <section className="container-card1">
-          <div className="card">
-            <div className="image">
-              <img src={Erke}/>
-            </div>
-            <div className="Title">
-            <h2>Erke C0147</h2>
-            </div>
-            
-            <p>
-              High quality fibre material
-              Sizes available 39-43
-              Limited pieces available
-              Hurryup and grab it soon 
+        <div className="container">
+          <section className="container-card1">
+            {data?.data.map((i) => {
+              return (
+                <>
+                  <div className="card">
+                    <div className="image">
+                      <img src={Erke} />
+                    </div>
+                    <div className="Title">
+                      <h2>{i?.productName}</h2>
+                    </div>
 
-            </p>
-            <a href="">BUY NOW</a>
-          </div>
-          <div className="card">
+                    <p>{i?.description} </p>
+                    <a href="">BUY NOW</a>
+                  </div>
+                  ;
+                </>
+              );
+            })}
+            {/* <div className="card">
             <div className="image">
               <img src={Peak}/></div>
             <h2>Peak 2741</h2>
@@ -77,7 +109,7 @@ function MenPage() {
             </p>
             <a href="">BUY NOW</a>
           </div>
-          <div className="card">
+          <div className="card">t
           <div className="image">
               <img src={LS}/></div>
             <h2>Lineseven 0035</h2>
@@ -96,9 +128,9 @@ function MenPage() {
               Sizes available 39-43
             </p>
             <a href="">BUY NOW</a>
-          </div>
-        </section>
-        <section className="container-card2">
+          </div> */}
+          </section>
+          {/* <section className="container-card2">
           <div className="card">
           <div className="image">
               <img src={TW}/></div>
@@ -139,11 +171,8 @@ function MenPage() {
             </p>
             <a href="">BUY NOW</a>
           </div>
-        </section>
-      </div>
-      
-   
-
+        </section> */}
+        </div>
       </div>
     </>
   );
