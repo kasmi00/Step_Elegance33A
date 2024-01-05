@@ -1,3 +1,4 @@
+import "../Pages/footerComp.css";
 function footerComp() {
   return (
     <>
