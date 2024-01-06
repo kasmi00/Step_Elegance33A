@@ -8,6 +8,7 @@ import ContactUs from "./Pages/contactUs.tsx";
 import MenPage from "./Pages/MenPage.tsx";
 import WomenPage from "./Pages/WomenPage.tsx";
 import KidsPage from "./Pages/KidsPage.tsx";
+import AdminPanel from "./Pages/adminpanel.tsx";
 import {
   QueryCache,
   QueryClient,
@@ -51,6 +52,11 @@ const router = createBrowserRouter([
   {
     path: "/contact",
     element: <ContactUs />,
+  },
+
+  {
+    path: "/adminpanel",
+    element: <AdminPanel />,
   },
 ]);
 
