@@ -4,6 +4,26 @@ import { useQuery } from "@tanstack/react-query";
 import "./adminpanel.css";
 
 function AdminPanel() {
+    enum ProductType {
+        SHOE = "SHOE",
+        ACCESSORIES = "ACCESSORIES"
+    }
+    enum ProductCategory {
+        MEN = "MEN",
+        WOMEN = "WOMEN",
+        KIDS = "KIDS"
+    }
+
+    interface ProductData {
+        productName: string;
+        description: string;
+        price: number;
+        quantity: number;
+        size: number;
+        type: ProductType;
+        category: ProductCategory;
+    }
+
     const { data } = useQuery({
         queryKey: ["GET_DATA"],
         queryFn() {
@@ -14,9 +34,10 @@ function AdminPanel() {
     const [productName, setProductName] = useState('');
     const [category, setCategory] = useState('');
     const [type, setType] = useState('');
-    const [quantity, setQuantity] = useState(0);
-    const [price, setPrice] = useState(0);
+    const [quantity, setQuantity] = useState('');
+    const [price, setPrice] = useState('');
     const [description, setDescription] = useState('');
+    const [imageUrl, setImageUrl] = useState(''); // State for image URL
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -27,14 +48,19 @@ function AdminPanel() {
 
     return (
         <>
-            <header className="headadmin">Admin Panel</header>
+            <div className="topadmin">
+                <header className="headadmin"> Admin Panel</header>
+                <button className="MainDash" >
+                    <a href="/">Dashboard</a>
+                </button>
+            </div>
             <div className="adminbox">
                 <div className="buttonsleft">
                     <button className="product-bttn">Add Product</button>
                     <button className="product-bttn">Update Product</button>
                     <button className="product-bttn">Delete Product</button>
                 </div>
-                <form action="" className="adminform" onSubmit={handleSubmit}>
+                <form action="" className="adminform" onSubmit={handleSubmit} >
                     <div className="addproducts">
                         <input
                             className="detail-product-add"
@@ -62,14 +88,14 @@ function AdminPanel() {
                             type="number"
                             placeholder="Quantity"
                             value={quantity}
-                            onChange={(e) => setQuantity(parseInt(e.target.value, 10))}
+                            onChange={(e) => setQuantity(e.target.value)}
                         />
                         <input
                             className="detail-product-add"
                             type="number"
                             placeholder="Price"
                             value={price}
-                            onChange={(e) => setPrice(parseFloat(e.target.value))}
+                            onChange={(e) => setPrice(e.target.value)}
                         />
                     </div>
 

@@ -1,3 +1,24 @@
+.topadmin{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 
+    100%;
+}
+
+.MainDash{
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    text-align: center;
+    
+}
+
+.MainDash a{
+    width: 100%;
+    text-decoration: none;
+    height: 100%;
+}
 .headadmin{
     display: flex;
     justify-content: center;
