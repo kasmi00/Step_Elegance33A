@@ -1,5 +1,6 @@
 .topadmin{
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     width: 
@@ -9,9 +10,13 @@
 .MainDash{
     display: flex;
     height: 100%;
+    position: relative;
+    font-size: 80%;
+    width: 7%;
+    left: 30%;
     justify-content: center;
     text-align: center;
-    
+
 }
 
 .MainDash a{

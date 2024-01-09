@@ -185,9 +185,7 @@ function Registration() {
             <div className="cs">
               <div className="signin">
                 <label>Already have an account? </label>
-                <a href="/login">
-                  <button className="Signin"> Sign-In </button>
-                </a>
+                  <button className="Signin-bttn"><a href="/login" className="login-link-bttn"> SIGN-IN</a> </button>
               </div>
             </div>
           

@@ -96,6 +96,12 @@
 .login-bttn{
     font-size: 100%;
 }
+
+.forgetbttn {
+    text-decoration: none;
+    font-size: 100%;
+    color: #2256DC ;
+}
 .login-shoe-img {
     display: flex;
     justify-content: center;
@@ -106,4 +112,10 @@
 
 .signin-bttn{
     font-size: 75%;
+}
+
+
+.signin-bttn a{
+    text-decoration: none;
+    color: black;
 }

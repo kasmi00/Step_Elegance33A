@@ -23,11 +23,11 @@ function Login() {
             <div className="user-pass">
             <input type="text" className="user-detail" placeholder="Username" />
             <input type="password" className="user-detail" placeholder="Password"  />
-            <button className="login-bttn">LOG-IN</button>
+            <button className="login-bttn"><a href="/" className="login-bttn-link"></a>LOG-IN</button>
             <a href="/forgot" className="forgetbttn"> Forget Password</a>
             <div className="for-registration">
-              <label htmlFor=""> Don't have an account? <button className="signin-bttn">
-                SIGN-IN</button></label>
+              <label htmlFor=""> Don't have an account? <button className="signin-bttn"><a href="/registration" className="links" > SIGN-IN</a>
+               </button></label>
             </div>
             </div>
           </div>
