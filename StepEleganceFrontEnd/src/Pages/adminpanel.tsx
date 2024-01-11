@@ -102,7 +102,7 @@ function AdminPanel() {
                     <div className="addimg-product">
                         <input
                             className="img-product-add"
-                            type="text"
+                            type="file"
                             placeholder="Image"
                         />
                         <input
