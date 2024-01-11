@@ -81,7 +81,7 @@ function MenPage() {
       <div>
         <div className="container">
           <section className="container-card1">
-            {data?.data.map((i) => {
+            {data?.data.map((i : ) => {
               return (
                 <>
                   <div className="card">

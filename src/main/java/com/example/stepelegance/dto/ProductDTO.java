@@ -18,6 +18,8 @@ public class ProductDTO {
     @NotNull
     private String productName;
 
+    private byte[] productImage;
+
     @NotNull
     private String description;
 
@@ -35,4 +37,5 @@ public class ProductDTO {
 
     @NotNull
     private ProductCategory category;
+
 }
