@@ -1,37 +1,42 @@
 import "./login.css";
+import shoeimg from "../assets/loginLogo.png";
+import logoimg from "../assets/logo-removebg.png";
 
 function Login() {
   return (
     <>
-      <div className="login-body">
-        <div className="container">
-          <div className="left-side">
-            <h1>WELCOME</h1>
-          </div>
-          <div className="right-side">
-            <div className="title">
-              <h2>LOG IN</h2>
-            </div>
-            <div className="forum">
-              <form action="">
-                <div className="username">
-                  <input type="text" placeholder="Username" />
-                </div>
-                <div className="password">
-                  <input type="text" placeholder="Password" />
-                </div>
-                <div className="submit">
-                  <button>Submit</button>
-                </div>
-                <a href="/forgot">forgot password?</a>
-              </form>
-              <div className="register-ref">
-                <button>SIGN UP</button>
-              </div>
-            </div>
-          </div>
-        </div>
+    <div className="login-box">
+    <div className="rectangle">
       </div>
+    <div className="main-login-box">
+      <div className="welcome-part">
+        <h2 className="title-heading-welcome">
+          WELCOME
+        </h2>
+        <img src={shoeimg} alt="" className="login-shoe-img" />
+
+      </div>
+      <div className="login-form-part">
+        <form action="" className="login-info">
+          <div className="login-form-info">
+            <img src={logoimg} alt="" className="SE-logo"/>
+            <div className="user-pass">
+            <input type="text" className="user-detail" placeholder="Username" />
+            <input type="password" className="user-detail" placeholder="Password"  />
+            <button className="login-bttn"><a href="/" className="login-bttn-link"></a>LOG-IN</button>
+            <a href="/forgot" className="forgetbttn"> Forget Password</a>
+            <div className="for-registration">
+              <label htmlFor=""> Don't have an account? <button className="signin-bttn"><a href="/registration" className="links" > SIGN-IN</a>
+               </button></label>
+            </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    </div>
+      
+
     </>
   );
 }
