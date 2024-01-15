@@ -17,7 +17,6 @@ public class ContactUsController {
 
     @PostMapping("/save")
     public String createData(@RequestBody ContactUsDTO contactUsDTO){
-        System.out.println(contactUsDTO);
         contactUsService.save(contactUsDTO);
         return "success";
     }
