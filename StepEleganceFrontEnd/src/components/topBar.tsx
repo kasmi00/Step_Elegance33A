@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 import Logo from "../assets/logo.png";
-import "../Pages/topBar.css"
+import "../components/topBar.css"
 
 function topBar() {
   const [open, setOpen] = useState<boolean>(false);

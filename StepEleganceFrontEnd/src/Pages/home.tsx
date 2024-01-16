@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import "./home.css";
-import TopBar from "./topBar";
-import FooterComp from "./footerComp";
+import TopBar from "../components/topBar";
+import FooterComp from "../components/footerComp";
 
 function home() {
   return (
