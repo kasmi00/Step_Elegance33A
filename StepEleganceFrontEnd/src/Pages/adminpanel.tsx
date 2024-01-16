@@ -16,6 +16,7 @@ function AdminPanel() {
 
     interface ProductData {
         productName: string;
+        productImage: File | Blob;
         description: string;
         price: number;
         quantity: number;
@@ -37,16 +38,15 @@ function AdminPanel() {
     const [quantity, setQuantity] = useState('');
     const [price, setPrice] = useState('');
     const [description, setDescription] = useState('');
-    const [imageUrl, setImageUrl] = useState(''); // State for image URL
+    const [productImage, setProductImage] = useState(''); // State for image URL
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log("Product Information:", { productName, category, type, quantity, price, description });
+        console.log("Product Information:", { productName, productImage, category, type, quantity, price, description });
     };
-
     console.log(data);
 
-    return (
+    return(
         <>
             <div className="topadmin">
                 <header className="headadmin"> Admin Panel</header>
@@ -104,6 +104,7 @@ function AdminPanel() {
                             className="img-product-add"
                             type="file"
                             placeholder="Image"
+                            onChange ={(e) => setProductImage(e.target.value)}
                         />
                         <input
                             className="description-product-add"
@@ -112,7 +113,7 @@ function AdminPanel() {
                             value={description}
                             onChange={(e) => setDescription(e.target.value)}
                         />
-                        <button className="add-bttn-submit" type="submit">
+                        <button className="add-bttn-submit" type="submit" onClick={handleSubmit}>
                             Submit
                         </button>
                     </div>
