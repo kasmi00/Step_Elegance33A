@@ -4,6 +4,7 @@ import com.example.stepelegance.Entity.UserDefinedDataEnums.ProductCategory;
 import com.example.stepelegance.Entity.UserDefinedDataEnums.ProductType;
 import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -24,8 +25,8 @@ public class Product {
     @Column(name="product_name", nullable = false)
     private String productName;
 
-    @Column(name = "product_image", nullable = false, columnDefinition = "oid")
-    private byte[] productImage;
+    @Column(name = "product_image")
+    private String productImage;
 
     @Column(name="description", nullable = false)
     private String description;

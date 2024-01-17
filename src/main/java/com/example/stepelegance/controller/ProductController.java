@@ -5,6 +5,7 @@ import com.example.stepelegance.dto.ProductDTO;
 import com.example.stepelegance.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 import java.util.Optional;
@@ -15,6 +16,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class ProductController {
     private final ProductService productService;
+
     @GetMapping("/data")
     public String getData(){
         return "data retrieved";
@@ -22,10 +24,16 @@ public class ProductController {
 
 
     @PostMapping("/save")
-    public String createData(@RequestBody ProductDTO productDTO){
+    public String createData(@ModelAttribute ProductDTO productDTO){
         System.out.println(productDTO);
         productService.save(productDTO);
         return "created data";
+    }
+
+    @PostMapping("/save-image")
+    public String saveImage(@ModelAttribute ProductDTO productDTO){
+        return productService.saveImagePath(productDTO);
+
     }
 
     @GetMapping("/getAll")

@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 @CrossOrigin(origins ="http://localhost:5173/" )
@@ -51,15 +52,19 @@ public class UserController {
 
     @PostMapping("/login")
     public Optional<String> userLogIn(@RequestBody UserDTO userDTO){
-//        if (userService.getByEmail(userDTO.getEmail()).isPresent()){
-//            Optional<User> user =this.getByEmail(userDTO.getEmail());
-//            if (userDTO.getPassword()==user.getPassword()){
-//                return Optional.ofNullable("authorized");
-//            }
-//        }else{
-//            return Optional.of("email not found");
-//        }
-        return "".describeConstable();
+        if (userService.getByEmail(userDTO.getEmail()).isPresent()){
+            Optional<User> user =this.getByEmail(userDTO.getEmail());
+            if (user.isPresent()) {
+                if (Objects.equals(userDTO.getPassword(), user.get().getPassword())) {
+                    return Optional.of("authorized");
+                }
+            }else{
+                return Optional.of("email not found");
+            }
+        }else{
+            return Optional.of("email not found");
+        }
+        return Optional.empty();
     }
 
     @PostMapping("/sendotp")

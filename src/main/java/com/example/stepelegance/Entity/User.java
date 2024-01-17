@@ -61,6 +61,6 @@ public class User {
     private String token;
 
 
-    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL)
     private Wishlist wishlist;
 }
