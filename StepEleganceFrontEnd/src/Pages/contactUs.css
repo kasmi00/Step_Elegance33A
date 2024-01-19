@@ -31,6 +31,8 @@ nav .logo-container {
 }
 
 .body .forum .title{
+  display: flex;
+  justify-content: center;
   padding-top: 4%;
   width:100%;
 }

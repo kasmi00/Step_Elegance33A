@@ -4,8 +4,10 @@ import com.example.stepelegance.Entity.Product;
 import com.example.stepelegance.dto.ProductDTO;
 import com.example.stepelegance.service.ProductService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 import java.util.Optional;
@@ -47,7 +49,16 @@ public class ProductController {
         return productService.getById(id);
     }
 
-    @DeleteMapping("/deleteById/{id}")
+    @GetMapping("/getImage/{ProductName}")
+    public ResponseEntity<?> getImageByName(@PathVariable("ProductName") String productName) {
+        byte[] image = productService.getImage(productName);
+        return ResponseEntity.status(HttpStatus.OK)
+                .contentType(MediaType.valueOf("image/png"))
+                .body(image);
+
+    }
+
+        @DeleteMapping("/deleteById/{id}")
     public String deleteById(@PathVariable("id") Integer productId){
         productService.deleteById(productId);
         return "product deleted.";

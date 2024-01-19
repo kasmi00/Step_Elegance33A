@@ -7,12 +7,14 @@ import com.example.stepelegance.dto.ProductDTO;
 import com.example.stepelegance.repository.ProductRepository;
 import com.example.stepelegance.service.ProductService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
-import java.io.IOException;
+import java.nio.file.Files;
 import java.util.List;
 import java.util.Optional;
 
@@ -82,7 +84,19 @@ public class ProductServiceImpl implements ProductService {
         return "product Image saved successfully";
     }
 
-
+    @Override
+    public byte[] getImage(String productName) {
+        Optional<Product> product = productRepository.findByProductName(productName);
+         String filePath = imageFilePath+product.get().getProductImage();
+        try {
+            byte[] image = Files.readAllBytes(new File(filePath).toPath());
+            return image;
+        }
+        catch (Exception e){
+            System.out.println(e);
+        }
+        return null;
+    }
 
     @Override
     public List<Product> getAll() {
