@@ -60,7 +60,4 @@ public class User {
     @Column(name="token", nullable = false, unique = true)
     private String token;
 
-
-    @OneToOne(cascade = CascadeType.ALL)
-    private Wishlist wishlist;
 }

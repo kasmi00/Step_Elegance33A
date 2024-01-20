@@ -12,11 +12,8 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name="cart", uniqueConstraints = {
-        @UniqueConstraint(name = "UNIQUE_user_id", columnNames = "user_id")
-})
+@Table(name="cart")
 public class Cart {
-
     @Id
     @SequenceGenerator(name="cart_seq_gen", sequenceName = "cart_id_sequence", allocationSize = 1, initialValue = 1)
     @GeneratedValue(generator = "cart_seq_gen", strategy = GenerationType.IDENTITY)

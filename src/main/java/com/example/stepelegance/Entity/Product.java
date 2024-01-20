@@ -48,11 +48,4 @@ public class Product {
     @Column(name="category", nullable = false)
     private ProductCategory category;
 
-    /*
-    @ManyToOne
-    @JoinColumn(name = "wishlist_id", nullable = true, unique = true)
-    private WishList wishlist;
-     */
-    @ManyToMany(mappedBy = "products")
-    private List<Wishlist> wishlists;
 }

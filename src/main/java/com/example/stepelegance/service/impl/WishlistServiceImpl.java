@@ -24,7 +24,7 @@ public class WishlistServiceImpl implements WishlistService {
                     .orElseThrow(()->new NullPointerException("WishList not found"));
         }
         wishlist.setUser(wishlistDTO.getUser());
-        wishlist.setProducts(wishlistDTO.getProducts());
+        wishlist.setProduct(wishlistDTO.getProduct());
 
         wishlistRepository.save(wishlist);
 
