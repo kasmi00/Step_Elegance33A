@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
-import java.util.List;
 
 @Builder
 @Getter
@@ -15,15 +14,17 @@ import java.util.List;
 @Table(name="cart")
 public class Cart {
     @Id
-    @SequenceGenerator(name="cart_seq_gen", sequenceName = "cart_id_sequence", allocationSize = 1, initialValue = 1)
+    @SequenceGenerator(name="cart_seq_gen", sequenceName = "cart_id_sequence", allocationSize = 1)
     @GeneratedValue(generator = "cart_seq_gen", strategy = GenerationType.IDENTITY)
     private Integer cartId;
 
-    @OneToOne
+    @ManyToOne
+    @JoinColumn(name="user_id", nullable = false)
     private User user;
 
-    @ManyToMany
-    private List<Product> product;
+    @ManyToOne
+    @JoinColumn(name = "product_id", nullable = false)
+    private Product product;
 
     @Column(name="date", nullable = false)
     private LocalDate date;
