@@ -19,12 +19,6 @@ import java.util.Optional;
 public class ProductController {
     private final ProductService productService;
 
-    @GetMapping("/data")
-    public String getData(){
-        return "data retrieved";
-    }
-
-
     @PostMapping("/save")
     public String createData(@ModelAttribute ProductDTO productDTO){
         System.out.println(productDTO);
