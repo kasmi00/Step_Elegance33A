@@ -2,16 +2,30 @@ import { useRef, useState } from "react";
 import "./home.css";
 import TopBar from "../components/topBar";
 import FooterComp from "../components/footerComp";
+import Products from "../components/card";
+import Slideshow from "../components/slideshow";
 
 function home() {
   return (
-    <>
-      <TopBar />
+    <><div className="homepagetopbar">
+        <TopBar />
+    </div>
+
+    <div className="ads">
+      <Slideshow/>
+    </div>
+      
 
       <div className="bodysec">
-        <div className="slidesbody"></div>
+        <div className="productdisplay">
+          <Products/>
+        </div>
       </div>
+
+      <div className="homepagefooter">
       <FooterComp />
+      </div>
+      
     </>
   );
 }
