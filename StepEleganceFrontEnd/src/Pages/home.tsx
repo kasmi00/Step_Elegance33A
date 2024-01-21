@@ -12,7 +12,11 @@ function home() {
     </div>
 
     <div className="ads">
+      
       <Slideshow/>
+      <p className="ourproducts">
+        Our Products
+      </p>
     </div>
       
 

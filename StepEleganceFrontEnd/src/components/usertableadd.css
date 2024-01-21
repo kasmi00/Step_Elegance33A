@@ -20,30 +20,36 @@ th {
     justify-content: center;
     margin-bottom: 10px;
 }
-
-l.labelbox {
+.downtablediv{
+    width: 50%;
+}
+.formforadduser{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+.labellabel{
+    width: 50%;
+}
+.labelbox {
     display: flex;
     width: 50%;
-    flex-direction: column;
-    flex-wrap: wrap;
+    flex-direction: row;
+    
     
 }
 
-input {
-    width: 100%;
-    padding: 8px;
+.adduserbttn {
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
     margin-bottom: 10px;
+    height: 5vh;
+    position: relative;
+    left: 90%;
 }
 
-button {
-    background-color: #4caf50;
-    color: white;
-    padding: 10px;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-}
-
-button:hover {
-    background-color: #45a049;
+.adduserbttn:hover {
+   
 }

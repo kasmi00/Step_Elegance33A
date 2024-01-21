@@ -3,7 +3,14 @@
     width: 100%;
     background-color: black;
 }
-
+.ourproducts{
+    font-weight: 200;
+    font-size: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin:0;
+}
 .productdisplay{
     height: 100vh;
 }

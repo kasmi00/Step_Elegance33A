@@ -65,7 +65,7 @@ const UserTable: React.FC<UserTableProps> = ({ data }) => {
     };
 
     return (
-        <div>
+        <>
             <table>
                 <thead>
                     <tr>
@@ -94,37 +94,42 @@ const UserTable: React.FC<UserTableProps> = ({ data }) => {
             </table>
 
             {/* Form to add a new user */}
-            <div>
+           
                 <h2 className="adduserheader">Add User</h2>
-                <label>First Name:</label>
+                <div className='downtablediv'>
+                <div className="linsidedivform">
+                <form action="" className='formforadduser'>
+                <label className='labellabel'>First Name:</label>
                 <input className='labelbox'
                     type="text"
                     value={newUser.firstName}
                     onChange={(e) => setNewUser({ ...newUser, firstName: e.target.value })}
                 />
-                <label>Last Name:</label>
+                <label className='labellabel'>Last Name:</label>
                 <input  className='labelbox' type="text" value={newUser.lastName}
                     onChange={(e) => setNewUser({ ...newUser, lastName: e.target.value })}
                 />
-                <label>Phone Number:</label>
+                <label className='labellabel'>Phone Number:</label>
                 <input  className='labelbox' type="number" value={newUser.phone}
                     onChange={(e) => setNewUser({ ...newUser, phone: parseInt(e.target.value, 10) })}
                 />
-                <label>Gender:</label>
+                <label className='labellabel'>Gender:</label>
                 <input  className='labelbox'  type="text" value={newUser.gender}
                     onChange={(e) => setNewUser({ ...newUser, gender: e.target.value })}
                 />
-                <label>Email:</label>
+                <label className='labellabel'>Email:</label>
                 <input  className='labelbox' type="text" value={newUser.email}
                     onChange={(e) => setNewUser({ ...newUser, email: e.target.value })}
                 />
-                <label>Date of Birth:</label>
+                <label className='labellabel'>Date of Birth:</label>
                 <input  className='labelbox' type="date" value={newUser.dateOfBirth.toISOString().split('T')[0]}
-                    onChange={(e) => setNewUser({ ...newUser, dateOfBirth: new Date(e.target.value) })}
-                />
-                <button onClick={handleAddUser}>Add User</button>
+                    onChange={(e) => setNewUser({ ...newUser, dateOfBirth: new Date(e.target.value) })}/>
+                </form>
+                </div>
+                <button className='adduserbttn' onClick={handleAddUser}>Add User</button>
+                
             </div>
-        </div>
+        </>
     );
 };
 
