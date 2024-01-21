@@ -34,16 +34,16 @@ public class WishlistServiceImpl implements WishlistService {
 
     @Override
     public List<Wishlist> getAll() {
-        return null;
+        return wishlistRepository.findAll();
     }
 
     @Override
     public Optional<Wishlist> getById(Integer wishlistId) {
-        return Optional.empty();
+        return wishlistRepository.findById(wishlistId);
     }
 
     @Override
     public void deleteById(Integer wishlistId) {
-
+        wishlistRepository.deleteById(wishlistId);
     }
 }
