@@ -13,11 +13,7 @@
     justify-content: center;
 }
 .hello button{
-    display: flex;
-    position: relative;
-    justify-content: center;
-    height: 10% ;
-    top: 60px;
+  
 } 
 
 .hello p {
@@ -31,4 +27,19 @@
     height: 100vh;
     justify-content: center ;
     align-items: center;
+}
+
+.buttntobuy{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.addcartbttn{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    height: 3vh;
+    gap: 40px;
+    top: 60px;
 }

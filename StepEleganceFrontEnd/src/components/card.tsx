@@ -17,10 +17,13 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => (
         <h3>{product.name}</h3>
         <p className='priceofproduct'>Price: ${product.price}</p>
         {/* Add more product details as needed */}
-
+        <div className="buttntobuy">
         <button className='addcartbttn'>
-            Add to Cart
+            Buy Now
             </button>
+        <button className='addcartbttn'>
+            Add to Cart</button>
+        </div>
     </div>
 );
 
