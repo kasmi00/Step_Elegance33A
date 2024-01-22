@@ -11,20 +11,16 @@ import {
     EditOutlined,
 } from '@ant-design/icons';
 import './admindashboard.css';
-import UserTable from './usertableadd'; // Assuming UserTable is in the same directory
+import Usertableadd from './usertableadd';
+import Usertableupdate from './usertableupdate';
 
 const { Header, Content, Sider } = Layout;
 
 const App: React.FC = () => {
-    const [showUserTable, setShowUserTable] = useState(false);
+    const [activeMenuItem, setActiveMenuItem] = useState<string | null>(null);
 
     const handleMenuClick = (key: string) => {
-        // Check if the "Add User" menu item is clicked
-        if (key === '2.1') {
-            setShowUserTable(true);
-        } else {
-            setShowUserTable(false);
-        }
+        setActiveMenuItem(key);
     };
 
     const userData = [
@@ -82,7 +78,8 @@ const App: React.FC = () => {
                 <Header className="site-layout-sub-header-background" />
                 <Content style={{ margin: '16px' }}>
                     <div className="site-layout-background">
-                        {showUserTable && <UserTable data={userData} />}
+                        {activeMenuItem === '2.1' && <Usertableadd data={userData} />}
+                        {activeMenuItem === '2.2' && <Usertableupdate data={userData} />}
                     </div>
                 </Content>
             </Layout>
