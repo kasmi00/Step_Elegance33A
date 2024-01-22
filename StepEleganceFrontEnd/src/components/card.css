@@ -1,0 +1,45 @@
+.hello{
+    display: flex;
+    flex-direction: column ;
+    border: 1px solid #ccc; 
+    padding: 10px; 
+    margin: 10px;
+    width: 200px; 
+    height: 30vh;
+    align-items: center;
+}
+.hello h3{
+    display: flex;
+    justify-content: center;
+}
+.hello button{
+  
+} 
+
+.hello p {
+    position: relative;
+    top: 60px;
+}
+
+.containeroftheproduct{
+    display: flex;
+     flex-wrap: wrap;
+    height: 100vh;
+    justify-content: center ;
+    align-items: center;
+}
+
+.buttntobuy{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.addcartbttn{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    height: 3vh;
+    gap: 40px;
+    top: 60px;
+}

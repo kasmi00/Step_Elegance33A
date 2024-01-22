@@ -57,7 +57,10 @@
 				<version>1.6.2</version>
 			</dependency>
 
-			<!-- Apache Commons Text -->
+			<!-- Apac
+
+
+			he Commons Text -->
 			<dependency>
 				<groupId>org.apache.commons</groupId>
 				<artifactId>commons-text</artifactId>

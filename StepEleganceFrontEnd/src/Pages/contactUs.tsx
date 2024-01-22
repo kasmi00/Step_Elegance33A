@@ -1,7 +1,7 @@
 import "./contactUs.css";
 import { useState, useRef } from "react";
-import TopBar from "./topBar";
-import FooterComp from "./footerComp";
+import TopBar from "../components/topBar";
+import FooterComp from "../components/footerComp";
 import axios from "axios";
 
 function contactUs() {

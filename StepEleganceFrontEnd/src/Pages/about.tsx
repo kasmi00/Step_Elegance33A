@@ -3,9 +3,10 @@ import "./about.css";
 import Logo from "../assets/logo.png";
 import imp from "../assets/imp.png";
 import D2D from "../assets/D2D.png";
-import Quality from "../assets/Quality.png";
-import FooterComp from "./footerComp";
-import TopBar from "./topBar";
+import Quality from "../assets/quality.png";
+import FooterComp from "../components/footerComp";
+import TopBar from "../components/topBar";
+
 function about() {
   const [open, setOpen] = useState<boolean>(false);
   const dropdownRef = useRef<HTMLDivElement>(null);

@@ -1,4 +1,4 @@
-import "../Pages/footerComp.css";
+import "../components/footerComp.css";
 function footerComp() {
   return (
     <>

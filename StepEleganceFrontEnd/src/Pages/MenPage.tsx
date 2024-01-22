@@ -1,6 +1,6 @@
 import "./MenPage.css";
-import TopBar from "./topBar";
-import FooterComp from "./footerComp";
+import TopBar from "../components/topBar";
+import FooterComp from "../components/footerComp";
 import Logo from "../assets/logo.png";
 import Erke from "../assets/Shoe/Erke.jpg";
 import Peak from "../assets/Shoe/Peak.jpg";
@@ -12,7 +12,7 @@ import WFK from "../assets/Shoe/WFK.jpg";
 import yeezy from "../assets/Shoe/yeezy.jpg";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import footerComp from "./footerComp";
+import footerComp from "../components/footerComp";
 
 function MenPage() {
   enum ProductType{
