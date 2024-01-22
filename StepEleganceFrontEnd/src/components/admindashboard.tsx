@@ -6,7 +6,7 @@ import {
     UserOutlined,
     DropboxOutlined,
     SolutionOutlined,
-    LineChartOutlined ,
+    LineChartOutlined,
     SettingOutlined,
     PlusOutlined,
     EditOutlined,
@@ -14,7 +14,9 @@ import {
 import './admindashboard.css';
 import Usertableadd from './usertableadd';
 import Usertableupdate from './usertableupdate';
+import OrderTracking from './ordertracking';
 import ProductAddForm from './productaddtable';
+import OrderUpdate from './orderupdate';
 
 const { Header, Content, Sider } = Layout;
 
@@ -39,9 +41,11 @@ interface ProductData {
     category: ProductCategory;
 }
 
-const App: React.FC = () => {
+const AdminDashboard: React.FC = () => {
     const [activeMenuItem, setActiveMenuItem] = useState<string | null>(null);
-    const [productData, setProductData] = useState<ProductData[]>([]); // State to hold product data
+    const [productData, setProductData] = useState<ProductData[]>([]);
+    const [orderData, setOrderData] = useState<Order[]>([]);
+
 
     const handleMenuClick = (key: string) => {
         setActiveMenuItem(key);
@@ -51,11 +55,18 @@ const App: React.FC = () => {
         setProductData((prevData) => [...prevData, product]);
     };
 
-    // Placeholder userData
+    const handleTrackOrder = (order: Order) => {
+        setOrderData((prevData) => [...prevData, order]);
+    };
+
     const userData = [
         { id: 1, name: 'John Doe', age: 25, email: 'john@example.com' },
         { id: 2, name: 'Jane Doe', age: 30, email: 'jane@example.com' },
     ];
+
+    function handleUpdateOrder(updatedOrder: any ): void {
+        throw new Error('Function not implemented.');
+    }
 
     return (
         <Layout style={{ minHeight: '100vh' }}>
@@ -88,13 +99,13 @@ const App: React.FC = () => {
                     </Menu.SubMenu>
                     <Menu.SubMenu key="4" icon={<DropboxOutlined />} title="Orders">
                         <Menu.Item key="4.1" icon={<SolutionOutlined />}>
-                           Track Order
+                            Track Order
                         </Menu.Item>
                         <Menu.Item key="4.2" icon={<EditOutlined />}>
                             Update Order
                         </Menu.Item>
                     </Menu.SubMenu>
-                    <Menu.Item key="5" icon={<LineChartOutlined  />}>
+                    <Menu.Item key="5" icon={<LineChartOutlined />}>
                         Chart
                     </Menu.Item>
                     <Menu.Item key="6" icon={<SettingOutlined />}>
@@ -108,10 +119,11 @@ const App: React.FC = () => {
                     <div className="site-layout-background">
                         {activeMenuItem === '2.1' && <Usertableadd data={userData} />}
                         {activeMenuItem === '2.2' && <Usertableupdate data={userData} />}
-
                         {activeMenuItem === '3.1' && (
                             <ProductAddForm onAddProduct={handleAddProduct} productData={productData} />
                         )}
+                        {activeMenuItem === '4.1' && <OrderTracking orders={orderData} />}
+                        {activeMenuItem === '4.2' && (<OrderUpdate order={orderData.length > 0 ? orderData[orderData.length - 1] : null} onUpdateOrder={handleUpdateOrder} />)}
                     </div>
                 </Content>
             </Layout>
@@ -119,4 +131,4 @@ const App: React.FC = () => {
     );
 };
 
-export default App;
+export default AdminDashboard;
