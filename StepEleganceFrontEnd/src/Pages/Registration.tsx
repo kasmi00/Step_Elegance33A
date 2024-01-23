@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 function Registration() {
   interface FormData {
     firstName: string;
-    lastName: string;
+    lastName: string; 
     email: string;
     password: string;
     confirmPassword: string;
