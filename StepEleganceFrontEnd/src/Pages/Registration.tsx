@@ -6,7 +6,7 @@ import React, { useState } from "react";
 function Registration() {
   interface FormData {
     firstName: string;
-    lastName: string;
+    lastName: string; 
     email: string;
     password: string;
     confirmPassword: string;
