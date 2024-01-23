@@ -20,20 +20,11 @@ public class Wishlist {
     @SequenceGenerator(name="wishlist_seq_gen", sequenceName = "wishlist_id_seq", allocationSize = 1)
     @GeneratedValue(generator ="wishlist_seq_gen" ,strategy = GenerationType.IDENTITY)
     private int wishlistId;
-
-    @OneToOne
-    @JoinColumn(name = "user_id", unique = true, nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-    /*
-    @OneToMany(mappedBy = "wishlist", cascade = CascadeType.ALL)
-    private List<Product> products;
-    */
-    @ManyToMany
-    @JoinTable(
-            name = "wishlist_product",
-            joinColumns = @JoinColumn(name = "wishlist_id"),
-            inverseJoinColumns = @JoinColumn(name = "product_id")
-    )
-    private List<Product> products;
+    @ManyToOne
+    @JoinColumn(name = "product_id", nullable = false)
+    private Product product;
 }

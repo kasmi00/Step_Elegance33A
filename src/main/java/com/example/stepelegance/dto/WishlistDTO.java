@@ -17,5 +17,5 @@ public class WishlistDTO {
     @NotNull
     private User user;
     @NotNull
-    private List<Product> products;
+    private Product product;
 }

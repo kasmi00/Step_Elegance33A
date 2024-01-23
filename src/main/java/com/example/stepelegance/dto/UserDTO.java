@@ -2,13 +2,13 @@ package com.example.stepelegance.dto;
 
 import com.example.stepelegance.Entity.UserDefinedDataEnums.Gender;
 import com.example.stepelegance.Entity.UserDefinedDataEnums.Role;
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
-import java.util.UUID;
 
 @Data
 @NoArgsConstructor
@@ -23,6 +23,8 @@ public class UserDTO {
     private String lastName;
     @NotNull
     private String phone;
+
+    @Email
     @NotNull
     private String email;
     @NotNull
@@ -33,7 +35,5 @@ public class UserDTO {
     private LocalDate dateOfBirth;
 
     private String token;
-
-
 
 }

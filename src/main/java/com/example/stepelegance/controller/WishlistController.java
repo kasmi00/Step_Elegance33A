@@ -53,6 +53,7 @@ public class WishlistController {
         }
     ]
 
+
 }
      */
         System.out.println(wishlistDTO);

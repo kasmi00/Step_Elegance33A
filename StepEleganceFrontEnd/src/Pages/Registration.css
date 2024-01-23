@@ -1,4 +1,4 @@
-  .registrationbg{
+  .registrationbg {
     display: flex;
     background-image: url('../assets/registrationbg.jpg');
     min-height: 100vh;
@@ -6,9 +6,9 @@
     background-size: cover;
     justify-content: center;
     align-items: center;
-    }
-  
-  .mainbox{
+  }
+
+  .mainbox {
     display: flex;
     position: relative;
     flex-direction: column;
@@ -19,104 +19,100 @@
     height: 560px;
     border: #333;
   }
-  
-  h2 {
+
+  .header h2 {
+    margin-top: 0;
     text-align: center;
     padding-bottom: 10px;
     color: #333;
     font-size: 30px;
   }
 
-  .below{
+  .below {
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 20px;
     /* width: 759px; */
-    /* height: 470px; */
+    height: 470px;
     margin: 0;
     padding: 0;
-  
+
   }
 
-  form {
+  form .row1 {
     display: flex;
-  
-    justify-content: center;
-    flex-direction: row;
-    column-gap:245px ;   
-  }
-
-  form .row1{
-    display: flex;
-    justify-content: center;
+    justify-content: space-around;
     flex-direction: column;
-    align-items: flex-start;
     height: 340px;
   }
 
   form .row1 .fname {
-    display:flex ;
+    display: flex;
     flex-direction: column;
 
   }
+
   form .row1 .lname {
-    display:flex ;
+    display: flex;
     flex-direction: column;
 
   }
 
   form .row1 .email {
-    display:flex ;
-    flex-direction: column;
-
-  }
-  
-  form .row1 .date {
-    display:flex ;
-    flex-direction: column;
-    
-
-
-  }
-
-  form .row2{
     display: flex;
-    justify-content: flex-start;
+    flex-direction: column;
+
+  }
+
+  form .row1 .date {
+    display: flex;
+    flex-direction: column;
+
+
+
+  }
+
+  form .row2 {
+    display: flex;
+    justify-content: space-around;
     flex-direction: column;
     align-items: flex-start;
     height: 340px;
   }
 
-  
+
   form .row2 .password {
-    display:flex ;
+    display: flex;
     flex-direction: column;
 
   }
+
   form .row2 .confirmpassword {
-    display:flex ;
+    display: flex;
     flex-direction: column;
 
   }
+
   form .row2 .phonenumber {
-    display:flex ;
+    display: flex;
     flex-direction: column;
 
   }
+
   form .row2 .gender select {
-    display:flex ;
+    display: flex;
     flex-direction: column;
     color: #000000;
 
   }
-  
+
   label {
     font-size: larger;
     margin-bottom: 8px;
     color: #000000;
   }
-  
+
   input {
     font-style: inherit;
     padding: 8px;
@@ -125,13 +121,13 @@
     border-radius: 4px;
   }
 
-  .cs{
+  .cs {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 20px;
   }
-  
+
   button {
     border-radius: 4px;
     cursor: pointer;
@@ -139,65 +135,83 @@
     /* padding: 5px; */
     border-color: #000000;
   }
-  
+
   button:hover {
     background-color: #af724c;
 
   }
-  
-  
-  .cs .confirmbttn  button{
+
+
+  .cs .confirmbttn button {
     display: flex;
     justify-content: center;
     border-color: #000000;
     background-color: grey;
+  }
 
-    
-    
-}
+  .regform {
+    display: flex;
+    flex-direction: column;
+    opacity: 50;
+    height: 450px;
+    gap: 20px;
+  }
 
-  .cs .signin button{
+  .cs button {
+    display: flex;
+  }
+
+  .mainbox .below .signin {
     display: flex;
     position: relative;
-    top:4px;
-    color: blue;
-    background-color: #fff;
+    gap: 5px;
+    top: 15px;
   }
- 
 
-.regform{
-  display: flex;
-  flex-direction: column;
-  opacity: 50;
-}
+  .leftright {
+    display: flex;
+    justify-content: space-around;
 
-.cs  button{
-  display: flex; 
-}
+  }
 
-.mainbox .below  .signin{
-  display: flex;
-  position: relative;
-  gap: 5px;
-  top:15px;
-}
-.leftright{
-  display: flex;
-  justify-content: space-around;
+  .Signin button {
+    display: flex;
+    position: relative;
+    gap: 10px;
+    box-shadow: none;
+    font-size: 100%;
+    border-color: none;
+  }
 
-}
+  .confirmbttn {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    height: 15%;
+    align-items: center;
 
-button .Signin{
-  display: flex;
-  position: relative;
-  top: 10px;
-  gap: 10px;
-}
 
-.confirmbttn{
-  display: flex;
-  justify-content: center;
-  position: relative;
-  top:25px;
-  font-size: 20px;
-}
+  }
+
+  .confirmbttn button {
+    height: 50%;
+    width: 25%;
+    font-size: 100%;
+  }
+
+  .signin {
+    display: flex;
+    width: 55%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+  }
+
+  .Signin-bttn {
+    font-size: 80%;
+  }
+
+  .login-link-bttn {
+    text-decoration: none;
+    color: black;
+  }
