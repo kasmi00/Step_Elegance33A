@@ -7,15 +7,14 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class WishlistDTO {
     private Integer wishlistId;
-    @NotNull
     private User user;
-    @NotNull
     private Product product;
+    private String userEmail;
+    private String productName;
 }

@@ -4,6 +4,7 @@ import com.example.stepelegance.Entity.Cart;
 import com.example.stepelegance.Entity.User;
 import com.example.stepelegance.dto.CartDTO;
 import com.example.stepelegance.repository.CartRepository;
+import com.example.stepelegance.repository.UserRepository;
 import com.example.stepelegance.service.CartService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -15,6 +16,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class CartServiceImpl implements CartService {
     private final CartRepository cartRepository;
+    private final UserRepository userRepository;
     @Override
     public String save(CartDTO cartDTO) {
         Cart cart= new Cart();
@@ -49,8 +51,7 @@ public class CartServiceImpl implements CartService {
     @Override
     public Optional<Cart> getByUserEmail(String userEmail) {// Work in progress
 
-        User user = new User();
-
+        User user = userRepository.findByEmail(userEmail).orElseThrow(() -> new NullPointerException("User Email cannot be found."));
         return cartRepository.findByUser(user);
     }
 

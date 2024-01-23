@@ -15,11 +15,6 @@ import java.util.Optional;
 public class WishlistController {
 
     private final WishlistService wishlistService;
-    @GetMapping("/data")
-    public String getData(){
-        return "data retrieved";
-    }
-
 
     @PostMapping("/save")
     public String createData(@RequestBody WishlistDTO wishlistDTO){
@@ -56,13 +51,15 @@ public class WishlistController {
 
 }
      */
+        System.out.println("WishList create data");
         System.out.println(wishlistDTO);
+
         wishlistService.save(wishlistDTO);
         return "new wishlist created";
     }
 
     @GetMapping("/getAll")
-    public List<Wishlist> getAllData(){
+    public List<WishlistDTO> getAllData(){
         return wishlistService.getAll();
 
     }
