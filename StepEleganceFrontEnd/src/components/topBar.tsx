@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 import Logo from "../assets/logo.png";
-import "../components/topBar.css"
+import "../components/topBar.css";
 
 function topBar() {
   const [open, setOpen] = useState<boolean>(false);
@@ -101,8 +101,10 @@ function topBar() {
               )}
             </div>
             <div className="shoppingbag">
-              <button>
-                <i className="fa-solid fa-bag-shopping"></i>
+              <button >
+              <a href="/whishlist">
+              <i className="fa-solid fa-bag-shopping"> </i>
+              </a> 
               </button>
             </div>
           </div>

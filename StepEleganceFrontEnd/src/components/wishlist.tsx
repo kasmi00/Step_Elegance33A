@@ -1,4 +1,5 @@
 import React from 'react';
+import './wishlist.css';
 
 type Product = {
   id: number;

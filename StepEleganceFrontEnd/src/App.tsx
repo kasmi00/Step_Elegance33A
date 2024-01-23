@@ -10,6 +10,7 @@ import WomenPage from "./Pages/WomenPage.tsx";
 import KidsPage from "./Pages/KidsPage.tsx";
 import AdminPanel from "./Pages/adminpanel.tsx";
 import AdminDashboard from "./components/admindashboard.tsx";
+import Whishlist from "./components/wishlist.tsx";
 import {
   QueryCache,
   QueryClient,
@@ -62,6 +63,11 @@ const router = createBrowserRouter([
   {
     path: "/admindashboard",
     element: <AdminDashboard />,
+  },
+
+  {
+    path: "/whishlist",
+    element: <Whishlist />,
   },
 ]);
 
