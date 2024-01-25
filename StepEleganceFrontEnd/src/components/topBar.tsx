@@ -101,7 +101,7 @@ function topBar() {
               )}
             </div>
             <div className="shoppingbag">
-              <button >
+              <button className="whishlist-button" >
               <a href="/whishlist">
               <i className="fa-solid fa-bag-shopping"> </i>
               </a> 

@@ -1,17 +1,36 @@
 import React, { useState } from 'react';
 import "./usertableadd.css";
 
-interface TableRow {
-    id: number;
-    role: string;
+enum Role{
+    ADMIN,
+    USER
+}
+enum Gender{
+    MALE, FEMALE
+}
+interface FormData {
     firstName: string;
     lastName: string;
-    phone: number;
     email: string;
     password: string;
+    confirmPassword: string;
+    dateOfBirth: string;
     gender: string;
-    dateOfBirth: Date;
+    phone: string;
+    role: string;
 }
+
+const [formData, setFormData] = useState<FormData>({
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+    dateOfBirth: "",
+    gender: Gender,
+    phone: "",
+    role: "USER",
+});
 
 interface UserTableProps {
     data: TableRow[];
@@ -48,7 +67,7 @@ const UserTable: React.FC<UserTableProps> = ({ data }) => {
         // Validate the new user data if needed
 
         // Update the table data with the new user
-        setTableData((prevData) => [...prevData, { ...newUser, id: prevData.length + 1 }]);
+        setTableData((prevData) => [...prevData, { ...newUser, userId: prevData.length + 1 }]);
 
         // Clear the new user form
         setNewUser({
@@ -80,8 +99,8 @@ const UserTable: React.FC<UserTableProps> = ({ data }) => {
                 </thead>
                 <tbody>
                     {tableData.map((row) => (
-                        <tr key={row.id}>
-                            <td>{row.id}</td>
+                        <tr key={row.userId}>
+                            <td>{row.userId}</td>
                             <td>{row.firstName}</td>
                             <td>{row.lastName}</td>
                             <td>{row.phone}</td>
@@ -94,7 +113,7 @@ const UserTable: React.FC<UserTableProps> = ({ data }) => {
             </table>
 
             {/* Form to add a new user */}
-           
+
                 <h2 className="adduserheader">Add User</h2>
                 <div className='downtablediv'>
                 <div className="linsidedivform">
@@ -127,7 +146,7 @@ const UserTable: React.FC<UserTableProps> = ({ data }) => {
                 </form>
                 </div>
                 <button className='adduserbttn' onClick={handleAddUser}>Add User</button>
-                
+
             </div>
         </>
     );
