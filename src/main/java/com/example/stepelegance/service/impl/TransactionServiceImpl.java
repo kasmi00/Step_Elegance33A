@@ -1,12 +1,13 @@
 package com.example.stepelegance.service.impl;
 
+import com.example.stepelegance.Entity.Cart;
 import com.example.stepelegance.Entity.Transaction;
+import com.example.stepelegance.Entity.User;
 import com.example.stepelegance.dto.TransactionDTO;
 import com.example.stepelegance.repository.AddressRepository;
 import com.example.stepelegance.repository.CartRepository;
 import com.example.stepelegance.repository.TransactionRepository;
 import com.example.stepelegance.repository.UserRepository;
-import com.example.stepelegance.service.CartService;
 import com.example.stepelegance.service.TransactionService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -40,13 +41,17 @@ public class TransactionServiceImpl implements TransactionService {
         }else{
             return "Address is not given.";
         }
+
         if (transactionDTO.getCart()!=null){
             transaction.setCart(transactionDTO.getCart());
         } else if (transactionDTO.getCartId()!=null) {
             transaction.setCart(cartRepository.findById(transactionDTO.getCartId()).orElseThrow(()->new NullPointerException("Cart id cannot be found.")));
-        }else{
+        } else if (transactionDTO.getUserEmail()!=null) {
+            transaction.setCart(getByUserEmail(transactionDTO.getUserEmail()));
+        } else{
             return "Cart is not given.";
         }
+
         transaction.setDiscount(transactionDTO.getDiscount());
         transaction.setTotal(transactionDTO.getTotal());
 
@@ -62,6 +67,12 @@ public class TransactionServiceImpl implements TransactionService {
     @Override
     public Optional<Transaction> getById(Integer transactionId) {
         return transactionRepository.findById(transactionId);
+    }
+
+    @Override
+    public Cart getByUserEmail(String userEmail) {
+        User user = userRepository.findByEmail(userEmail).orElseThrow(()->new NullPointerException("User Email cannot be found."));
+        return cartRepository.findByUser(user).orElseThrow(()->new NullPointerException("Cart of user cannot be found."));
     }
 
     @Override

@@ -21,6 +21,7 @@ public class TransactionDTO {
 
     private Cart cart;
     private Integer cartId;
+    private String userEmail;
 
     @NotNull
     private float discount;
