@@ -53,6 +53,10 @@ public class WishlistServiceImpl implements WishlistService {
     public List<Wishlist> getAll() {
         return wishlistRepository.findAll();
 
+    }  @Override
+    public List<Wishlist> getByUserId(Integer uid) {
+        return wishlistRepository.findByUserId(uid);
+
     }
 
     @Override

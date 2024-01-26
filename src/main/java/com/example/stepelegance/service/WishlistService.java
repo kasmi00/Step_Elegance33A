@@ -9,8 +9,12 @@ import java.util.Optional;
 public interface WishlistService {
 
     String save(WishlistDTO wishlistDTO);
+
     List<Wishlist> getAll();
+
     Optional<Wishlist> getById(Integer wishlistId);
 
     void deleteById(Integer wishlistId);
+
+    List<Wishlist> getByUserId(Integer uid);
 }

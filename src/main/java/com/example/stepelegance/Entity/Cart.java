@@ -27,7 +27,7 @@ public class Cart {
     private Product product;
 
     @Column(name="date", nullable = false)
-    private LocalDate date;
+    private String date;
 
     @Column(name = "amount", nullable = false)
     private float amount;

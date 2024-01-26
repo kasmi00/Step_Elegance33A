@@ -22,7 +22,7 @@ public class CartDTO {
     private String productName;
 
     @NotNull
-    private LocalDate date;
+    private String date;
 
     @NotNull
     private float amount;
