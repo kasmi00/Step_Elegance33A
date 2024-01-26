@@ -5,6 +5,7 @@ import Home from "./Pages/home.tsx";
 import About from "./Pages/about.tsx";
 import ForgotPassword from "./Pages/forgotPassword.tsx";
 import ContactUs from "./Pages/contactUs.tsx";
+import { ToastContainer } from 'react-toastify';
 import MenPage from "./Pages/MenPage.tsx";
 import WomenPage from "./Pages/WomenPage.tsx";
 import KidsPage from "./Pages/KidsPage.tsx";
@@ -55,11 +56,7 @@ const router = createBrowserRouter([
     path: "/contact",
     element: <ContactUs />,
   },
-
-  {
-    path: "/adminpanel",
-    element: <AdminPanel />,
-  },
+  
   {
     path: "/admindashboard",
     element: <AdminDashboard />,
@@ -75,6 +72,7 @@ const queryClient = new QueryClient();
 function App() {
   return (
     <>
+    <ToastContainer position="top-center" />
       <QueryClientProvider client={queryClient}>
         <RouterProvider router={router}></RouterProvider>
       </QueryClientProvider>
