@@ -40,6 +40,7 @@ public class CartServiceImpl implements CartService {
         }else{
             return "product not given";
         }
+        cart.setQuantity(cartDTO.getQuantity());
         cart.setDate(cartDTO.getDate());
         cart.setAmount(cartDTO.getAmount());
 

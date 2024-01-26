@@ -16,8 +16,7 @@ public class AddressController {
 
     @PostMapping("/save")
     public String createData(@RequestBody AddressDTO addressDTO){
-        addressService.save(addressDTO);
-        return "success";
+        return addressService.save(addressDTO);
     }
 
     @GetMapping

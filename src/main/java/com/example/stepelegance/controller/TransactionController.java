@@ -16,18 +16,15 @@ import java.util.Optional;
 public class TransactionController {
     public final TransactionService transactionService;
 
-
     @PostMapping("/save")
-    public String createData(@ModelAttribute TransactionDTO transactionDTO){
+    public String createData(@RequestBody TransactionDTO transactionDTO){
         System.out.println(transactionDTO);
-        transactionService.save(transactionDTO);
-        return "created data";
+        return transactionService.save(transactionDTO);
     }
 
     @GetMapping("/getAll")
     public List<Transaction> getAllData(){
         return transactionService.getAll();
-
     }
 
     @GetMapping("/getById/{id}")

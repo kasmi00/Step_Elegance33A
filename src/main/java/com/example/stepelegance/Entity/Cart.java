@@ -3,7 +3,6 @@ package com.example.stepelegance.Entity;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.time.LocalDate;
 
 @Builder
 @Getter
@@ -25,6 +24,9 @@ public class Cart {
     @ManyToOne
     @JoinColumn(name = "product_id", nullable = false)
     private Product product;
+
+    @Column(name = "quantity", nullable = false)
+    private Integer quantity;
 
     @Column(name="date", nullable = false)
     private String date;

@@ -16,16 +16,15 @@ public class TransactionDTO {
 
     private TransactionStatus status;
 
-    @NotNull
     private Address address;
+    private Integer addressId;
 
-    @NotNull
     private Cart cart;
+    private Integer cartId;
 
     @NotNull
     private float discount;
     @NotNull
     private float total;
-
 
 }
