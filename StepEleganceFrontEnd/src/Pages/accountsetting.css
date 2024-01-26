@@ -1,0 +1,47 @@
+.accountsettingcontainer{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.accountsettinglabel{
+    width: 50%;
+}
+
+.accountsettinginput{
+    width: 50%;
+}
+
+form .formofaccountsetting{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 65vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.accountsettingheader{
+    margin: 0;
+    padding: 0;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    font-size: 40px;
+}
+
+.acountsetingbttn{
+    width:15%;
+    position: relative;
+    top: 10%;
+    height: 10%;
+    font-size: 20px;
+}
+
+.accountsettingpara{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    position: relative;
+    top: 10%;
+}

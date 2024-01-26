@@ -10,6 +10,7 @@ import WomenPage from "./Pages/WomenPage.tsx";
 import KidsPage from "./Pages/KidsPage.tsx";
 import AdminPanel from "./Pages/adminpanel.tsx";
 import AdminDashboard from "./components/admindashboard.tsx";
+import AccountSettings from "./Pages/accountsetting.tsx";
 import {
   QueryCache,
   QueryClient,
@@ -53,6 +54,11 @@ const router = createBrowserRouter([
   {
     path: "/contact",
     element: <ContactUs />,
+  },
+
+  {
+    path: "/accountsetting",
+    element: <AccountSettings />,
   },
 
   {
