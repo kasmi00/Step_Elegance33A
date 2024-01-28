@@ -113,6 +113,16 @@ label {
     justify-content: space-evenly;
 }
 
+.whishlist-button{
+    position: relative;
+    right: 10%;
+}
+
+.whishlist-button a{
+    color: black;
+}
+
+
 
 
 .menubox ul {
