@@ -18,7 +18,8 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => (
   <div className="hello">
     <img
       src={`http://localhost:8087/${product.productImage}`}
-      width={100} height={100}
+      width={100}
+      height={100}
       alt="productImg"
     />
     <h3 className="productheadername">{product.productName}</h3>
@@ -37,7 +38,9 @@ const Products = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get("http://localhost:8087/product/getAll");
+        const res = await axios.get(
+          "http://localhost:8087/product/getByCategory/MEN"
+        );
 
         setProducts(res.data);
       } catch (error) {
@@ -50,14 +53,14 @@ const Products = () => {
 
   return (
     <>
-    <TopBar/>
+      <TopBar />
       <div className="containeroftheproduct">
         {products &&
           products?.map((product: Product) => (
             <ProductCard key={product.id} product={product} />
           ))}
       </div>
-      <FooterComp/>
+      <FooterComp />
     </>
   );
 };

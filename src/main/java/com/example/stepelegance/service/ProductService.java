@@ -1,6 +1,7 @@
 package com.example.stepelegance.service;
 
 import com.example.stepelegance.Entity.Product;
+import com.example.stepelegance.Entity.UserDefinedDataEnums.ProductCategory;
 import com.example.stepelegance.dto.ProductDTO;
 import com.example.stepelegance.dto.UserDTO;
 import org.springframework.http.ResponseEntity;
@@ -17,5 +18,7 @@ public interface ProductService {
     List<Product> getAll();
     Optional<Product> getById(Integer productId);
     void deleteById(Integer productId);
+
+    List<Product> getByCategory(ProductCategory productCategory);
 }
 
