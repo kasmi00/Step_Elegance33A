@@ -82,7 +82,7 @@ function topBar() {
                       </a>
                     </li>
                     <li>
-                      <a href="#">
+                      <a href="/location">
                         <i className="fas fa-map"></i> Location
                       </a>
                     </li>

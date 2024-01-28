@@ -1,153 +1,211 @@
 import axios from "axios";
-import './productaddtable.css';
-import { useState } from 'react';
+import "./productaddtable.css";
+import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
-
+import { useNavigate, useParams } from "react-router-dom";
 
 export interface Product {
-    productId: number,
-    productImage: string;
-    productName: string;
-    description: string;
-    price: number;
-    quantity: number;
-    size: string;
-    type: string;
-    category: string;
+  productId: number;
+  productImage: string;
+  productName: string;
+  description: string;
+  price: number;
+  quantity: number;
+  size: string;
+  type: string;
+  category: string;
 }
 
-function Editproducttable(product:Product) {
+function Editproducttable() {
+  const { id } = useParams();
+  const navigate = useNavigate()
 
-    const navigate = useNavigate()
-    const [formValue, setFormValue] = useState<Product>({
-        productId: product.productId,
-        productImage: product.productImage,
-        productName: product.productName,
-        description: product.description,
-        price: product.price,
-        quantity: product.quantity,
-        size: product.size,
-        type: product.type,
-        category: product.category
+  const [productImage, setProductImage] = useState<File | null>(null);
+  const [productImgPreview, setProductImgPreview] = useState("");
+  const [isLoading,setIsLoading] = useState<boolean>(false)
+  const [editValue, setEditValue] = useState<Product>({
+    productId: 0,
+    productImage: "",
+    productName: "",
+    description: "",
+    price: 0,
+    quantity: 0,
+    size: "",
+    type: "",
+    category: "",
+  });
+
+  console.log("editValue",editValue.productImage)
+
+  const {productId,productName,price,description,quantity,size,type,category} = editValue
+
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await axios.get(`http://localhost:8087/product/getById/${id}`);
+        setEditValue(res.data);
+      } catch (error:any) {
+        console.error(error);
+        toast.error("An error occurred from the server", error);
+      }
+    };
+  
+    if (id) {
+      fetchData();
+    }
+  
+    setEditValue({
+      productName: editValue.productName || "",
+      description: editValue.description || "",
+      price: editValue.price || 0,
+      type: editValue.type || "",
+      category: editValue.category || "",
+      size: editValue.size || "",
+      quantity: editValue.quantity || 0,
     });
-    const [isLoading, setIsLoading] = useState<boolean>(false)
+  
+    setProductImgPreview(`http://localhost:8087/${editValue?.productImage}`);
 
-    const { productName, quantity, size, type, category, description, price } = formValue;
+  }, [id]);
+  
 
-
-    const [productImage, setProductImage] = useState<File | null>(null);
-    const [productImgPreview, setProductImgPreview] = useState<string>('');
-
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const { name, value } = e.target;
-        setFormValue((prevFormValue) => ({ ...prevFormValue, [name]: value }));
-    };
-
-    const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const file = e.target.files?.[0];
-        if (file) {
-            const reader = new FileReader();
-            reader.readAsDataURL(file);
-            reader.onloadend = () => {
-                setProductImgPreview(reader.result as string);
-                setProductImage(file);
-            };
-        }
-    };
-
-    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-
-        if (!productName || !quantity || !size || !type || !category || !description || !price || !productImage) {
-            toast.error('Please enter all fields!');
-            return;
-        }
-
-        setIsLoading(true)
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setEditValue({ ...editValue, [name]: value });
+  };
+  
+  const handleInputFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onloadend = () => {
+            setProductImgPreview(reader.result as string);
+            setProductImage(file);
+        };
+    }
+};
+  
 
 
-        const formData = new FormData();
-        formData.append('productName', productName);
-        formData.append('description', description);
-        formData.append('size', size);
-        formData.append('quantity', String(quantity));
-        formData.append('type', type);
-        formData.append('category', category);
-        formData.append('price', String(price));
-        formData.append('productImage', productImage);
+  const handleSubmit = async (e: any) => {
+    e.preventDefault();
+    setIsLoading(true);
+  
+    const editData = new FormData();
+    editData.append('productId', String(productId));
+    editData.append('productName', productName);
+    editData.append('description', description);
+    editData.append('size', size);
+    editData.append('quantity', String(quantity));
+    editData.append('type', type);
+    editData.append('category', category);
+    editData.append('price', String(price));
+    editData.append('productImage', productImage);
+  
+    try {
+      const res = await axios.post(`http://localhost:8087/product/save`, editData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
+      const data = res.data;
+      console.log("data", data);
+      toast.success("Product edited successfully!");
+      navigate("/updateproduct");
+    } catch (error: any) {
+      console.error(error);
+      toast.error("An error occurred from the server", error);
+      setIsLoading(false);
+    }
+  };
+  
 
-        try {
-            const res = await axios.post('http://localhost:8087/product/save', formData, {
-                headers: {
-                    'Content-Type': 'multipart/form-data', // Ensure the correct content type
-                },
-            });
-            console.log('res', res);
-            const data = res.data;
-            console.log('data', data);
-            toast.success('Product saved successfully!');
-            navigate("/")
-        } catch (error) {
-            console.error('Error:', error);
-            toast.error('An error occurred while saving the product.');
-            setIsLoading(false)
+  return (
+    <>
+      <div className="form-container">
+        <h2 className="add-product-header">Edit Product</h2>
+        <form onSubmit={handleSubmit}>
+          <div className="insideformofaddproduct">
+            <label className="productlabel">Product Image:</label>
+            {productImgPreview && (
+              <img src={productImgPreview} alt="productImgPreviewImg" />
+            )}
 
-        }
-    };
-
-
-
-    return (
-        <>
-            <div className="form-container">
-                <h2 className="add-product-header">Edit Product</h2>
-                <form onSubmit={handleSubmit}>
-                    <div className="insideformofaddproduct">
-
-                        <label className="productlabel">Product Image:</label>
-                        {productImgPreview && (
-                            <img src={productImgPreview} alt="productImg" />
-                        )}
-                        <input
-                            className="inputforproduct" id="img-box-size" name="productImage" onChange={handleFileChange}
-                            type="file" accept="image/*" width="30%" height="50%"
-                        />
-                        <label className='productlabel'>Product Name:</label>
-                        <input className='inputforproduct' name="productName" value={productName} onChange={handleChange}
-                            type="text"
-                        />
-                        <label className='productlabel'>Description:</label>
-                        <input className='inputforproduct' name="description" value={description} onChange={handleChange}
-                        />
-                        <label className='productlabel'>Price:</label>
-                        <input className='inputforproduct' name="price" value={price} onChange={handleChange}
-                            type="number"
-                        />
-                        <label className='productlabel'>Quantity:</label>
-                        <input className='inputforproduct' name="quantity" value={quantity} onChange={handleChange}
-                            type="number"
-                        />
-                        <label className='productlabel'>Size:</label>
-                        <input className='inputforproduct' name="size" value={size} onChange={handleChange}
-                            type="text"
-                        />
-                        <label className='productlabel'>Type:</label>
-                        <input className='inputforproduct' name="type" value={type} onChange={handleChange}
-                            type="text"
-                        />
-                        <label className='productlabel'>Category:</label>
-                        <input className='inputforproduct' name="category" value={category} onChange={handleChange}
-                            type="text"
-                        />
-                    </div>
-                    <button type="submit" className='bttnaddproduct' >{isLoading && <span>Loading....</span>}Edit</button>
-
-                </form>
-            </div>
-        </>
-    );
+            <input
+              className="inputforproduct"
+              id="img-box-size"
+              name="productImage"
+              type="file"
+              accept="image/*"
+              width="30%"
+              height="50%"
+              onChange={handleInputFileChange}
+            />
+            <label className="productlabel">Product Name:</label>
+            <input
+              className="inputforproduct"
+              name="productName"
+              type="text"
+              value={productName}
+              onChange={handleInputChange}
+            />
+            <label className="productlabel">Description:</label>
+            <input
+              className="inputforproduct"
+              name="description"
+              value={description}
+              onChange={handleInputChange}
+            />
+            <label className="productlabel">Price:</label>
+            <input
+              className="inputforproduct"
+              name="price"
+              type="number"
+              value={price}
+              onChange={handleInputChange}
+            />
+            <label className="productlabel">Quantity:</label>
+            <input
+              className="inputforproduct"
+              name="quantity"
+              type="number"
+              value={quantity}
+              onChange={handleInputChange}
+            />
+            <label className="productlabel">Size:</label>
+            <input
+              className="inputforproduct"
+              name="size"
+              type="text"
+              value={size}
+              onChange={handleInputChange}
+            />
+            <label className="productlabel">Type:</label>
+            <input
+              className="inputforproduct"
+              name="type"
+              type="text"
+              value={type}
+              onChange={handleInputChange}
+            />
+            <label className="productlabel">Category:</label>
+            <input
+              className="inputforproduct"
+              name="category"
+              type="text"
+              value={category}
+              onChange={handleInputChange}
+            />
+          </div>
+          <button type="submit" className="bttnaddproduct">
+            {isLoading && <span>Loading....</span>}Edit
+          </button>
+        </form>
+      </div>
+    </>
+  );
 }
-
 
 export default Editproducttable;

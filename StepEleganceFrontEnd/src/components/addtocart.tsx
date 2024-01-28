@@ -2,13 +2,15 @@ import "./adtocart.css"
 import {
     DeleteOutlined, 
 } from '@ant-design/icons';
-
+import TopBar from "./topBar";
+import FooterComp from "./footerComp";
 
 function AddToCart(){
     return(
         
          <>
-    <div className="addtocartproperties">
+        <TopBar/>
+        <div className="addtocartproperties">
       <h2 className="Cartheader"> Your Cart List</h2>
       <form action="" className="tabletocart">
       <table>
@@ -53,6 +55,7 @@ function AddToCart(){
         <button className="confirmbtnnofrcart" type='submit'>Confirm</button>
         </form>
         </div>
+        <FooterComp/>
         </>
     );
     }

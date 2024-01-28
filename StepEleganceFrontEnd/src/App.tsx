@@ -1,7 +1,6 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Login from "./Pages/login.tsx";
 import Registration from "./Pages/Registration.tsx";
-import Home from "./Pages/home.tsx";
 import About from "./Pages/about.tsx";
 import ForgotPassword from "./Pages/forgotPassword.tsx";
 import ContactUs from "./Pages/contactUs.tsx";
@@ -15,14 +14,16 @@ import SalesPage from "./Pages/sales.tsx";
 import AdminDashboard from "./components/admindashboard.tsx";
 import Whishlist from "./components/wishlist.tsx";
 import AddToCart from "./components/addtocart.tsx";
+import Location from "./components/location.tsx";
 import {
   QueryCache,
   QueryClient,
   QueryClientProvider,
 } from "@tanstack/react-query";
-import Editproducttable from "./components/editproducttable.tsx";
+import Editproducttable from "./components/Editproducttable.tsx";
 import ProductAddTable from "./components/productaddtable.tsx";
 import ProductListTable from "./components/productlisttable.tsx";
+import Home from "./Pages/home.tsx";
 
 const router = createBrowserRouter([
   {
@@ -71,6 +72,11 @@ const router = createBrowserRouter([
     path: "/contact",
     element: <ContactUs />,
   },
+
+  {
+    path: "/location",
+    element: <Location />,
+  },
   
   {
     path: "/admindashboard",
@@ -81,7 +87,7 @@ const router = createBrowserRouter([
     element: <AdminDashboard />,
   },
   {
-    path: "/editproduct/:id",
+    path: "/edit/product/:id",
     element: <Editproducttable />,
   },
   {

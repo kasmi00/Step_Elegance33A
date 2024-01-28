@@ -50,10 +50,14 @@ const Products = () => {
   return (
     <>
       <div className="containeroftheproduct">
-        {products &&
-          products?.map((product: Product) => (
-            <ProductCard key={product.id} product={product} />
-          ))}
+       {products && products.length > 0 ? (
+        products?.map((product:Product)=>(
+          <ProductCard key={product.id} product={product} />
+
+        ))
+       ):(
+        <h1>No Data found</h1>
+       )}
       </div>
     </>
   );

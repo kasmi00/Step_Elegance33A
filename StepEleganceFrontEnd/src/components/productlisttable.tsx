@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
-import Editproducttable from './editproducttable';
+import { Link, useNavigate } from 'react-router-dom';
+import Editproducttable from './Editproducttable';
 
 interface Product {
   productId: number;
@@ -32,12 +32,6 @@ const ProductListTable: React.FC = () => {
     fetchData();
   }, []);
 
-  const handleEditTableProduct = (product: Product) => {
-    //setEditableProduct(product);
-    const navigate = useNavigate();
-    // navigate(<Editproducttable(product) />)
-    <Editproducttable productId={product.productId} productImage={product.productImage} productName={product.productName} description={product.description} price={product.price} quantity={product.quantity} size={product.size} type={product.type} category={product.category} />
-  };
 
   const handleDeleteTableProduct = async (productId: number) => {
     // Implement logic to delete the product
@@ -83,7 +77,9 @@ const ProductListTable: React.FC = () => {
               <td>{product.type}</td>
               <td>{product.category}</td>
               <td>
-                <button onClick={() => handleEditTableProduct(product)}>Edit</button>
+                <Link to={`/edit/product/${product.productId}`}>
+                <button>Edit</button>
+                </Link>
                 <button onClick={() => handleDeleteTableProduct(product.productId)}>Delete</button>
               </td>
             </tr>
@@ -96,3 +92,4 @@ const ProductListTable: React.FC = () => {
 };
 
 export default ProductListTable;
+

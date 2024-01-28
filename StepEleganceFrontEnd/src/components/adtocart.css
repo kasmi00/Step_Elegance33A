@@ -1,11 +1,9 @@
 .addtocartproperties{
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    height: 100%;
+    height: 100vh;
 }
 
 .Cartheader{
@@ -14,7 +12,6 @@
     justify-content: center;
 }
 
-
 .confirmbtnnofrcart{
     display: flex;
     justify-content: center;
@@ -22,7 +19,6 @@
     font-size: large;
     width: 10%;
     height: 5vh;
-
 }
 
 .tabletocart{
@@ -33,5 +29,4 @@
     align-items: center;
     width: 100%;
     height: 100%;
-    
 }
