@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import Editproducttable from './editproducttable';
 
 interface Product {
   productId: number;
@@ -20,7 +22,7 @@ const ProductListTable: React.FC = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:8087/products');
+        const response = await axios.get('http://localhost:8087/product/getAll');
         setProductList(response.data);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -31,13 +33,17 @@ const ProductListTable: React.FC = () => {
   }, []);
 
   const handleEditTableProduct = (product: Product) => {
-    setEditableProduct(product);
+    //setEditableProduct(product);
+    const navigate = useNavigate();
+    // navigate(<Editproducttable(product) />)
+    <Editproducttable productId={product.productId} productImage={product.productImage} productName={product.productName} description={product.description} price={product.price} quantity={product.quantity} size={product.size} type={product.type} category={product.category} />
   };
 
-  const handleDeleteTableProduct = (productId: number) => {
+  const handleDeleteTableProduct = async (productId: number) => {
     // Implement logic to delete the product
-    const updatedData = productId.filter((product: { productId: number; }) => product.productId !== productId);
-    setProductList(updatedData);
+    // const updatedData = productId.filter((product: { productId: number; }) => product.productId !== productId);
+    // setProductList(updatedData);
+    const response = await axios.delete(`http://localhost:8087/product/deleteById/${productId}`)
   };
 
   const handleSaveProduct = () => {
@@ -50,6 +56,7 @@ const ProductListTable: React.FC = () => {
       <table>
         <thead>
           <tr>
+            <th>Id</th>
             <th>Product Image</th>
             <th>Product Name</th>
             <th>Description</th>
@@ -58,13 +65,15 @@ const ProductListTable: React.FC = () => {
             <th>Size</th>
             <th>Type</th>
             <th>Category</th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody>
           {product.map((product) => (
             <tr key={product.productId}>
+              <td>{product.productId}</td>
               <td>
-              <img src={product.productImage} alt={product.productName} style={{ width: '50px', height: '50px' }} />
+              <img src={`http://localhost:8087/${product.productImage}`} alt={product.productName} style={{ width: '50px', height: '50px' }} />
               </td>
               <td>{product.productName}</td>
               <td>{product.description}</td>

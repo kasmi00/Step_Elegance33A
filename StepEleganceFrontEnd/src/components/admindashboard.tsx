@@ -96,7 +96,6 @@ const AdminDashboard: React.FC = () => {
                         {activeMenuItem === '4.2' && <OrderUpdate order={null} onUpdateOrder={function (updatedOrder: any): void {
                             throw new Error('Function not implemented.');
                         }} />}
-                        {activeMenuItem === '3.2' && <ProductUpdate />}
                     </div>
                 </Content>
             </Layout>
