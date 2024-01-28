@@ -9,13 +9,15 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class WishlistDTO {
     private Integer wishlistId;
-    @NotNull
     private User user;
-    @NotNull
     private Product product;
+    private List<Product> products;
+    private String userEmail;
+    private String productName;
 }

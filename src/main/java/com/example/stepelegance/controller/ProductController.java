@@ -43,7 +43,7 @@ public class ProductController {
         return productService.getById(id);
     }
 
-    @GetMapping("/getImage/{ProductName}")
+    @GetMapping("/getImageByName/{ProductName}")
     public ResponseEntity<?> getImageByName(@PathVariable("ProductName") String productName) {
         byte[] image = productService.getImage(productName);
         return ResponseEntity.status(HttpStatus.OK)

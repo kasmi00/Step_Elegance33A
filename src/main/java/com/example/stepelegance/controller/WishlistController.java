@@ -15,14 +15,9 @@ import java.util.Optional;
 public class WishlistController {
 
     private final WishlistService wishlistService;
-    @GetMapping("/data")
-    public String getData(){
-        return "data retrieved";
-    }
-
 
     @PostMapping("/save")
-    public String createData(@RequestBody WishlistDTO wishlistDTO){
+    public String createData(@RequestBody WishlistDTO wishlistDTO) {
     /*
     Should be in the format
     {
@@ -56,25 +51,33 @@ public class WishlistController {
 
 }
      */
+        System.out.println("WishList create data");
         System.out.println(wishlistDTO);
+
         wishlistService.save(wishlistDTO);
         return "new wishlist created";
     }
 
     @GetMapping("/getAll")
-    public List<Wishlist> getAllData(){
+    public List<Wishlist> getAllData() {
         return wishlistService.getAll();
 
     }
 
+    @GetMapping("/getByUid/{uid}")
+    public List<Wishlist> getByUid(@PathVariable("uid") Integer uid) {
+        return wishlistService.getByUserId(uid);
+
+    }
+
     @GetMapping("/getById/{id}")
-    public Optional<Wishlist> getById(@PathVariable("id") Integer wishlistId){
+    public Optional<Wishlist> getById(@PathVariable("id") Integer wishlistId) {
         return wishlistService.getById(wishlistId);
     }
 
 
     @DeleteMapping("/deleteById/{wishlist_id}")
-    public String deleteById(@PathVariable("wishlist_id") Integer wishlistId){
+    public String deleteById(@PathVariable("wishlist_id") Integer wishlistId) {
         wishlistService.deleteById(wishlistId);
         return "wishlist deleted";
     }
