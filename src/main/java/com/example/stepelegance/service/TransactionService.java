@@ -12,6 +12,9 @@ public interface TransactionService {
     List<Transaction> getAll();
     Optional<Transaction> getById(Integer transactionId);
 
+    Optional<TransactionDTO> getOrderDetailsById(Integer transactionId);
+
     Cart getByUserEmail(String userEmail);
     void deleteById(Integer transactionId);
+
 }

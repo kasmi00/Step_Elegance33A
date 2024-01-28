@@ -70,6 +70,16 @@ public class TransactionServiceImpl implements TransactionService {
     }
 
     @Override
+    public Optional<TransactionDTO> getOrderDetailsById(Integer transactionId) {
+        Transaction transaction = transactionRepository.findById(transactionId).orElseThrow(()-> new NullPointerException("Transaction cannot be found"));
+        TransactionDTO transactionDTO = new TransactionDTO();
+        transactionDTO.setTransactionId(transaction.getTransactionId());
+
+        return Optional.empty();
+
+    }
+
+    @Override
     public Cart getByUserEmail(String userEmail) {
         User user = userRepository.findByEmail(userEmail).orElseThrow(()->new NullPointerException("User Email cannot be found."));
         return cartRepository.findByUser(user).orElseThrow(()->new NullPointerException("Cart of user cannot be found."));

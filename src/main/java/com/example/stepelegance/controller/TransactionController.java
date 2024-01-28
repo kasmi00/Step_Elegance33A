@@ -32,6 +32,11 @@ public class TransactionController {
         return transactionService.getById(id);
     }
 
+    @GetMapping("/getOrderDetailsById/{id}")
+    public Optional<TransactionDTO> getOrderDetailsById(@PathVariable("id") Integer id){
+        return transactionService.getOrderDetailsById(id);
+    }
+
     @DeleteMapping("/deleteById/{id}")
     public String deleteById(@PathVariable("id") Integer transactionId){
         transactionService.deleteById(transactionId);
