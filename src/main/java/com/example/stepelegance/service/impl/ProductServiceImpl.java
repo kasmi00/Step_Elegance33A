@@ -22,7 +22,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class ProductServiceImpl implements ProductService {
     private final ProductRepository productRepository;
-    private final String imageFilePath = "C:\\Users\\allan\\IdeaProjects\\Step_Elegance33A\\src\\main\\resources\\Images\\Shoes\\";
+    private final String imageFilePath = "http://localhost:8087/";
     @Override
     public String save(ProductDTO productDTO) {
 

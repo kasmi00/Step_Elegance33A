@@ -22,8 +22,7 @@ public class ProductController {
     @PostMapping("/save")
     public String createData(@ModelAttribute ProductDTO productDTO){
         System.out.println(productDTO);
-        productService.save(productDTO);
-        return "created data";
+        return productService.save(productDTO);
     }
 
     @PostMapping("/save-image")
