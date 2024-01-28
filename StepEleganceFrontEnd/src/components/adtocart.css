@@ -1,0 +1,32 @@
+.addtocartproperties{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.Cartheader{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.confirmbtnnofrcart{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: large;
+    width: 10%;
+    height: 5vh;
+}
+
+.tabletocart{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}

@@ -17,10 +17,10 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => (
   <div className="hello">
     <img
       src={`http://localhost:8087/${product.productImage}`}
-      width={100}
+      width={100} height={100}
       alt="productImg"
     />
-    <h3>{product.productName}</h3>
+    <h3 className="productheadername">{product.productName}</h3>
     <p className="priceofproduct">Price: Rs.{product.price}</p>
     {/* Add more product details as needed */}
     <div className="buttntobuy">
@@ -50,12 +50,15 @@ const Products = () => {
   return (
     <>
       <div className="containeroftheproduct">
-        {products &&
-          products?.map((product: Product) => (
-            <ProductCard key={product.id} product={product} />
-          ))}
+       {products && products.length > 0 ? (
+        products?.map((product:Product)=>(
+          <ProductCard key={product.id} product={product} />
+
+        ))
+       ):(
+        <h1>No Data found</h1>
+       )}
       </div>
-      <ul>{/* Render your shopping cart items here if needed */}</ul>
     </>
   );
 };

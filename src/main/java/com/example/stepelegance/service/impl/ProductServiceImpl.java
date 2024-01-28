@@ -15,6 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.nio.file.Files;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -113,6 +114,18 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public void deleteById(Integer productId) {
         productRepository.deleteById(productId);
+    }
+
+    @Override
+    public List<Product> getByCategory(ProductCategory productCategory) {
+        List<Product> products = productRepository.findAll();
+        List<Product> products_copy = new ArrayList<Product>();
+        for (Product product : products){
+            if (product.getCategory().equals(productCategory)){
+                products_copy.add(product);
+            }
+        }
+        return products_copy;
     }
 
 
