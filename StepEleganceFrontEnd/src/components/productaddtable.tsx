@@ -4,7 +4,6 @@ import  { useState } from 'react';
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 
-// Replace with the actual import for your toast library
 
 export interface Product {
     productImage: string;
@@ -83,15 +82,13 @@ function ProductAddTable() {
                 },
             });
             console.log('res', res);
-    
-            // Assuming the server response is in JSON format
+
             const data = res.data;
             console.log('data', data);
             toast.success('Product saved successfully!');
-            navigate("/")
-    
-            // Add logic to handle success
-    
+            navigate( "/")
+
+
         } catch (error) {
             console.error('Error:', error);
             toast.error('An error occurred while saving the product.');
@@ -116,8 +113,8 @@ function ProductAddTable() {
                             <img src={productImgPreview} alt="productImg" />
                         )}
                         <input
-                            className="inputforproduct" name="productImage" onChange={handleFileChange}
-                            type="file" accept="image/*"
+                            className="inputforproduct" id="img-box-size" name="productImage" onChange={handleFileChange}
+                            type="file" accept="image/*" width="30%" height="50%"
                         />
                         <label className='productlabel'>Product Name:</label>
                         <input className='inputforproduct' name="productName" value={productName} onChange={handleChange}
