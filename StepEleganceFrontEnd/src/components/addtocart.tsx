@@ -116,7 +116,7 @@ const AddToCart: React.FC = () => {
         </tbody>
       </table>
 
-      <a href="/checkout">
+      <a className='checkoutbttna' href="/checkout">
       <button className="checkoutbutton">Check-Out</button> </a>
 
       </div>

@@ -27,7 +27,10 @@ function CheckOut() {
             </table>
             </div>
             <div className="totalpricebox">
-                
+                <label className="labelforprice">Price:</label> <input className="inputforprice" type="number" />
+                <label className="labelforprice">Discount Price:</label> <input className="inputforprice" type="number" />
+                <label className="labelforprice">VAT Price:</label> <input className="inputforprice" type="number" />
+                <label className="labelforprice">Total Price:</label> <input className="inputforprice" type="number" />
             </div>
           </div>
         </div>
