@@ -34,7 +34,7 @@ public class AddressServiceImpl implements AddressService {
 
     @Override
     public List<Address> getAll() {
-        return null;
+        return addressRepository.findAll();
     }
 
     @Override
@@ -43,7 +43,8 @@ public class AddressServiceImpl implements AddressService {
     }
 
     @Override
-    public boolean deleteById(Integer addressId) {
-        return false;
+    public String deleteById(Integer addressId) {
+        addressRepository.deleteById(addressId);
+        return "deleted successfully";
     }
 }

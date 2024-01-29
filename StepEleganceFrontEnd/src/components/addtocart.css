@@ -6,10 +6,21 @@
     height: 100vh;
 }
 
+.bodyforcart{
+    height: 100vh;
+}
+
 .Cartheader{
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.headeroftheaddtocart{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
 }
 
 .confirmbtnnofrcart{

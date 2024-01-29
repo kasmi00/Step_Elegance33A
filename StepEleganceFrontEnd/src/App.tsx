@@ -23,7 +23,8 @@ import {
 import Editproducttable from "./components/Editproducttable.tsx";
 import ProductAddTable from "./components/productaddtable.tsx";
 import ProductListTable from "./components/productlisttable.tsx";
-import Home from "./Pages/home.tsx";
+import Home from "./Pages/Home.tsx";
+import CheckOut from "./components/CheckOut.tsx";
 
 const router = createBrowserRouter([
   {
@@ -106,6 +107,11 @@ const router = createBrowserRouter([
   {
     path: "/addtocart",
     element: <AddToCart />,
+  },
+
+  {
+    path: "/checkout",
+    element: <CheckOut />,
   },
 ]);
 
