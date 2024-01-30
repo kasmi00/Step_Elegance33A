@@ -7,9 +7,6 @@ import com.example.stepelegance.dto.ProductDTO;
 import com.example.stepelegance.repository.ProductRepository;
 import com.example.stepelegance.service.ProductService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -119,7 +116,7 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public List<Product> getByCategory(ProductCategory productCategory) {
         List<Product> products = productRepository.findAll();
-        List<Product> products_copy = new ArrayList<Product>();
+        List<Product> products_copy = new ArrayList<>();
         for (Product product : products){
             if (product.getCategory().equals(productCategory)){
                 products_copy.add(product);
