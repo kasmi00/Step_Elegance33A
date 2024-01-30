@@ -78,7 +78,7 @@ function ProductAddTable() {
         try {
             const res = await axios.post('http://localhost:8087/product/save', formData,{
                 headers: {
-                    'Content-Type': 'multipart/form-data', // Ensure the correct content type
+                    'Content-Type': 'multipart/form-data',
                 },
             });
             console.log('res', res);

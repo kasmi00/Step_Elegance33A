@@ -37,7 +37,7 @@ const Slideshow: React.FC = () => {
                     className={`slide ${index === currentSlide ? 'active' : ''}`}
                 >
                     {/* Generate or fetch image URL dynamically */}
-                    <img src={index === 0 ? banner1 : index === 1 ? banner2 : banner3} alt={`Banner ${slide.id}`} />
+                    <img src={index === 0 ? banner1 : index === 1 ? banner2 : banner3} alt={`Banner ${slide.id}`} height={500} />
                 </div>
             ))}
         </div>

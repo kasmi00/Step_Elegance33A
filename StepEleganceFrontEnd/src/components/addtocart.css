@@ -6,10 +6,24 @@
     height: 100vh;
 }
 
+.bodyforcart{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+}
+
 .Cartheader{
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.headeroftheaddtocart{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
 }
 
 .confirmbtnnofrcart{
@@ -29,4 +43,14 @@
     align-items: center;
     width: 100%;
     height: 100%;
+}
+
+.checkoutbttna{
+    position: relative;
+    top: 10%;
+    height: 5vh;
+}
+
+.checkoutbutton{
+    height: 5vh;
 }

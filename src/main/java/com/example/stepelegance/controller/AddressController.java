@@ -11,6 +11,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/address")
 @RequiredArgsConstructor
+@CrossOrigin("http://localhost:5173/")
 public class AddressController {
     private final AddressService addressService;
 
@@ -19,7 +20,7 @@ public class AddressController {
         return addressService.save(addressDTO);
     }
 
-    @GetMapping
+    @GetMapping("/getAll")
     public List<Address> getAllData(){return addressService.getAll();}
 
     @DeleteMapping("/deleteById/{address_id}")
