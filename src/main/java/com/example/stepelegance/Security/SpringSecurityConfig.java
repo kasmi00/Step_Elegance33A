@@ -4,6 +4,7 @@ import com.example.stepelegance.controller.Authentication.PasswordEncoderUtil;
 import com.example.stepelegance.service.UserService;
 import com.example.stepelegance.service.impl.UserDetailServiceImpl;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -22,7 +23,8 @@ public class SpringSecurityConfig {
 
     private final UserDetailServiceImpl userDetailServiceImpl;
     private final JwtAuthenticationFilter jwtAuthFilter;
-
+    @Value("${spring.web.resources.static-locations}")
+    private String staticLocations;
     @Bean
     public DaoAuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider();
@@ -43,11 +45,8 @@ public class SpringSecurityConfig {
         httpSecurity
                 .csrf().disable()
                 .authorizeHttpRequests()
-                .requestMatchers("/authenticate","/product/getAll", "/user/save", "/user/login",
-                "/user/sendotp")
-                .permitAll()
-                .requestMatchers("/user/getAll")
-                .hasAuthority("admin");
+                .anyRequest()
+                .permitAll();
 
 
         return httpSecurity.build();
