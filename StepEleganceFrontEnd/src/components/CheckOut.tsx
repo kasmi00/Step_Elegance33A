@@ -212,10 +212,15 @@ const CheckOut: React.FC = () => {
             {renderQRCode()}
           </div>
         )}
-
+          
           <button className="checkoutbutton" onClick={() => handlePaymentResult(true)}>
             Payment Success
           </button>
+
+          <a className="checkoutbttna" href="/">
+          <button className="checkoutbutton">Home</button>
+        </a>
+          
         <a className="checkoutbttna" href="/addtocart">
           <button className="checkoutbutton">Back</button>
         </a>
