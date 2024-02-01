@@ -1,7 +1,5 @@
 import { useState } from "react";
 import "./CheckOut.css";
-import { ShoppingCartOutlined } from "@ant-design/icons";
-
 function CheckOut() {
   return (
     <>
