@@ -4,7 +4,7 @@ import Registration from "./Pages/Registration.tsx";
 import About from "./Pages/about.tsx";
 import ForgotPassword from "./Pages/forgotPassword.tsx";
 import ContactUs from "./Pages/contactUs.tsx";
-import { ToastContainer } from 'react-toastify';
+import { ToastContainer } from "react-toastify";
 import MenPage from "./Pages/MenPage.tsx";
 import WomenPage from "./Pages/WomenPage.tsx";
 import KidsPage from "./Pages/KidsPage.tsx";
@@ -25,7 +25,7 @@ import {
 import Editproducttable from "./components/Editproducttable.tsx";
 import ProductAddTable from "./components/productaddtable.tsx";
 import ProductListTable from "./components/productlisttable.tsx";
-import Home from "./Pages/Home.tsx";
+import Home from "./Pages/home.tsx";
 import CheckOut from "./components/CheckOut.tsx";
 
 const router = createBrowserRouter([
@@ -80,7 +80,7 @@ const router = createBrowserRouter([
     path: "/location",
     element: <Location />,
   },
-  
+
   {
     path: "/admindashboard",
     element: <AdminDashboard />,
@@ -107,8 +107,8 @@ const router = createBrowserRouter([
   },
 
   {
-    path:"/sizechart",
-    element:<Sizechart/>,
+    path: "/sizechart",
+    element: <Sizechart />,
   },
   {
     path: "/addtocart",
@@ -118,14 +118,14 @@ const router = createBrowserRouter([
   {
     path: "/checkout",
     element: <CheckOut />,
-  }
+  },
 ]);
 
 const queryClient = new QueryClient();
 function App() {
   return (
     <>
-    <ToastContainer position="top-center" />
+      <ToastContainer position="top-center" />
       <QueryClientProvider client={queryClient}>
         <RouterProvider router={router}></RouterProvider>
       </QueryClientProvider>
