@@ -22,7 +22,7 @@ const OrderTracking: React.FC<OrderTrackingProps> = ({ orders }) => {
         <thead>
           <tr>
             <th>ID</th>
-            <th>Customer Name</th>
+            <th>Customer</th>
             <th>Products</th>
             <th>Quantity</th>
             <th>Amount</th>

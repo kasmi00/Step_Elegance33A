@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import './CheckOut.css';
-import { toast } from 'react-toastify';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import "./CheckOut.css";
+import { toast } from "react-toastify";
+import TopBar from "./topBar";
+import FooterComp from "./footerComp";
 
 interface Product {
   productId: number;
@@ -39,18 +41,19 @@ interface Cart {
 
 const CheckOut: React.FC = () => {
   const [cart, setAddToCart] = useState<Cart[]>([]);
-  const [selectedPaymentMethod, setSelectedPaymentMethod] = useState<string>('cash');
-  const [selectedOnlineMethod, setSelectedOnlineMethod] = useState<string>('');
+  const [selectedPaymentMethod, setSelectedPaymentMethod] =
+    useState<string>("cash");
+  const [selectedOnlineMethod, setSelectedOnlineMethod] = useState<string>("");
   const [discount, setDiscount] = useState<number>(0);
   const [showSuccessMessage, setShowSuccessMessage] = useState<boolean>(false);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:8087/cart/getAll');
+        const response = await axios.get("http://localhost:8087/cart/getAll");
         setAddToCart(response.data);
       } catch (error) {
-        console.error('Error fetching data:', error);
+        console.error("Error fetching data:", error);
       }
     };
 
@@ -58,7 +61,10 @@ const CheckOut: React.FC = () => {
   }, []);
 
   const calculateTotalPrice = () => {
-    const subtotal = cart.reduce((total, cartItem) => total + cartItem.amount, 0);
+    const subtotal = cart.reduce(
+      (total, cartItem) => total + cartItem.amount,
+      0
+    );
     const discountPercentage = discount / 100;
     const vat = 0.13;
 
@@ -68,13 +74,17 @@ const CheckOut: React.FC = () => {
     return (discountedPrice + totalVAT).toFixed(2);
   };
 
-  const handlePaymentMethodChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handlePaymentMethodChange = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
     setSelectedPaymentMethod(event.target.value);
-    setSelectedOnlineMethod('');
+    setSelectedOnlineMethod("");
     setShowSuccessMessage(false); // Hide success message when changing payment method
   };
 
-  const handleOnlineMethodChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleOnlineMethodChange = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
     setSelectedOnlineMethod(event.target.value);
   };
 
@@ -87,8 +97,8 @@ const CheckOut: React.FC = () => {
     if (isSuccess) {
       setShowSuccessMessage(true);
       // Display toast notification for payment success
-      toast.success('Payment Successful!', {
-        position: 'top-right',
+      toast.success("Payment Successful!", {
+        position: "top-right",
         autoClose: 3000,
         hideProgressBar: false,
         closeOnClick: true,
@@ -98,8 +108,8 @@ const CheckOut: React.FC = () => {
     } else {
       setShowSuccessMessage(false);
       // Display toast notification for payment failure
-      toast.error('Payment Unsuccessful. Please try again.', {
-        position: 'top-right',
+      toast.error("Payment Unsuccessful. Please try again.", {
+        position: "top-right",
         autoClose: 3000,
         hideProgressBar: false,
         closeOnClick: true,
@@ -116,6 +126,7 @@ const CheckOut: React.FC = () => {
 
   return (
     <>
+      <TopBar />
       <div className="bodyforcart">
         <h2 className="headeroftheaddtocart">Check-Out List</h2>
 
@@ -136,7 +147,7 @@ const CheckOut: React.FC = () => {
                   <img
                     src={`http://localhost:8087/${cartItem.product.productImage}`}
                     alt={cartItem.product.productName}
-                    style={{ width: '50px', height: '50px' }}
+                    style={{ width: "50px", height: "50px" }}
                   />
                 </td>
                 <td>{cartItem.product.productName}</td>
@@ -152,7 +163,11 @@ const CheckOut: React.FC = () => {
           <label htmlFor="">Discount (%): </label>
           <input type="text" value={discount} onChange={handleDiscountChange} />
           <label htmlFor="">VAT: </label>
-          <input type="text" value={(parseFloat(calculateTotalPrice()) * 0.13).toFixed(2)} readOnly />
+          <input
+            type="text"
+            value={(parseFloat(calculateTotalPrice()) * 0.13).toFixed(2)}
+            readOnly
+          />
           <label htmlFor="">Total Price: </label>
           <input type="text" value={calculateTotalPrice()} readOnly />
         </div>
@@ -164,7 +179,7 @@ const CheckOut: React.FC = () => {
               type="radio"
               name="paymentMethod"
               value="cash"
-              checked={selectedPaymentMethod === 'cash'}
+              checked={selectedPaymentMethod === "cash"}
               onChange={handlePaymentMethodChange}
             />
             Cash
@@ -174,14 +189,14 @@ const CheckOut: React.FC = () => {
               type="radio"
               name="paymentMethod"
               value="online"
-              checked={selectedPaymentMethod === 'online'}
+              checked={selectedPaymentMethod === "online"}
               onChange={handlePaymentMethodChange}
             />
             Online
           </label>
         </div>
 
-        {selectedPaymentMethod === 'online' && (
+        {selectedPaymentMethod === "online" && (
           <div className="online-methods">
             <h3>Select Online Payment Method:</h3>
             <label>
@@ -189,7 +204,7 @@ const CheckOut: React.FC = () => {
                 type="radio"
                 name="onlineMethod"
                 value="khalti"
-                checked={selectedOnlineMethod === 'khalti'}
+                checked={selectedOnlineMethod === "khalti"}
                 onChange={handleOnlineMethodChange}
               />
               Khalti
@@ -199,7 +214,7 @@ const CheckOut: React.FC = () => {
                 type="radio"
                 name="onlineMethod"
                 value="eSewa"
-                checked={selectedOnlineMethod === 'eSewa'}
+                checked={selectedOnlineMethod === "eSewa"}
                 onChange={handleOnlineMethodChange}
               />
               eSewa
@@ -207,24 +222,26 @@ const CheckOut: React.FC = () => {
           </div>
         )}
 
-        {selectedPaymentMethod === 'online' && selectedOnlineMethod && (
-          <div className="qr-code">
-            {renderQRCode()}
-          </div>
+        {selectedPaymentMethod === "online" && selectedOnlineMethod && (
+          <div className="qr-code">{renderQRCode()}</div>
         )}
-          
-          <button className="checkoutbutton" onClick={() => handlePaymentResult(true)}>
-            Payment Success
-          </button>
 
-          <a className="checkoutbttna" href="/">
+        <button
+          className="checkoutbutton"
+          onClick={() => handlePaymentResult(true)}
+        >
+          Payment Success
+        </button>
+
+        <a className="checkoutbttna" href="/">
           <button className="checkoutbutton">Home</button>
         </a>
-          
+
         <a className="checkoutbttna" href="/addtocart">
           <button className="checkoutbutton">Back</button>
         </a>
       </div>
+      <FooterComp />
     </>
   );
 };
