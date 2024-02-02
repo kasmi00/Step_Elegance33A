@@ -11,6 +11,7 @@ import KidsPage from "./Pages/KidsPage.tsx";
 import AdminPanel from "./Pages/adminpanel.tsx";
 import AdminDashboard from "./components/admindashboard.tsx";
 import Whishlist from "./components/wishlist.tsx";
+import Sizechart from "./Pages/sizechart.tsx";
 import {
   QueryCache,
   QueryClient,
@@ -69,6 +70,9 @@ const router = createBrowserRouter([
     path: "/whishlist",
     element: <Whishlist />,
   },
+  {path:"/sizechart",
+element:<Sizechart/>,
+},
 ]);
 
 const queryClient = new QueryClient();
