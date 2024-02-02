@@ -5,7 +5,7 @@ interface Order {
   id: number;
   customerName: string;
   product: string;
-  quantity: number;
+  address: string;
   amount: number;
   status: string;
 }
@@ -24,7 +24,7 @@ const OrderTracking: React.FC<OrderTrackingProps> = ({ orders }) => {
             <th>ID</th>
             <th>Customer</th>
             <th>Products</th>
-            <th>Quantity</th>
+            <th>Address</th>
             <th>Amount</th>
             <th>Status</th>
           </tr>
@@ -35,7 +35,7 @@ const OrderTracking: React.FC<OrderTrackingProps> = ({ orders }) => {
               <td>{order.id}</td>
               <td>{order.customerName}</td>
               <td>{order.product}</td>
-              <td>{order.quantity}</td>
+              <td>{order.address}</td>
               <td>{order.amount}</td>
               <td>{order.status}</td>
             </tr>
