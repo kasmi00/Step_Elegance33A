@@ -13,8 +13,10 @@ import NewPage from "./Pages/Newpage.tsx";
 import SalesPage from "./Pages/sales.tsx";
 import AdminDashboard from "./components/admindashboard.tsx";
 import Whishlist from "./components/wishlist.tsx";
+import Sizechart from "./Pages/sizechart.tsx";
 import AddToCart from "./components/addtocart.tsx";
 import Location from "./components/location.tsx";
+
 import {
   QueryCache,
   QueryClient,
@@ -105,6 +107,10 @@ const router = createBrowserRouter([
   },
 
   {
+    path:"/sizechart",
+    element:<Sizechart/>,
+  },
+  {
     path: "/addtocart",
     element: <AddToCart />,
   },
@@ -112,7 +118,7 @@ const router = createBrowserRouter([
   {
     path: "/checkout",
     element: <CheckOut />,
-  },
+  }
 ]);
 
 const queryClient = new QueryClient();
