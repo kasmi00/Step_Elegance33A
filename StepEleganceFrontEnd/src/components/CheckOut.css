@@ -123,3 +123,8 @@
   height: 2vh;
   width: 40%;
 }
+
+.calculateprice{
+  display: flex;
+  flex-direction: column;
+}
