@@ -1,6 +1,7 @@
 package com.example.stepelegance.service.impl;
 
 import com.example.stepelegance.Entity.User;
+import com.example.stepelegance.controller.Authentication.PasswordEncoderUtil;
 import com.example.stepelegance.dto.UserDTO;
 import com.example.stepelegance.repository.UserRepository;
 import com.example.stepelegance.service.UserService;
@@ -36,7 +37,7 @@ public class UserServiceImpl implements UserService {
         user.setLastName(userDTO.getLastName());
         user.setPhone(userDTO.getPhone());
         user.setEmail(userDTO.getEmail());
-        user.setPassword(userDTO.getPassword());
+        user.setPassword(PasswordEncoderUtil.getInstance().encode(userDTO.getPassword()));
         user.setGender(userDTO.getGender());
         user.setDateOfBirth(userDTO.getDateOfBirth());
         user.setToken((String) newGeneratedToken);

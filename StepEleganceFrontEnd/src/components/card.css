@@ -8,17 +8,16 @@
     height: 30vh;
     align-items: center;
 }
-.hello h3{
-    display: flex;
+.productheadername {
+    margin: 0;
+    display: inline;
     justify-content: center;
+    align-items: center;
 }
-.hello button{
-  
-} 
 
-.hello p {
+.priceofproduct {
     position: relative;
-    top: 60px;
+    
 }
 
 .containeroftheproduct{
@@ -31,15 +30,9 @@
 
 .buttntobuy{
     display: flex;
-    flex-direction: row;
-    gap: 10px;
+    justify-content: space-between;
+    width: 75%;
 }
+.buttntobuy:hover{
 
-.addcartbttn{
-    display: flex;
-    position: relative;
-    justify-content: center;
-    height: 3vh;
-    gap: 40px;
-    top: 60px;
 }

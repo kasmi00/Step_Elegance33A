@@ -16,19 +16,11 @@ import java.util.Optional;
 public class CartController {
     private final CartService cartService;
 
-    @GetMapping("/data")
-    public String getData(){
-        return "data retrieved";
-    }
-
-
     @PostMapping("/save")
-    public String createData(@ModelAttribute CartDTO cartDTO){
+    public String createData(@RequestBody CartDTO cartDTO){
         System.out.println(cartDTO);
-        cartService.save(cartDTO);
-        return "created data";
+        return cartService.save(cartDTO);
     }
-
 
     @GetMapping("/getAll")
     public List<Cart> getAllData(){
@@ -40,7 +32,6 @@ public class CartController {
     public Optional<Cart> getById(@PathVariable("id") Integer id){
         return cartService.getById(id);
     }
-
 
     @DeleteMapping("/deleteById/{id}")
     public String deleteById(@PathVariable("id") Integer cartId) {

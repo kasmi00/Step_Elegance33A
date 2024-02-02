@@ -11,16 +11,16 @@ import java.util.List;
 @RestController
 @RequestMapping("/address")
 @RequiredArgsConstructor
+@CrossOrigin("http://localhost:5173/")
 public class AddressController {
     private final AddressService addressService;
 
     @PostMapping("/save")
     public String createData(@RequestBody AddressDTO addressDTO){
-        addressService.save(addressDTO);
-        return "success";
+        return addressService.save(addressDTO);
     }
 
-    @GetMapping
+    @GetMapping("/getAll")
     public List<Address> getAllData(){return addressService.getAll();}
 
     @DeleteMapping("/deleteById/{address_id}")

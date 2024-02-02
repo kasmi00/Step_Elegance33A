@@ -7,14 +7,12 @@ import com.example.stepelegance.dto.ProductDTO;
 import com.example.stepelegance.repository.ProductRepository;
 import com.example.stepelegance.service.ProductService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.nio.file.Files;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -22,7 +20,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class ProductServiceImpl implements ProductService {
     private final ProductRepository productRepository;
-    private final String imageFilePath = "C:\\Users\\allan\\IdeaProjects\\Step_Elegance33A\\src\\main\\resources\\Images\\Shoes\\";
+    private final String imageFilePath = "http://localhost:8087/";
     @Override
     public String save(ProductDTO productDTO) {
 
@@ -113,6 +111,18 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public void deleteById(Integer productId) {
         productRepository.deleteById(productId);
+    }
+
+    @Override
+    public List<Product> getByCategory(ProductCategory productCategory) {
+        List<Product> products = productRepository.findAll();
+        List<Product> products_copy = new ArrayList<>();
+        for (Product product : products){
+            if (product.getCategory().equals(productCategory)){
+                products_copy.add(product);
+            }
+        }
+        return products_copy;
     }
 
 

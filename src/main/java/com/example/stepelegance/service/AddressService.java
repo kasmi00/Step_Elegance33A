@@ -11,5 +11,5 @@ public interface AddressService {
     List<Address> getAll();
     Optional<Address> getById(Integer addressId);
 
-    boolean deleteById(Integer addressId);
+    String deleteById(Integer addressId);
 }

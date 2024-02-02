@@ -1,6 +1,7 @@
 package com.example.stepelegance.controller;
 
 import com.example.stepelegance.Entity.Product;
+import com.example.stepelegance.Entity.UserDefinedDataEnums.ProductCategory;
 import com.example.stepelegance.dto.ProductDTO;
 import com.example.stepelegance.service.ProductService;
 import lombok.RequiredArgsConstructor;
@@ -22,8 +23,7 @@ public class ProductController {
     @PostMapping("/save")
     public String createData(@ModelAttribute ProductDTO productDTO){
         System.out.println(productDTO);
-        productService.save(productDTO);
-        return "created data";
+        return productService.save(productDTO);
     }
 
     @PostMapping("/save-image")
@@ -43,7 +43,7 @@ public class ProductController {
         return productService.getById(id);
     }
 
-    @GetMapping("/getImage/{ProductName}")
+    @GetMapping("/getImageByName/{ProductName}")
     public ResponseEntity<?> getImageByName(@PathVariable("ProductName") String productName) {
         byte[] image = productService.getImage(productName);
         return ResponseEntity.status(HttpStatus.OK)
@@ -52,10 +52,15 @@ public class ProductController {
 
     }
 
-        @DeleteMapping("/deleteById/{id}")
+    @DeleteMapping("/deleteById/{id}")
     public String deleteById(@PathVariable("id") Integer productId){
         productService.deleteById(productId);
         return "product deleted.";
+    }
+
+    @GetMapping("/getByCategory/{Category}")
+    public List<Product> getByCategory(@PathVariable("Category")ProductCategory productCategory){
+        return productService.getByCategory(productCategory);
     }
 
 }

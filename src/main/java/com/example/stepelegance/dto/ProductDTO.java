@@ -4,7 +4,6 @@ import com.example.stepelegance.Entity.UserDefinedDataEnums.ProductCategory;
 import com.example.stepelegance.Entity.UserDefinedDataEnums.ProductType;
 import com.example.stepelegance.Entity.Wishlist;
 import jakarta.annotation.Nullable;
-import jakarta.persistence.Column;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;

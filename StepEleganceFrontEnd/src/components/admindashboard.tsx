@@ -17,6 +17,7 @@ import Usertableupdate from './usertableupdate';
 import OrderTracking from './ordertracking';
 import ProductAddForm from './productaddtable';
 import OrderUpdate from './orderupdate';
+import ProductUpdate from './productlisttable';
 
 const { Header, Content, Sider } = Layout;
 
@@ -30,43 +31,13 @@ enum ProductCategory {
     KIDS = "KIDS"
 }
 
-interface ProductData {
-    productName: string;
-    productImage: File | Blob;
-    description: string;
-    price: number;
-    quantity: number;
-    size: number;
-    type: ProductType;
-    category: ProductCategory;
-}
-
 const AdminDashboard: React.FC = () => {
     const [activeMenuItem, setActiveMenuItem] = useState<string | null>(null);
-    const [productData, setProductData] = useState<ProductData[]>([]);
-    const [orderData, setOrderData] = useState<Order[]>([]);
 
 
     const handleMenuClick = (key: string) => {
         setActiveMenuItem(key);
     };
-
-    const handleAddProduct = (product: ProductData) => {
-        setProductData((prevData) => [...prevData, product]);
-    };
-
-    const handleTrackOrder = (order: Order) => {
-        setOrderData((prevData) => [...prevData, order]);
-    };
-
-    const userData = [
-        { id: 1, name: 'John Doe', age: 25, email: 'john@example.com' },
-        { id: 2, name: 'Jane Doe', age: 30, email: 'jane@example.com' },
-    ];
-
-    function handleUpdateOrder(updatedOrder: any ): void {
-        throw new Error('Function not implemented.');
-    }
 
     return (
         <Layout style={{ minHeight: '100vh' }}>
@@ -117,13 +88,14 @@ const AdminDashboard: React.FC = () => {
                 <Header className="site-layout-sub-header-background" />
                 <Content style={{ margin: '16px' }}>
                     <div className="site-layout-background">
-                        {activeMenuItem === '2.1' && <Usertableadd data={userData} />}
-                        {activeMenuItem === '2.2' && <Usertableupdate data={userData} />}
-                        {activeMenuItem === '3.1' && (
-                            <ProductAddForm onAddProduct={handleAddProduct} productData={productData} />
-                        )}
-                        {activeMenuItem === '4.1' && <OrderTracking orders={orderData} />}
-                        {activeMenuItem === '4.2' && (<OrderUpdate order={orderData.length > 0 ? orderData[orderData.length - 1] : null} onUpdateOrder={handleUpdateOrder} />)}
+                        {activeMenuItem === '2.1' && <Usertableadd data={[]} />}
+                        {activeMenuItem === '2.2' && <Usertableupdate data={[]} />}
+                        {activeMenuItem === '3.1' && <ProductAddForm /> }
+                        {activeMenuItem === '3.2' && <ProductUpdate /> }
+                        {activeMenuItem === '4.1' && <OrderTracking orders={[]} />}
+                        {activeMenuItem === '4.2' && <OrderUpdate order={null} onUpdateOrder={function (updatedOrder: any): void {
+                            throw new Error('Function not implemented.');
+                        }} />}
                     </div>
                 </Content>
             </Layout>

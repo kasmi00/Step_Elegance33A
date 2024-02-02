@@ -2,6 +2,7 @@ package com.example.stepelegance.controller;
 
 import com.example.stepelegance.controller.Authentication.OtpEmailSender;
 import com.example.stepelegance.Entity.User;
+import com.example.stepelegance.controller.Authentication.PasswordEncoderUtil;
 import com.example.stepelegance.dto.UserDTO;
 import com.example.stepelegance.dto.UserForgetPasswordDTO;
 import com.example.stepelegance.service.UserService;
@@ -31,7 +32,6 @@ public class UserController {
     @GetMapping("/getAll")
     public List<User> getAllData(){
         return userService.getAll();
-
     }
 
     @GetMapping("/getById/{id}")
@@ -55,7 +55,7 @@ public class UserController {
         if (userService.getByEmail(userDTO.getEmail()).isPresent()){
             Optional<User> user =this.getByEmail(userDTO.getEmail());
             if (user.isPresent()) {
-                if (Objects.equals(userDTO.getPassword(), user.get().getPassword())) {
+                if (Objects.equals(PasswordEncoderUtil.getInstance().encode(userDTO.getPassword()), user.get().getPassword())) {
                     return Optional.of("authorized");
                 }
             }else{

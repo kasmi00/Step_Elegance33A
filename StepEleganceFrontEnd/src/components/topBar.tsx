@@ -82,7 +82,7 @@ function topBar() {
                       </a>
                     </li>
                     <li>
-                      <a href="#">
+                      <a href="/location">
                         <i className="fas fa-map"></i> Location
                       </a>
                     </li>
@@ -101,8 +101,8 @@ function topBar() {
               )}
             </div>
             <div className="shoppingbag">
-              <button >
-              <a href="/whishlist">
+              <button className="whishlist-button" >
+              <a href="/addtocart">
               <i className="fa-solid fa-bag-shopping"> </i>
               </a> 
               </button>

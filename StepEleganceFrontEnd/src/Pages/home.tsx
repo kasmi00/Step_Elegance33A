@@ -1,11 +1,11 @@
-import { useRef, useState } from "react";
+
 import "./home.css";
 import TopBar from "../components/topBar";
 import FooterComp from "../components/footerComp";
 import Products from "../components/card";
 import Slideshow from "../components/slideshow";
 
-function home() {
+function Home() {
   return (
     <><div className="homepagetopbar">
         <TopBar />
@@ -33,4 +33,4 @@ function home() {
     </>
   );
 }
-export default home;
+export default Home;

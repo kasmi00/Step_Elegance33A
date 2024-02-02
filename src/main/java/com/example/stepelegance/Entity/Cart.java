@@ -3,7 +3,6 @@ package com.example.stepelegance.Entity;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.time.LocalDate;
 
 @Builder
 @Getter
@@ -26,8 +25,11 @@ public class Cart {
     @JoinColumn(name = "product_id", nullable = false)
     private Product product;
 
+    @Column(name = "quantity", nullable = false)
+    private Integer quantity;
+
     @Column(name="date", nullable = false)
-    private LocalDate date;
+    private String date;
 
     @Column(name = "amount", nullable = false)
     private float amount;
