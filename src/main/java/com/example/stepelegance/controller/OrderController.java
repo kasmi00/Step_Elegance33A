@@ -25,13 +25,13 @@ public class OrderController {
     private final TransactionRepository transactionRepository;
     private final CartRepository cartRepository;
 
-    public List<OrderDTO> getAll(){
-        List<OrderDTO> orderDTOS = new ArrayList<>();
-        List<Transaction> transaction = transactionRepository.findAll();
-        for (Transaction transaction1 : transaction){
-            orderDTOS.add(new OrderDTO().setId(transaction1.getTransactionId()));
-        }
-
-
-    }
+//    public List<OrderDTO> getAll(){
+//        List<OrderDTO> orderDTOS = new ArrayList<>();
+//        List<Transaction> transaction = transactionRepository.findAll();
+//        for (Transaction transaction1 : transaction){
+////            orderDTOS.add(new OrderDTO().setId(transaction1.getTransactionId()));
+//        }
+//
+//
+//    }
 }
